@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Психолог [Ваше имя] — онлайн и очно в [город]</title>
+  <meta name="description" content="Индивидуальная терапия: тревога, выгорание, отношения, самооценка. КПТ/ACT. Онлайн и офлайн. Вводная 15-мин встреча — бесплатно. Записаться: [телефон] / [Telegram]." />
+  <link rel="canonical" href="https://www.[ваш-домен].ru/" />
+
+  <!-- Open Graph (og:image лучше заменить на реальный файл/URL при публикации) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Психолог [Ваше имя] — онлайн и очно в [город]" />
+  <meta property="og:description" content="Помогаю вернуть устойчивость и ясность. КПТ/ACT, 50-мин сессии. Онлайн и офлайн. Вводная — бесплатно." />
+  <meta property="og:url" content="https://www.[ваш-домен].ру/" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/F8F6F3/1E2430.png&text=%5BOG+для+соцсетей%5D" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect rx="24" width="128" height="128" fill="%23FFFFFF"/><circle cx="40" cy="40" r="18" fill="%236CC4A1"/><text x="64" y="74" font-family="Arial" font-size="44" fill="%231E2430">Ps</text></svg>' />
+
+  <!-- Шрифты (можно убрать, если хотите полностью оффлайн) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <meta name="color-scheme" content="light" />
+
+  <style>
+    /* === БАЗОВЫЕ ПЕРЕМЕННЫЕ (Calm Pastel) === */
+    :root{
+      --bg:#F8F6F3;          /* почти слоновая кость */
+      --bg-soft:#FFFFFF;
+      --text:#1E2430;        /* глубокий серо-синий */
+      --muted:#6B7280;       /* мягкий серый */
+      --accent:#6CC4A1;      /* пастельная мята */
+      --accent-ink:#083226;
+      --card:#FFFFFF;
+      --border:rgba(30,36,48,.10);
+      --shadow:0 10px 30px rgba(30,36,48,.06);
+      --maxw:1120px;
+      --radius:20px;
+    }
+
+    /* === RESET / BASE === */
+    *,*::before,*::after{ box-sizing:border-box }
+    html{ scroll-behavior:smooth }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      color:var(--text); line-height:1.6;
+      background:
+        radial-gradient(1200px 500px at 70% -10%, rgba(108,196,161,.10), transparent 60%),
+        var(--bg);
+    }
+    .container{ max-width:var(--maxw); margin:0 auto; padding:0 20px }
+    h1,h2,h3{ line-height:1.2; margin:0 0 12px }
+    h1{ font-size:clamp(32px, 6.4vw, 56px); letter-spacing:-.01em; font-family:"Playfair Display", Georgia, serif }
+    h2{ font-size:clamp(24px, 3.6vw, 36px); font-family:"Playfair Display", Georgia, serif }
+    h3{ font-size:clamp(18px, 2.5vw, 22px) }
+    p{ margin:0 0 12px }
+    a{ color:inherit; text-decoration:none }
+    .muted{ color:var(--muted) }
+    .lead{ font-size:clamp(16px, 2.6vw, 20px); color:#4B5563 }
+    .section{ padding:72px 0 }
+    .card{
+      background:linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 96%, #F2F1EF 4%));
+      border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)
+    }
+    .card-pad{ padding:22px }
+    .pill{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      background:#EEF7F2; color:#365B4E; border:1px solid #D7EFE4; font-size:12px
+    }
+    :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:8px }
+    .skip-link{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; background:var(--accent); color:var(--accent-ink); padding:10px 14px; border-radius:8px; z-index:9999 }
+
+    /* === HEADER === */
+    .site-header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.76); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid var(--border) }
+    .nav-row{ display:flex; align-items:center; justify-content:space-between; height:64px }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px }
+    .logo svg{ width:24px; height:24px }
+    nav a{ margin:0 14px; color:var(--muted) }
+    nav a[aria-current="page"]{ color:var(--text) }
+    .btn{
+      display:inline-block; padding:14px 18px; border-radius:16px; border:1px solid var(--border); background:var(--bg-soft);
+      transition:transform .08s ease, background .2s ease, border-color .2s ease; font-weight:600
+    }
+    .btn:hover{ transform:translateY(-2px) }
+    .btn-primary{
+      background:var(--accent); color:var(--accent-ink);
+      border-color:color-mix(in oklab, var(--accent) 50%, black); box-shadow:0 6px 14px rgba(108,196,161,.22);
+    }
+    .btn-ghost{ background:transparent }
+
+    /* Mobile nav */
+    .nav-toggle{ display:none; background:transparent; border:1px solid var(--border); border-radius:10px; padding:8px 10px; color:var(--text) }
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; align-items:center; gap:8px }
+      nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); display:none }
+      nav.open{ display:block }
+      nav .container{ display:flex; flex-direction:column; gap:14px; padding:16px 20px 24px }
+    }
+
+    /* === HERO === */
+    .hero{ padding:84px 0 36px }
+    .hero-grid{ display:grid; gap:28px; grid-template-columns: 1.25fr .75fr }
+    @media (max-width: 860px){ .hero-grid{ grid-template-columns: 1fr } }
+    .stats{ display:flex; flex-wrap:wrap; gap:14px; margin-top:18px }
+    .stats li{ list-style:none; padding:8px 10px; border:1px dashed var(--border); border-radius:10px; color:var(--muted) }
+    .portrait{
+      min-height:280px; border-radius:20px; border:1px solid var(--border); overflow:hidden; box-shadow:var(--shadow);
+      background: linear-gradient(180deg, #FFFFFF, #FAFAF9);
+      display:flex; align-items:center; justify-content:center;
+    }
+    /* Декоративная «картинка» героя без файлов */
+    .hero-art{
+      width:100%; height:100%; display:block; background:
+        radial-gradient(600px 300px at 20% -10%, rgba(108,196,161,.20), transparent 60%),
+        radial-gradient(260px 260px at 90% 0%, rgba(108,196,161,1), transparent 60%),
+        radial-gradient(220px 220px at -10% 80%, #EEF7F2, transparent 60%);
+    }
+
+    /* === GRID === */
+    .grid{ display:grid; gap:18px; grid-template-columns: repeat(3, minmax(0,1fr)) }
+    @media (max-width: 960px){ .grid{ grid-template-columns: repeat(2, minmax(0,1fr)) } }
+    @media (max-width: 560px){ .grid{ grid-template-columns: 1fr } }
+
+    /* === TESTIMONIALS === */
+    .t-carousel{ display:grid; gap:12px }
+    .t-track{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type: x mandatory; padding-bottom:4px }
+    .t-card{ flex: 0 0 min(360px, 86%); scroll-snap-align:start; padding:16px; border-radius:16px; border:1px solid var(--border); background:#fff; box-shadow:0 8px 18px rgba(30,36,48,.05) }
+
+    /* === FAQ === */
+    details{ border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff }
+    details + details{ margin-top:10px }
+    summary{ cursor:pointer; font-weight:600; outline:none }
+
+    /* === FORM === */
+    form{ display:grid; gap:14px; max-width:720px }
+    .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
+    @media (max-width: 680px){ .row{ grid-template-columns:1fr } }
+    label{ display:block; font-weight:600; margin-bottom:6px }
+    input, select, textarea{
+      width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--border); background:var(--bg-soft); color:var(--text);
+    }
+    textarea{ min-height:120px; resize:vertical }
+    .hint{ color:var(--muted); font-size:12px }
+    .agree{ display:flex; align-items:center; gap:10px }
+    .error{ color:#ff7a7a }
+    .success{ background:color-mix(in oklab, var(--accent) 18%, transparent); border:1px solid color-mix(in oklab, var(--accent) 60%, transparent); padding:12px 14px; border-radius:12px }
+
+    /* === CONTACTS === */
+    .contact{ display:grid; gap:18px; grid-template-columns:1.1fr .9fr }
+    @media (max-width: 900px){ .contact{ grid-template-columns:1fr } }
+    .map-placeholder{
+      min-height:260px; border:1px dashed var(--border); border-radius:16px; display:flex; align-items:center; justify-content:center; color:var(--muted)
+    }
+
+    /* === FOOTER / FAB === */
+    .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted) }
+    .fab{
+      position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px;
+      background:var(--accent); color:var(--accent-ink); border:1px solid color-mix(in oklab, var(--accent) 50%, black);
+      box-shadow:0 8px 22px rgba(108,196,161,.28); font-weight:700
+    }
+
+    /* Мягкое появление блоков по скроллу */
+    .reveal{ opacity:0; transform:translateY(12px); transition:.6s ease }
+    .reveal.in{ opacity:1; transform:none }
+  </style>
+
+  <!-- JSON-LD: LocalBusiness + Person (замените плейсхолдеры) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Психолог [Ваше имя]",
+    "image":"https://www.[ваш-домен].ru/og-image.jpg",
+    "url":"https://www.[ваш-домен].ru/",
+    "telephone":"+7[телефон]",
+    "email":"[email]",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"[город]",
+      "streetAddress":"[улица, дом]",
+      "postalCode":"[индекс]",
+      "addressCountry":"RU"
+    },
+    "priceRange":"₽₽",
+    "areaServed":"[город], онлайн — Россия/СНГ",
+    "sameAs":["https://t.me/[ник]"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"[Ваше имя]",
+    "jobTitle":"Психолог",
+    "worksFor":{"@type":"Organization","name":"Психолог [Ваше имя]"}
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav-row">
+      <a href="#home" class="logo" aria-label="Логотип: Психолог [Ваше имя]">
+        <!-- Inline-логотип -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 32" aria-hidden="true">
+          <rect x="0" y="0" width="128" height="32" rx="8" fill="#FFFFFF"/>
+          <circle cx="16" cy="16" r="8" fill="#6CC4A1"/>
+        </svg>
+        ПСИХОЛОГ
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Меню ▾</button>
+      <nav id="site-nav" aria-label="Основная навигация">
+        <div class="container">
+          <a href="#services">Услуги</a>
+          <a href="#approach">Подход</a>
+          <a href="#about">Обо мне</a>
+          <a href="#pricing">Стоимость</a>
+          <a href="#testimonials">Отзывы</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacts">Контакты</a>
+          <a class="btn btn-primary" href="#booking">Записаться</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Первый экран">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Психолог • [город] • онлайн/очно</span>
+          <h1>Помогаю вернуть устойчивость и ясность</h1>
+          <p class="lead">Работаю со взрослыми 18+. Темы: тревога, выгорание, отношения, самооценка. Практикую <strong>КПТ</strong> и <strong>ACT</strong>, бережно и структурно.</p>
+          <div style="display:flex; gap:10px; margin-top:14px">
+            <a class="btn btn-primary" href="#booking">Записаться на консультацию</a>
+            <a class="btn btn-ghost" href="https://t.me/[ник]" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
+          </div>
+          <ul class="stats" aria-label="Факты и доверие">
+            <li>50-мин сессии</li>
+            <li>Конфиденциально</li>
+            <li>Доказательный подход</li>
+          </ul>
+        </div>
+        <div class="portrait" aria-label="Декоративное изображение героя">
+          <div class="hero-art" role="img" aria-label="Спокойные пастельные формы"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services" aria-label="С чем помогаю">
+      <div class="container">
+        <h2>С чем помогаю</h2>
+        <p class="muted">Если вы узнали себя — это хороший повод прийти на первую встречу.</p>
+        <div class="grid" style="margin-top:16px">
+          <div class="card card-pad reveal"><h3>Тревога</h3><p>Навязчивые мысли, паника, тревожность за будущее.</p></div>
+          <div class="card card-pad reveal"><h3>Выгорание</h3><p>Усталость, потеря мотивации, прокрастинация.</p></div>
+          <div class="card card-pad reveal"><h3>Отношения</h3><p>Конфликты, разрывы, сложности с границами.</p></div>
+          <div class="card card-pad reveal"><h3>Самооценка</h3><p>Критика к себе, страх ошибки, сравнение с другими.</p></div>
+          <div class="card card-pad reveal"><h3>Кризисы</h3><p>Перемены, утраты, поиск опор и смысла.</p></div>
+          <div class="card card-pad reveal"><h3>Сон и стресс</h3><p>Бессонница, тревожный фон, напряжение.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="section" id="approach" aria-label="Как я работаю">
+      <div class="container">
+        <h2>Как я работаю</h2>
+        <div class="grid" style="margin-top:10px">
+          <div class="card card-pad reveal"><p><strong>КПТ/ACT</strong> — техники с доказанной эффективностью.</p></div>
+          <div class="card card-pad reveal"><p>Сессии по <strong>50 минут</strong>, регулярность по договорённости.</p></div>
+          <div class="card card-pad reveal"><p>План и цели терапии — прозрачны и согласованы.</p></div>
+          <div class="card card-pad reveal"><p>Этика: конфиденциальность, уважение, добровольность.</p></div>
+          <div class="card card-pad reveal"><p>Домашние задания — только если помогают вам.</p></div>
+          <div class="card card-pad reveal"><p>Если нужна психиатрия — помогаю найти врача.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-label="Обо мне">
+      <div class="container" style="display:grid; gap:24px; grid-template-columns:1.2fr .8fr">
+        <div>
+          <h2>Обо мне</h2>
+          <p>Меня зовут <strong>[Ваше имя]</strong>, я психолог. Закончила(-л) [ваш вуз/подготовку], регулярно повышаю квалификацию. Работаю бережно, без осуждения и с ясной структурой.</p>
+          <p class="muted">Сертификаты (пример): EABCT (КПТ), ACT, психообразование.</p>
+          <p class="muted">*Работаю со взрослыми 18+. Экстренные состояния — к службам вашего региона.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Контакты</h3>
+          <p><strong>Телефон:</strong> <a href="tel:+7[телефон]">+7 [телефон]</a></p>
+          <p><strong>Telegram:</strong> <a href="https://t.me/[ник]" target="_blank" rel="noopener">@[ник]</a></p>
+          <p><strong>Email:</strong> <a href="mailto:[email]">[email]</a></p>
+          <p><strong>Кабинет:</strong> [адрес, если есть очный приём]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing" aria-label="Стоимость">
+      <div class="container">
+        <h2>Форматы и стоимость</h2>
+        <div class="grid" style="margin-top:16px">
+          <div class="card card-pad reveal">
+            <h3>Индивидуальная</h3>
+            <div style="font-size:28px; font-weight:800">[X XXX] ₽</div>
+            <div class="muted">50 минут • онлайн/очно</div>
+            <p class="muted">Оплата заранее, перенос за 24 часа.</p>
+          </div>
+          <div class="card card-pad reveal">
+            <h3>Пакет 4 сессии</h3>
+            <div style="font-size:28px; font-weight:800">[X XXX] ₽</div>
+            <div class="muted">экономия [n]%</div>
+            <p class="muted">Поддерживает ритм и прогресс.</p>
+          </div>
+          <div class="card card-pad reveal">
+            <h3>Вводная встреча</h3>
+            <div style="font-size:28px; font-weight:800">0 ₽</div>
+            <div class="muted">15 минут онлайн</div>
+            <p class="muted">Познакомимся, уточним запрос и формат.</p>
+          </div>
+        </div>
+        <p class="hint">Доступны: перевод, СБП, карта. Чеки по запросу.</p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials" aria-label="Отзывы клиентов">
+      <div class="container t-carousel">
+        <h2>Отзывы</h2>
+        <p class="muted">Имена изменены в целях конфиденциальности.</p>
+        <div class="t-track" aria-live="polite">
+          <article class="t-card"><p>«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!»</p><div style="font-weight:600; margin-top:8px">— Анна, 32</div></article>
+          <article class="t-card"><p>«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по-человечески.»</p><div style="font-weight:600; margin-top:8px">— Никита, 28</div></article>
+          <article class="t-card"><p>«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.»</p><div style="font-weight:600; margin-top:8px">— Ольга, 35</div></article>
+          <article class="t-card"><p>«Техники КПТ работают. Стал иначе относиться к мыслям — тревоги меньше.»</p><div style="font-weight:600; margin-top:8px">— Иван, 30</div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-label="Вопросы и ответы">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details><summary>Как проходит первая встреча?</summary><div>15 минут онлайн: знакомство, запрос, формат, ответы на вопросы. Если ок — назначаем сессию.</div></details>
+        <details><summary>Сколько длится терапия?</summary><div>Зависит от цели. Иногда 6–10 встреч на одну тему, иногда дольше. Делаем план и сверяемся по результатам.</div></details>
+        <details><summary>Онлайн так же эффективно?</summary><div>Для многих запросов — да. КПТ/ACT хорошо работают онлайн. Главное — регулярность и контакт.</div></details>
+        <details><summary>Можно отменить/перенести?</summary><div>Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс-мажоре).</div></details>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="section" id="booking" aria-label="Запись на консультацию">
+      <div class="container">
+        <h2>Запись на консультацию</h2>
+        <p class="muted">Оставьте контакты — отвечу в течение рабочего дня.</p>
+        <form id="bookingForm" novalidate>
+          <div class="row">
+            <div>
+              <label for="name">Имя*</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="contact">Телефон или Telegram*</label>
+              <input id="contact" name="contact" placeholder="+7… или @ник" required />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" />
+            </div>
+            <div>
+              <label for="format">Формат встречи</label>
+              <select id="format" name="format">
+                <option>Онлайн</option>
+                <option>Очно в [город]</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="time">Предпочтительное время</label>
+            <input id="time" name="time" placeholder="По будням после 18:00" />
+          </div>
+          <div>
+            <label for="msg">Коротко о запросе</label>
+            <textarea id="msg" name="msg" placeholder="Например: тревога и сложности со сном в последние месяцы…"></textarea>
+          </div>
+
+          <!-- Honeypot от ботов -->
+          <input type="text" id="website" name="website" style="position:absolute; left:-9999px; top:-9999px" tabindex="-1" aria-hidden="true" />
+
+          <div class="agree">
+            <input id="agree" type="checkbox" required />
+            <label for="agree">Согласен(на) на обработку персональных данных и условия <a href="#privacy">политики</a></label>
+          </div>
+          <div id="formError" class="error" role="alert" style="display:none"></div>
+          <div id="formSuccess" class="success" role="status" style="display:none">Спасибо! Письмо для записи сгенерировано в вашем почтовом клиенте.</div>
+
+          <div style="display:flex; gap:10px">
+            <button class="btn btn-primary" type="submit">Отправить заявку</button>
+            <a class="btn btn-ghost" href="tel:+7[телефон]">Позвонить</a>
+          </div>
+          <p class="hint">Можно просто написать в <a href="https://t.me/[ник]" target="_blank" rel="noopener">Telegram</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section" id="contacts" aria-label="Контакты">
+      <div class="container contact">
+        <div>
+          <h2>Контакты</h2>
+          <p><strong>Телефон:</strong> <a href="tel:+7[телефон]">+7 [телефон]</a></p>
+          <p><strong>Telegram:</strong> <a href="https://t.me/[ник]" target="_blank" rel="noopener">@[ник]</a></p>
+          <p><strong>Email:</strong> <a href="mailto:[email]">[email]</a></p>
+          <p><strong>Адрес очного приёма:</strong> [улица, дом], [город]</p>
+          <div class="card card-pad" style="margin-top:8px">
+            <strong>Важно:</strong> если вы в остром кризисе или чувствуете угрозу жизни, обратитесь в экстренные службы вашего региона. Терапия не заменяет медицинскую помощь.
+          </div>
+        </div>
+        <div class="map-placeholder">Карта/схема проезда (вставьте виджет Яндекс/Google Maps)</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="privacy">
+    <div class="container">
+      <p>© <span id="year"></span> Психолог [Ваше имя]. Все права защищены.</p>
+      <p><a href="#">Политика конфиденциальности</a> • <a href="#">Пользовательское соглашение</a></p>
+    </div>
+  </footer>
+
+  <a class="fab" href="#booking" aria-label="Записаться на консультацию">Записаться</a>
+
+  <script>
+    // Мобильное меню
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.getElementById('site-nav');
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> {
+      nav.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
+    }));
+
+    // Год в футере
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Мягкое появление карточек
+    const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+
+    // Форма без бэкенда — mailto:
+    const form = document.getElementById('bookingForm');
+    const errorEl = document.getElementById('formError');
+    const okEl = document.getElementById('formSuccess');
+
+    // Локальное сохранение полей
+    ['name','contact','email','time','msg'].forEach(id=>{
+      const el = document.getElementById(id);
+      const key = 'lf_' + id;
+      if(el && localStorage.getItem(key)) el.value = localStorage.getItem(key);
+      if(el) el.addEventListener('input', ()=> localStorage.setItem(key, el.value));
+    });
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      errorEl.style.display='none'; okEl.style.display='none';
+
+      if(document.getElementById('website').value.trim()!==''){ return } // honeypot
+
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const format = document.getElementById('format').value;
+      const time = document.getElementById('time').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+      const agree = document.getElementById('agree').checked;
+
+      if(!name || !contact || !agree){
+        errorEl.textContent = 'Пожалуйста, укажите имя, контакт и подтвердите согласие.';
+        errorEl.style.display='block';
+        return;
+      }
+
+      const to = encodeURIComponent('[email]');
+      const subject = encodeURIComponent('Заявка на консультацию — ' + name);
+      const bodyLines = [
+        'Имя: ' + name,
+        'Контакт (тел/Telegram): ' + contact,
+        email ? ('Email: ' + email) : null,
+        'Формат: ' + format,
+        time ? ('Предпочтительное время: ' + time) : null,
+        msg ? ('Запрос: ' + msg) : null,
+        '',
+        '--',
+        'С сайта психолога [Ваше имя]'
+      ].filter(Boolean);
+      const body = encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      okEl.style.display='block';
+      form.reset();
+      ['name','contact','email','time','msg'].forEach(id=> localStorage.removeItem('lf_'+id));
+    });
+  </script>
+</body>
+</html>
