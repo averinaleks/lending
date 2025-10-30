@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru" dir="ltr">
 <head>
-  <!-- ====== БАЗОВОЕ ====== -->
+  <!-- ===== БАЗА ===== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="robots" content="index,follow" />
@@ -9,40 +9,38 @@
 
   <title>Психолог [Ваше имя] — консультации в [город]: онлайн и очно</title>
   <meta name="description" content="Психолог [Ваше имя], [город]. Индивидуальная терапия: тревога, выгорание, отношения, самооценка. КПТ/ACT, 50‑мин сессии. Онлайн и очно. Вводная 15‑мин встреча — бесплатно." />
-  <link rel="canonical" href="https://www.[ваш-домен].ru/" />
+  <link rel="canonical" href="https://<username>.github.io/<repo>/" />
 
-  <!-- ====== OPEN GRAPH / TWITTER ====== -->
+  <!-- ===== Open Graph / Twitter ===== -->
   <meta property="og:locale" content="ru_RU">
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Психолог [Ваше имя] — консультации в [город]: онлайн и очно" />
   <meta property="og:description" content="Помогаю вернуть устойчивость и ясность. КПТ/ACT, 50‑мин сессии. Онлайн и очно. Вводная 15‑мин встреча — бесплатно." />
-  <meta property="og:url" content="https://www.[ваш-домен].ru/" />
+  <meta property="og:url" content="https://<username>.github.io/<repo>/" />
   <meta property="og:site_name" content="Психолог [Ваше имя]" />
-  <!-- Замените og:image на реальную обложку 1200×630 -->
-  <meta property="og:image" content="https://www.[ваш-домен].ru/og-image.jpg" />
+  <meta property="og:image" content="https://<username>.github.io/<repo>/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ====== ШРИФТЫ (перф/SEO) ====== -->
+  <!-- ===== Шрифты (минимально, с preconnect) ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- ====== FAVICON (inline SVG) ====== -->
+  <!-- ===== Favicon (inline SVG) ===== -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect rx="24" width="128" height="128" fill="%23FFFFFF"/><circle cx="40" cy="40" r="18" fill="%236CC4A1"/><text x="64" y="74" font-family="Arial" font-size="44" fill="%231E2430">Ps</text></svg>' />
-
   <meta name="color-scheme" content="light" />
 
   <style>
-    /* ====== ТЕМА / ПАЛИТРА (Calm Pastel) ====== */
+    /* ===== ТЕМА / ПАЛИТРА (Calm Pastel) ===== */
     :root{
       --bg:#F8F6F3; --bg-soft:#FFFFFF; --text:#1E2430; --muted:#6B7280;
       --accent:#6CC4A1; --accent-ink:#083226; --card:#FFFFFF; --border:rgba(30,36,48,.10);
       --shadow:0 10px 30px rgba(30,36,48,.06); --maxw:1120px; --radius:20px;
     }
 
-    /* ====== БАЗА ====== */
+    /* ===== БАЗА ===== */
     *,*::before,*::after{ box-sizing:border-box }
     html{ scroll-behavior:smooth }
     body{
@@ -67,7 +65,7 @@
     .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
     .skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; background:var(--accent); color:var(--accent-ink); padding:10px 14px; border-radius:8px; z-index:9999 }
 
-    /* ====== HEADER ====== */
+    /* ===== HEADER ===== */
     .site-header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.76); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid var(--border) }
     .nav-row{ display:flex; align-items:center; justify-content:space-between; height:64px }
     .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px }
@@ -88,7 +86,7 @@
       nav .container{ display:flex; flex-direction:column; gap:14px; padding:16px 20px 24px }
     }
 
-    /* ====== HERO ====== */
+    /* ===== HERO ===== */
     .hero{ padding:84px 0 36px }
     .hero-grid{ display:grid; gap:28px; grid-template-columns:1.25fr .75fr }
     @media (max-width: 860px){ .hero-grid{ grid-template-columns:1fr } }
@@ -101,22 +99,22 @@
       radial-gradient(220px 220px at -10% 80%, #EEF7F2, transparent 60%);
     }
 
-    /* ====== GRID ====== */
+    /* ===== GRID ===== */
     .grid{ display:grid; gap:18px; grid-template-columns:repeat(3,minmax(0,1fr)) }
     @media (max-width: 960px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
     @media (max-width: 560px){ .grid{ grid-template-columns:1fr } }
 
-    /* ====== TESTIMONIALS ====== */
+    /* ===== TESTIMONIALS ===== */
     .t-carousel{ display:grid; gap:12px }
     .t-track{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:4px }
     .t-card{ flex:0 0 min(360px,86%); scroll-snap-align:start; padding:16px; border-radius:16px; border:1px solid var(--border); background:#fff; box-shadow:0 8px 18px rgba(30,36,48,.05) }
 
-    /* ====== FAQ ====== */
+    /* ===== FAQ ===== */
     details{ border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff }
     details + details{ margin-top:10px }
     summary{ cursor:pointer; font-weight:600; outline:none }
 
-    /* ====== FORM ====== */
+    /* ===== FORM ===== */
     form{ display:grid; gap:14px; max-width:720px }
     .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
     @media (max-width: 680px){ .row{ grid-template-columns:1fr } }
@@ -129,12 +127,12 @@
     .error{ color:#b42318 }
     .success{ background:#EEF7F2; border:1px solid #D7EFE4; color:#1E2430; padding:12px 14px; border-radius:12px }
 
-    /* ====== CONTACTS ====== */
+    /* ===== CONTACTS ===== */
     .contact{ display:grid; gap:18px; grid-template-columns:1.1fr .9fr }
     @media (max-width: 900px){ .contact{ grid-template-columns:1fr } }
     .map-placeholder{ min-height:260px; border:1px dashed var(--border); border-radius:16px; display:flex; align-items:center; justify-content:center; color:var(--muted) }
 
-    /* ====== FOOTER / FAB ====== */
+    /* ===== FOOTER / FAB ===== */
     .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted) }
     .fab{ position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px; background:var(--accent); color:var(--accent-ink); border:1px solid rgba(8,50,38,.18); box-shadow:0 8px 22px rgba(108,196,161,.28); font-weight:700 }
 
@@ -146,15 +144,14 @@
     }
   </style>
 
-  <!-- ====== STRUCTURED DATA (JSON‑LD) ====== -->
-  <!-- 1) LocalBusiness + контактные данные -->
+  <!-- ===== Structured Data (JSON‑LD) ===== -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
     "name":"Психолог [Ваше имя]",
-    "image":"https://www.[ваш-домен].ru/og-image.jpg",
-    "url":"https://www.[ваш-домен].ru/",
+    "image":"https://<username>.github.io/<repo>/og-image.jpg",
+    "url":"https://<username>.github.io/<repo>/",
     "telephone":"+7[телефон]",
     "email":"[email]",
     "priceRange":"₽₽",
@@ -176,7 +173,6 @@
   }
   </script>
 
-  <!-- 2) Персона-практикующий специалист -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -188,7 +184,6 @@
   }
   </script>
 
-  <!-- 3) FAQPage (только реальные вопросы/ответы) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -205,7 +200,7 @@
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
 
-  <!-- ====== HEADER ====== -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header" role="banner">
     <div class="container nav-row">
       <a href="#home" class="logo" aria-label="Логотип: Психолог [Ваше имя]">
@@ -215,9 +210,7 @@
         </svg>
         ПСИХОЛОГ
       </a>
-
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Меню ▾</button>
-
       <nav id="site-nav" aria-label="Основная навигация">
         <div class="container">
           <a href="#services">Услуги</a>
@@ -233,16 +226,15 @@
     </div>
   </header>
 
-  <!-- ====== MAIN ====== -->
+  <!-- ===== MAIN ===== -->
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="home" aria-label="Первый экран">
       <div class="container hero-grid">
         <div>
           <span class="pill">Психолог • [город] • онлайн/очно</span>
-          <!-- Единственный H1 на странице -->
           <h1>Психолог [Ваше имя] — консультации в [город]: онлайн и очно</h1>
-          <p class="lead">Помогаю справляться с тревогой, выгоранием и трудностями в отношениях. Практикую <strong>КПТ</strong> и <strong>ACT</strong>, бережно и структурно. Сессии по 50 минут.</p>
+          <p class="lead">Помогаю справляться с тревогой, выгоранием и трудностями в отношениях. Практикую <strong>КПТ</strong> и <strong>ACT</strong>. Сессии по 50 минут, бережно и структурно.</p>
           <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap">
             <a class="btn btn-primary" href="#booking">Записаться на консультацию</a>
             <a class="btn btn-ghost" href="tel:+7[телефон]">Позвонить: +7 [телефон]</a>
@@ -338,28 +330,16 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS (без разметки Review — чтобы соответствовать правилам Google для локального бизнеса) -->
+    <!-- TESTIMONIALS -->
     <section class="section" id="testimonials" aria-label="Отзывы клиентов">
       <div class="container t-carousel">
         <h2>Отзывы</h2>
         <p class="muted">Имена изменены в целях конфиденциальности.</p>
         <div class="t-track" aria-live="polite">
-          <article class="t-card">
-            <p>«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!»</p>
-            <div style="font-weight:600; margin-top:8px">— Анна, 32</div>
-          </article>
-          <article class="t-card">
-            <p>«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по‑человечески.»</p>
-            <div style="font-weight:600; margin-top:8px">— Никита, 28</div>
-          </article>
-          <article class="t-card">
-            <p>«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.»</p>
-            <div style="font-weight:600; margin-top:8px">— Ольга, 35</div>
-          </article>
-          <article class="t-card">
-            <p>«Техники КПТ работают. Стал иначе относиться к мыслям — тревоги меньше.»</p>
-            <div style="font-weight:600; margin-top:8px">— Иван, 30</div>
-          </article>
+          <article class="t-card"><p>«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!»</p><div style="font-weight:600; margin-top:8px">— Анна, 32</div></article>
+          <article class="t-card"><p>«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по‑человечески.»</p><div style="font-weight:600; margin-top:8px">— Никита, 28</div></article>
+          <article class="t-card"><p>«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.»</p><div style="font-weight:600; margin-top:8px">— Ольга, 35</div></article>
+          <article class="t-card"><p>«Техники КПТ работают. Стал иначе относиться к мыслям — тревоги меньше.»</p><div style="font-weight:600; margin-top:8px">— Иван, 30</div></article>
         </div>
       </div>
     </section>
@@ -381,14 +361,11 @@
         <h2>Запись на консультацию</h2>
         <p class="muted">Оставьте контакты — отвечу в течение рабочего дня.</p>
 
-        <!--
-          Варианты отправки:
-          1) По умолчанию (везде): JS сформирует mailto: и откроет ваш почтовый клиент.
-          2) На Netlify: добавьте data-netlify="true" и разкомментируйте hidden-поле form-name.
-          3) Через Formspree/другой сервис: вставьте endpoint в CONST ниже (JS), работает fetch.
-        -->
-        <form id="bookingForm" name="booking" method="POST" novalidate
-              autocomplete="on" enctype="application/x-www-form-urlencoded">
+        <!-- Варианты отправки:
+             1) По умолчанию: mailto (работает везде, в т.ч. GitHub Pages)
+             2) Через сервис форм (Formspree и т.п.): укажите endpoint ниже (FORM_ENDPOINT)
+             3) Netlify Forms: добавьте data-netlify="true" и hidden form-name -->
+        <form id="bookingForm" name="booking" method="POST" novalidate autocomplete="on" enctype="application/x-www-form-urlencoded">
           <!-- Для Netlify Forms раскомментируйте:
           <input type="hidden" name="form-name" value="booking" />
           -->
@@ -429,7 +406,7 @@
             <textarea id="msg" name="msg" placeholder="Например: тревога и сложности со сном в последние месяцы…"></textarea>
           </div>
 
-          <!-- Honeypot для ботов -->
+          <!-- Honeypot -->
           <input type="text" id="website" name="website" style="position:absolute; left:-9999px; top:-9999px" tabindex="-1" aria-hidden="true" />
 
           <div class="agree">
@@ -445,7 +422,6 @@
             <button class="btn btn-primary" type="submit">Отправить заявку</button>
             <a class="btn btn-ghost" href="tel:+7[телефон]">Позвонить</a>
           </div>
-
           <p class="hint">Отправляя форму, вы даёте согласие на обработку персональных данных.</p>
         </form>
       </div>
@@ -469,7 +445,7 @@
     </section>
   </main>
 
-  <!-- ====== FOOTER ====== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer" id="privacy">
     <div class="container">
       <p>© <span id="year"></span> Психолог [Ваше имя]. Все права защищены.</p>
@@ -477,11 +453,10 @@
     </div>
   </footer>
 
-  <!-- Всегда на виду CTA -->
   <a class="fab" href="#booking" aria-label="Записаться на консультацию">Записаться</a>
 
   <script defer>
-    // ====== Mobile nav toggle ======
+    // Mobile nav
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('site-nav');
     navToggle.addEventListener('click', () => {
@@ -492,22 +467,22 @@
       nav.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
     }));
 
-    // ====== Footer year ======
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ====== Reveal on scroll ======
+    // Reveal on scroll
     const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')), {threshold:.12});
     document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
 
-    // ====== Form handling ======
+    // Form handling
     const form = document.getElementById('bookingForm');
     const errorEl = document.getElementById('formError');
     const okEl = document.getElementById('formSuccess');
 
-    // Настройка: вставьте endpoint сервиса форм (например, Formspree)
+    // Настройте при желании endpoint сервиса форм (Formspree и т.п.)
     const FORM_ENDPOINT = ""; // Пример: "https://formspree.io/f/xxxxxx"
 
-    // Локальное автосохранение (UX)
+    // Local auto-save
     ['name','contact','email','time','msg'].forEach(id=>{
       const el = document.getElementById(id);
       if(!el) return;
@@ -519,7 +494,6 @@
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       errorEl.style.display='none'; okEl.style.display='none';
-
       if(document.getElementById('website').value.trim()!==''){ return } // honeypot
 
       const name = document.getElementById('name').value.trim();
@@ -530,14 +504,13 @@
       const msg = document.getElementById('msg').value.trim();
       const agree = document.getElementById('agree').checked;
 
-      // Валидация
       if(!name || !contact || !agree){
         errorEl.textContent = 'Пожалуйста, укажите имя, контакт и подтвердите согласие.';
         errorEl.style.display='block';
         return;
       }
 
-      // 1) Если задан внешний endpoint — отправляем fetch (AJAX)
+      // 1) Внешний endpoint
       if(FORM_ENDPOINT){
         try{
           const res = await fetch(FORM_ENDPOINT, {
@@ -563,7 +536,7 @@
         }
       }
 
-      // 2) Fallback: mailto (работает везде, в т.ч. GitHub Pages)
+      // 2) Fallback: mailto
       const to = encodeURIComponent('[email]');
       const subject = encodeURIComponent('Заявка на консультацию — ' + name);
       const bodyLines = [
@@ -584,5 +557,16 @@
       ['name','contact','email','time','msg'].forEach(id=> localStorage.removeItem('lf_'+id));
     });
   </script>
+
+  <!-- (Опционально) Метрика — вставьте свой ID и раскомментируйте
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+      k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(<ВАШ_ID>, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/<ВАШ_ID>" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+  -->
 </body>
 </html>
