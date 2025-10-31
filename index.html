@@ -54,6 +54,7 @@
     p{ margin:0 0 12px }
     a{ color:inherit; text-decoration:none }
     .muted{ color:var(--muted) }
+    .hint{ color:var(--muted); font-size:12px }
     .lead{ font-size:clamp(16px, 2.6vw, 20px); color:#4B5563 }
     .section{ padding:72px 0 }
     .card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow) }
@@ -100,18 +101,6 @@
     details{ border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff }
     details + details{ margin-top:10px }
     summary{ cursor:pointer; font-weight:600; outline:none }
-    /* ===== FORM ===== */
-    form{ display:grid; gap:14px; max-width:720px }
-    .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
-    @media (max-width: 680px){ .row{ grid-template-columns:1fr } }
-    label{ display:block; font-weight:600; margin-bottom:6px }
-    input,select,textarea{ width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--border); background:var(--bg-soft); color:var(--text) }
-    input::placeholder, textarea::placeholder{ color:#9AA2AE }
-    textarea{ min-height:120px; resize:vertical }
-    .hint{ color:var(--muted); font-size:12px }
-    .agree{ display:flex; align-items:center; gap:10px }
-    .error{ color:#b42318 }
-    .success{ background:#EEF7F2; border:1px solid #D7EFE4; color:#1E2430; padding:12px 14px; border-radius:12px }
     /* ===== CONTACTS ===== */
     .contact{ display:grid; gap:18px; grid-template-columns:1.1fr .9fr }
     @media (max-width: 900px){ .contact{ grid-template-columns:1fr } }
@@ -200,7 +189,7 @@
           <a href="#testimonials">Отзывы</a>
           <a href="#faq">FAQ</a>
           <a href="#contacts">Контакты</a>
-          <a class="btn btn-primary" href="#booking">Сделать первый шаг к себе</a>
+          <a class="btn btn-primary" href="#contacts">Связаться</a>
         </div>
       </nav>
     </div>
@@ -216,7 +205,7 @@
           <h1>Тревожно или трудно на душе?</h1>
           <p class="lead">Я понимаю, как это изматывает. Помогу найти бессознательные причины ваших переживаний и вернуть вам спокойствие и уверенность с помощью <strong>психоанализа</strong>.</p>
           <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap">
-            <a class="btn btn-primary" href="#booking">Сделать первый шаг к себе</a>
+            <a class="btn btn-primary" href="#contacts">Связаться</a>
             <a class="btn btn-ghost" href="tel:+7[телефон]">Позвонить: +7 [телефон]</a>
             <a class="btn btn-ghost" href="https://t.me/[ник]" target="_blank" rel="noopener">Написать в Telegram</a>
           </div>
@@ -345,70 +334,6 @@
       </div>
     </section>
 
-    <!-- BOOKING -->
-    <section class="section" id="booking" aria-label="Запись на консультацию">
-      <div class="container">
-        <h2>Запись на консультацию</h2>
-        <p class="muted">Оставьте контакты — отвечу в течение рабочего дня.</p>
-        <!-- Варианты отправки:
-             1) По умолчанию: mailto (работает везде, в т.ч. GitHub Pages)
-             2) Через сервис форм (Formspree и т.п.): укажите endpoint ниже (FORM_ENDPOINT)
-             3) Netlify Forms: добавьте data-netlify="true" и hidden form-name -->
-        <form id="bookingForm" name="booking" method="POST" novalidate autocomplete="on" enctype="application/x-www-form-urlencoded">
-          <!-- Для Netlify Forms раскомментируйте:
-          <input type="hidden" name="form-name" value="booking" />
-          -->
-          <div class="row">
-            <div>
-              <label for="name">Имя*</label>
-              <input id="name" name="name" autocomplete="name" required />
-            </div>
-            <div>
-              <label for="contact">Телефон или Telegram*</label>
-              <input id="contact" name="contact" placeholder="+7… или @ник" required
-                     pattern="^((\\+?\\d[\\d\\s\\-\\(\\)]{7,}\\d)|(@[A-Za-z0-9_]{3,}))$"
-                     title="Укажите телефон или ник в Telegram (@username)" />
-            </div>
-          </div>
-          <div class="row">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" />
-            </div>
-            <div>
-              <label for="format">Формат встречи</label>
-              <select id="format" name="format">
-                <option>Онлайн</option>
-                <option>Очно в [город]</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label for="time">Предпочтительное время</label>
-            <input id="time" name="time" placeholder="По будням после 18:00" />
-          </div>
-          <div>
-            <label for="msg">Коротко о запросе</label>
-            <textarea id="msg" name="msg" placeholder="Например: тревога и сложности со сном в последние месяцы…"></textarea>
-          </div>
-          <!-- Honeypot -->
-          <input type="text" id="website" name="website" style="position:absolute; left:-9999px; top:-9999px" tabindex="-1" aria-hidden="true" />
-          <div class="agree">
-            <input id="agree" type="checkbox" required aria-describedby="consentHint"/>
-            <label for="agree">Согласен(на) на обработку персональных данных и условия <a href="#privacy">политики</a></label>
-          </div>
-          <p id="consentHint" class="hint">Можно просто написать в Telegram, если так удобнее.</p>
-          <div id="formError" class="error" role="alert" aria-live="assertive" style="display:none"></div>
-          <div id="formSuccess" class="success" role="status" aria-live="polite" style="display:none">Спасибо! Письмо для записи сгенерировано в вашем почтовом клиенте.</div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap">
-            <button class="btn btn-primary" type="submit">Отправить заявку</button>
-            <a class="btn btn-ghost" href="tel:+7[телефон]">Позвонить</a>
-          </div>
-          <p class="hint">Отправляя форму, вы даёте согласие на обработку персональных данных.</p>
-        </form>
-      </div>
-    </section>
-
     <!-- CONTACTS -->
     <section class="section" id="contacts" aria-label="Контакты">
       <div class="container contact">
@@ -435,7 +360,7 @@
     </div>
   </footer>
 
-  <a class="fab" href="#booking" aria-label="Сделать первый шаг к себе — записаться на консультацию">Сделать первый шаг к себе</a>
+  <a class="fab" href="#contacts" aria-label="Связаться любым удобным способом">Связаться</a>
 
   <script defer>
     // Mobile nav
@@ -453,81 +378,6 @@
     // Reveal on scroll
     const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')), {threshold:.12});
     document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
-    // Form handling
-    const form = document.getElementById('bookingForm');
-    const errorEl = document.getElementById('formError');
-    const okEl = document.getElementById('formSuccess');
-    // Настройте при желании endpoint сервиса форм (Formspree и т.п.)
-    const FORM_ENDPOINT = "https://formspree.io/f/xzbllknq"; // Пример: "https://formspree.io/f/xxxxxx"
-    // Local auto-save
-    ['name','contact','email','time','msg'].forEach(id=>{
-      const el = document.getElementById(id);
-      if(!el) return;
-      const key = 'lf_' + id;
-      if(localStorage.getItem(key)) el.value = localStorage.getItem(key);
-      el.addEventListener('input', ()=> localStorage.setItem(key, el.value));
-    });
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      errorEl.style.display='none'; okEl.style.display='none';
-      if(document.getElementById('website').value.trim()!==''){ return } // honeypot
-      const name = document.getElementById('name').value.trim();
-      const contact = document.getElementById('contact').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const format = document.getElementById('format').value;
-      const time = document.getElementById('time').value.trim();
-      const msg = document.getElementById('msg').value.trim();
-      const agree = document.getElementById('agree').checked;
-      if(!name || !contact || !agree){
-        errorEl.textContent = 'Пожалуйста, укажите имя, контакт и подтвердите согласие.';
-        errorEl.style.display='block';
-        return;
-      }
-      // 1) Внешний endpoint
-      if(FORM_ENDPOINT){
-        try{
-          const res = await fetch(FORM_ENDPOINT, {
-            method:'POST',
-            headers:{'Accept':'application/json','Content-Type':'application/json'},
-            body: JSON.stringify({ name, contact, email, format, time, msg })
-          });
-          if(res.ok){
-            okEl.textContent = 'Заявка отправлена. Я свяжусь с вами в ближайший рабочий день.';
-            okEl.style.display='block';
-            form.reset();
-            ['name','contact','email','time','msg'].forEach(id=> localStorage.removeItem('lf_'+id));
-            return;
-          }else{
-            errorEl.textContent = 'Не удалось отправить форму. Попробуйте позже или свяжитесь по телефону/Telegram.';
-            errorEl.style.display='block';
-            return;
-          }
-        }catch{
-          errorEl.textContent = 'Сеть недоступна. Попробуйте ещё раз или свяжитесь по телефону/Telegram.';
-          errorEl.style.display='block';
-          return;
-        }
-      }
-      // 2) Fallback: mailto
-      const to = encodeURIComponent('[email]');
-      const subject = encodeURIComponent('Заявка на консультацию — ' + name);
-      const bodyLines = [
-        'Имя: ' + name,
-        'Контакт (тел/Telegram): ' + contact,
-        email ? ('Email: ' + email) : null,
-        'Формат: ' + format,
-        time ? ('Предпочтительное время: ' + time) : null,
-        msg ? ('Запрос: ' + msg) : null,
-        '',
-        '--',
-        'С сайта психоаналитика [Ваше имя]'
-      ].filter(Boolean);
-      const body = encodeURIComponent(bodyLines.join('\n'));
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      okEl.style.display='block';
-      form.reset();
-      ['name','contact','email','time','msg'].forEach(id=> localStorage.removeItem('lf_'+id));
-    });
   </script>
   <!-- (Опционально) Метрика — вставьте свой ID и раскомментируйте
   <script type="text/javascript">
