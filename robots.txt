@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://<username>.github.io/<repo>/sitemap.xml
+Sitemap: https://olgakoroleva.ru/sitemap.xml
