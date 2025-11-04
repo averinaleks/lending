@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Валидатор микроразметки — как проверить структурированные данные</title>
+  <meta name="description" content="Узнайте, как работает валидатор микроразметки: поддерживаемые форматы, примеры и расшифровка результатов проверки." />
+  <link rel="canonical" href="https://okoroleva.com/microdata-validator" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Валидатор микроразметки — как проверить структурированные данные" />
+  <meta property="og:description" content="Разбираемся, как использовать валидатор микроразметки и читать отчёт: поддерживаемые форматы, примеры и результаты парсинга." />
+  <meta property="og:url" content="https://okoroleva.com/microdata-validator" />
+  <meta property="og:site_name" content="Психолог Ольга Королёва" />
+  <meta property="og:image" content="https://okoroleva.com/img/olga-koroleva.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Валидатор микроразметки — как проверить структурированные данные" />
+  <meta name="twitter:description" content="Краткое руководство по проверке структурированных данных и разбор отчёта валидатора." />
+  <meta name="twitter:image" content="https://okoroleva.com/img/olga-koroleva.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#F5F7FA; --bg-soft:#FFFFFF; --text:#1E2430; --muted:#6B7280;
+      --accent:#D2BFAB; --accent-ink:#1E2430; --border:rgba(30,36,48,.12);
+      --radius:18px; --maxw:960px;
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    body{
+      margin:0; font-family:Lato,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+    }
+    a{color:inherit;}
+    .muted{color:var(--muted);}
+    .lead{font-size:clamp(17px,2.4vw,21px); color:#4B5563; max-width:720px;}
+    .skip-link{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;}
+    .skip-link:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; padding:10px 14px; background:var(--accent); color:var(--accent-ink); border-radius:10px; z-index:10;}
+    header{background:var(--bg-soft); border-bottom:1px solid var(--border); padding:28px 0;}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+    h1,h2,h3{font-family:"Playfair Display",Georgia,serif; line-height:1.25; margin:0 0 18px;}
+    h1{font-size:clamp(32px,4.2vw,52px);}
+    h2{font-size:clamp(24px,3.2vw,36px); margin-top:56px;}
+    h3{font-size:clamp(20px,2.4vw,26px); margin-top:36px;}
+    p{margin:0 0 16px;}
+    ul{padding-left:22px; margin:0 0 18px;}
+    code{display:inline-block; background:rgba(30,36,48,.06); border-radius:8px; padding:2px 6px; font-family:"Fira Code",monospace; font-size:14px;}
+    .card{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); padding:22px 24px; margin:22px 0; box-shadow:0 14px 28px rgba(30,36,48,.08);}
+    .aside{font-size:15px; color:var(--muted); border-left:4px solid var(--accent); padding-left:16px;}
+    footer{margin:80px 0 48px; font-size:14px; color:var(--muted); text-align:center;}
+    @media (max-width:680px){
+      h1{font-size:32px;}
+      header{padding:24px 0 18px;}
+      .card{padding:18px 20px;}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Перейти к содержимому</a>
+  <header>
+    <div class="container">
+      <p class="muted"><a href="/">← На главную</a></p>
+      <h1>Валидатор микроразметки</h1>
+      <p class="lead">Инструмент помогает проверить, корректно ли поисковые роботы читают структурированные данные на странице.</p>
+    </div>
+  </header>
+  <main id="content" class="container">
+    <section>
+      <p>Валидатор микроразметки позволяет быстро увидеть, как поисковые системы интерпретируют встроенную в страницу семантическую разметку. В один клик он проверяет страницу на наличие ошибок и предупреждений, подсказывает, какие элементы не распознаны, и помогает адаптировать данные под требования сервисов.</p>
+      <p>Сейчас валидатор поддерживает все популярные форматы разметки: микроданные (<span lang="en">microdata</span>), <span lang="en">schema.org</span>, микроформаты, OpenGraph и RDFa. Однако специальные сниппеты и использование размеченных данных в сервисах доступно не для всех форматов — актуальный перечень есть в разделах Справки Яндекса.</p>
+    </section>
+
+    <section>
+      <h2>Как работать с валидатором</h2>
+      <ol>
+        <li>Перейдите в валидатор микроразметки и укажите URL или вставьте фрагмент HTML-кода.</li>
+        <li>Нажмите «Проверить» — сервис распарсит страницу и покажет найденные сущности.</li>
+        <li>Изучите предупреждения: валидатор подскажет, какие обязательные поля отсутствуют и где разметку следует дополнить.</li>
+      </ol>
+      <div class="card aside">
+        <p>Подробнее о возможностях инструмента и поддерживаемых сценариях читайте в <a href="https://yandex.ru/support/webmaster/schemas.html" rel="noreferrer noopener">справке Яндекса</a>.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Примеры сценариев</h2>
+      <div class="card">
+        <h3>Адрес организации</h3>
+        <p>Покажите поиску физический адрес компании, чтобы попасть в расширенный сниппет с картой.</p>
+        <p><strong>Что важно указать:</strong> название организации, тип, координаты или адрес, контактный телефон и часы работы.</p>
+      </div>
+      <div class="card">
+        <h3>TVSeries</h3>
+        <p>Схема помогает описать сериал: укажите сезон, эпизоды и участников съёмочной группы. Разметка улучшает карточку проекта и позволяет появиться в рекомендациях.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Результат проверки</h2>
+      <p>После сканирования страница отчёта показывает, какие сущности нашёл валидатор и какие свойства им присвоены. Фрагмент отчёта для репозитория GitHub <code>https://github.com/averinaleks/lending/tree/main/docs</code> выглядит так:</p>
+      <div class="card">
+        <h3>Twitter Cards</h3>
+        <ul>
+          <li><code>twitter:image</code> → <a href="https://opengraph.githubassets.com/6e1d2126db24e81187a617f0164dc4bb40125cca038352642e120e7d0cb70ad1/averinaleks/lending">изображение предпросмотра</a></li>
+          <li><code>twitter:site</code> → @github</li>
+          <li><code>twitter:card</code> → summary_large_image</li>
+          <li><code>twitter:title</code> → «lending/docs at main · averinaleks/lending»</li>
+          <li><code>twitter:description</code> → «Contribute to averinaleks/lending development by creating an account on GitHub.»</li>
+        </ul>
+        <h3>Open Graph</h3>
+        <ul>
+          <li><code>og:image</code> → ссылка на изображение предпросмотра (1200 × 600 px)</li>
+          <li><code>og:image:alt</code> → «Contribute to averinaleks/lending development by creating an account on GitHub.»</li>
+          <li><code>og:site_name</code> → GitHub</li>
+          <li><code>og:title</code> → «lending/docs at main · averinaleks/lending»</li>
+          <li><code>og:url</code> → <a href="https://github.com/averinaleks/lending/tree/main/docs">https://github.com/averinaleks/lending/tree/main/docs</a></li>
+          <li><code>og:description</code> → «Contribute to averinaleks/lending development by creating an account on GitHub.»</li>
+        </ul>
+        <h3>Schema.org</h3>
+        <ul>
+          <li><code>@type</code> → <span lang="en">SoftwareSourceCode</span></li>
+          <li><code>author</code> → averinaleks</li>
+          <li><code>name</code> → lending</li>
+        </ul>
+        <h3>Дополнительные атрибуты</h3>
+        <p>Сервис также фиксирует вспомогательные атрибуты ролей ARIA и ссылки на файлы <code>opensearch.xml</code> и <code>favicon</code>, которые помогают поисковым роботам распознать навигацию и элементы интерфейса.</p>
+      </div>
+      <p>Так парсер микроразметки обработает вашу страницу и наглядно покажет, какие блоки данных будут использованы поисковыми системами.</p>
+    </section>
+  </main>
+  <footer>
+    Материал подготовлен для владельцев сайтов, внедряющих структурированные данные.
+  </footer>
+</body>
+</html>
