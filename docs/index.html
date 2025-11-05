@@ -10,8 +10,8 @@
   <title>Психолог Ольга Королёва — консультации в Москве и онлайн</title>
   <meta name="description" content="Психолог Ольга Королёва. Помогаю справиться с тревогой, сложностями в отношениях и внутренними конфликтами. Бережные консультации в Москве и онлайн." />
   <link rel="canonical" href="https://okoroleva.com/" />
-  <!-- Замените значение content на актуальный код подтверждения из Яндекс.Вебмастера -->
-  <meta name="yandex-verification" content="replace-with-actual-token" />
+  <!-- Код подтверждения в Яндекс.Вебмастере -->
+  <meta name="yandex-verification" content="3f5f9e6fca0df4b3" />
   <script>
     (function() {
       if (location.protocol === 'http:' && !/^localhost(?::\d+)?$/.test(location.hostname)) {
@@ -112,7 +112,10 @@
     /* ===== CONTACTS ===== */
     .contact{ display:grid; gap:18px; grid-template-columns:1.1fr .9fr; }
     @media (max-width: 900px){ .contact{ grid-template-columns:1fr; } }
-    .map-placeholder{ min-height:260px; border:1px dashed var(--border); border-radius:16px; display:flex; align-items:center; justify-content:center; color:var(--muted); }
+    .map-embed{ position:relative; padding-bottom:66%; border-radius:16px; overflow:hidden; border:1px solid var(--border); background:#fff; box-shadow:0 10px 24px rgba(30,36,48,.08); }
+    .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .map-embed__fallback{ margin:8px 0 0; font-size:14px; color:var(--muted); }
+    .map-embed__fallback a{ color:inherit; text-decoration:underline; }
     /* ===== FOOTER / FAB ===== */
     .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted); }
     .fab{ position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px; background:var(--accent); color:var(--accent-ink); border:1px solid rgba(8,50,48,.18); box-shadow:0 8px 22px rgba(210,191,171,.28); font-weight:700; }
@@ -154,6 +157,7 @@
       "postalCode":"101000",
       "addressCountry":"RU"
     },
+    "hasMap":"https://yandex.ru/maps/-/CDBYbYIQ",
     "openingHoursSpecification":[
       {
         "@type":"OpeningHoursSpecification",
@@ -189,19 +193,33 @@
       {"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Зависит от запроса. Может длиться несколько месяцев или больше года — всё индивидуально. Регулярно обсуждаем прогресс."}},
       {"@type":"Question","name":"Онлайн так же эффективно?","acceptedAnswer":{"@type":"Answer","text":"Для многих запросов — да. Психоанализ возможен онлайн; важны регулярность встреч и доверительный контакт."}},
       {"@type":"Question","name":"Можно отменить или перенести встречу?","acceptedAnswer":{"@type":"Answer","text":"Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс‑мажоре)."}}
-    ]
+    ],
+    "hasPart":{"@type":"WebPageElement","name":"Как добраться","url":"https://yandex.ru/maps/-/CDBYbYIQ"}
   }
   </script>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105124237', 'ym');
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      function load(){
+        if (document.getElementById('ymTag')) { return; }
+        k=e.createElement(t); k.id='ymTag'; k.async=1; k.src=r;
+        a=e.getElementsByTagName(t)[0]; a.parentNode.insertBefore(k,a);
+      }
+      if ('requestIdleCallback' in m){
+        requestIdleCallback(load, {timeout:4000});
+      } else {
+        m.addEventListener('load', load, {once:true});
+      }
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-    ym(105124237, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    ym(105124237, 'init', {
+      accurateTrackBounce:true,
+      trackLinks:true,
+      clickmap:true,
+      webvisor:true
+    });
   </script>
 </head>
 <body>
@@ -401,6 +419,10 @@
             <p style="margin-bottom:12px"><strong>Email:</strong> <a href="mailto:hello@okoroleva.com">hello@okoroleva.com</a></p>
             <p class="muted" style="margin-bottom:0">Укажите желаемый формат встречи и удобное время — я предложу ближайшие слоты.</p>
           </div>
+          <div class="map-embed" role="group" aria-label="Карта офиса на улице Петровка, 18">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.615600%2C55.760100&z=16&um=constructor%3A24e1e143e0edb61fb98f38f2d01b5840690ef9b8679513762c508d57f0754441" loading="lazy" title="Маршрут к кабинету психолога на Петровке, 18"></iframe>
+          </div>
+          <p class="map-embed__fallback">Карта не загрузилась? Постройте маршрут в <a href="https://yandex.ru/maps/-/CDBYbYIQ" target="_blank" rel="noopener">Яндекс.Картах</a>.</p>
         </div>
       </div>
     </section>
