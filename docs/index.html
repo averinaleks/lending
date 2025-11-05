@@ -10,6 +10,8 @@
   <title>Психолог Ольга Королёва — консультации в Москве и онлайн</title>
   <meta name="description" content="Психолог Ольга Королёва. Помогаю справиться с тревогой, сложностями в отношениях и внутренними конфликтами. Бережные консультации в Москве и онлайн." />
   <link rel="canonical" href="https://okoroleva.com/" />
+  <!-- Замените значение content на актуальный код подтверждения из Яндекс.Вебмастера -->
+  <meta name="yandex-verification" content="replace-with-actual-token" />
   <script>
     (function() {
       if (location.protocol === 'http:' && !/^localhost(?::\d+)?$/.test(location.hostname)) {
@@ -130,11 +132,21 @@
     "name":"Психолог Ольга Королёва",
     "image":"https://okoroleva.com/img/olga-koroleva.png",
     "url":"https://okoroleva.com/",
+    "sameAs":[
+      "https://okoroleva.com/",
+      "https://t.me/olgakoroleva_psy"
+    ],
     "telephone":"+7-977-766-58-15",
     "email":"hello@okoroleva.com",
     "priceRange":"₽₽",
     "paymentAccepted":"Card,SBP,Cash",
     "areaServed":"Москва, онлайн — Россия/СНГ",
+    "serviceArea":{"@type":"AdministrativeArea","name":"Россия и страны СНГ"},
+    "geo":{
+      "@type":"GeoCoordinates",
+      "latitude":55.7601,
+      "longitude":37.6156
+    },
     "address":{
       "@type":"PostalAddress",
       "addressLocality":"Москва",
@@ -142,12 +154,20 @@
       "postalCode":"101000",
       "addressCountry":"RU"
     },
-    "openingHoursSpecification":[{
-      "@type":"OpeningHoursSpecification",
-      "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens":"10:00",
-      "closes":"20:00"
-    }]
+    "openingHoursSpecification":[
+      {
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens":"10:00",
+        "closes":"20:00"
+      },
+      {
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Saturday"],
+        "opens":"11:00",
+        "closes":"16:00"
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">

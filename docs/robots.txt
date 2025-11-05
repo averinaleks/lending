@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: okoroleva.com
 Sitemap: https://okoroleva.com/sitemap.xml
