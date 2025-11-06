@@ -36,6 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/olga-koroleva.png">
   <!-- ===== Favicon (inline SVG) ===== -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect rx="24" width="128" height="128" fill="%23FFFFFF"/><circle cx="40" cy="40" r="18" fill="%236CC4A1"/><text x="64" y="74" font-family="Arial" font-size="44" fill="%231E2430">Ps</text></svg>' />
   <meta name="color-scheme" content="light" />
@@ -85,9 +86,10 @@
     .btn-ghost{ background:transparent; }
     /* Mobile nav */
     .nav-toggle{ display:none; background:transparent; border:1px solid var(--border); border-radius:10px; padding:8px 10px; color:var(--text); }
+    nav[hidden]{ display:none !important; }
     @media (max-width: 860px){
       .nav-toggle{ display:inline-flex; align-items:center; gap:8px; }
-      nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); display:none; }
+      nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); }
       nav.open{ display:block; }
       nav .container{ display:flex; flex-direction:column; gap:14px; padding:16px 20px 24px; }
     }
@@ -237,7 +239,7 @@
         </svg>
         ОЛЬГА КОРОЛЁВА
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Меню ▾</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="navToggle" aria-label="Открыть меню">Меню <span aria-hidden="true">▾</span></button>
       <nav id="site-nav" aria-label="Основная навигация">
         <div class="container">
           <a href="#services">Услуги</a>
@@ -272,7 +274,7 @@
           </ul>
         </div>
         <div class="portrait" aria-label="Фото психолога">
-          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" decoding="async" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -443,23 +445,84 @@
     // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('site-nav');
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded','false');
-    }));
+    if (nav && navToggle) {
+      const mobileQuery = window.matchMedia('(max-width: 860px)');
+      const setAriaState = (isOpen) => {
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+      };
+      const closeNav = () => {
+        nav.classList.remove('open');
+        setAriaState(false);
+        if (mobileQuery.matches) {
+          nav.setAttribute('hidden', '');
+        } else {
+          nav.removeAttribute('hidden');
+        }
+      };
+      const openNav = () => {
+        nav.classList.add('open');
+        setAriaState(true);
+        nav.removeAttribute('hidden');
+      };
+      const toggleNav = () => {
+        if (nav.classList.contains('open')) {
+          closeNav();
+        } else {
+          openNav();
+        }
+      };
+      const syncNavForViewport = () => {
+        if (!mobileQuery.matches) {
+          nav.classList.remove('open');
+          nav.removeAttribute('hidden');
+          setAriaState(false);
+        } else if (!nav.classList.contains('open')) {
+          nav.setAttribute('hidden', '');
+          setAriaState(false);
+        }
+      };
+
+      navToggle.addEventListener('click', toggleNav);
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'Escape' && nav.classList.contains('open')) {
+          closeNav();
+          navToggle.focus();
+        }
+      });
+      document.addEventListener('click', (event) => {
+        if (
+          mobileQuery.matches &&
+          nav.classList.contains('open') &&
+          !nav.contains(event.target) &&
+          event.target !== navToggle &&
+          !navToggle.contains(event.target)
+        ) {
+          closeNav();
+        }
+      });
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
+
+      if (typeof mobileQuery.addEventListener === 'function') {
+        mobileQuery.addEventListener('change', syncNavForViewport);
+      } else if (typeof mobileQuery.addListener === 'function') {
+        mobileQuery.addListener(syncNavForViewport);
+      }
+      syncNavForViewport();
+    }
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
     // Reveal on scroll
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){ entry.target.classList.add('in'); }
-      });
-    }, {threshold: 0.12});
-    document.querySelectorAll('.reveal').forEach(node => io.observe(node));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){ entry.target.classList.add('in'); }
+        });
+      }, {threshold: 0.12});
+      document.querySelectorAll('.reveal').forEach(node => io.observe(node));
+    } else {
+      document.querySelectorAll('.reveal').forEach(node => node.classList.add('in'));
+    }
     // Яндекс.Метрика: отслеживание целей
     function sendMetrikaGoal(goalName){
       if(!goalName){ return; }
