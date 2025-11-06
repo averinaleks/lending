@@ -30,7 +30,13 @@
   <meta property="og:url" content="https://okoroleva.com/" />
   <meta property="og:site_name" content="Психолог Ольга Королёва" />
   <meta property="og:image" content="https://okoroleva.com/img/olga-koroleva.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1500" />
+  <meta property="og:image:alt" content="Психолог Ольга Королёва на светлом фоне" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Психолог Ольга Королёва — консультации в Москве и онлайн" />
+  <meta name="twitter:description" content="Помогу справиться с тревогой, сложностями в отношениях и внутренними конфликтами. Бережные консультации в Москве и онлайн." />
+  <meta name="twitter:image" content="https://okoroleva.com/img/olga-koroleva.png" />
 
   <!-- ===== Шрифты ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,6 +91,9 @@
     .btn-ghost{ background:transparent; }
     /* Mobile nav */
     .nav-toggle{ display:none; background:transparent; border:1px solid var(--border); border-radius:10px; padding:8px 10px; color:var(--text); }
+    .nav-toggle span[data-icon]{ display:inline-block; transition:transform .2s ease; }
+    .nav-toggle.is-open{ background:var(--accent); color:var(--accent-ink); border-color:rgba(8,50,48,.18); }
+    .nav-toggle.is-open span[data-icon]{ transform:rotate(180deg); }
     @media (max-width: 860px){
       .nav-toggle{ display:inline-flex; align-items:center; gap:8px; }
       nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); display:none; }
@@ -117,6 +126,7 @@
     .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
     .map-embed__fallback{ margin:8px 0 0; font-size:14px; color:var(--muted); }
     .map-embed__fallback a{ color:inherit; text-decoration:underline; }
+    section[id]{ scroll-margin-top:84px; }
     /* ===== FOOTER / FAB ===== */
     .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted); }
     .fab{ position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px; background:var(--accent); color:var(--accent-ink); border:1px solid rgba(8,50,48,.18); box-shadow:0 8px 22px rgba(210,191,171,.28); font-weight:700; }
@@ -237,7 +247,10 @@
         </svg>
         ОЛЬГА КОРОЛЁВА
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Меню ▾</button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle" type="button" aria-label="Открыть меню навигации" aria-haspopup="true">
+        <span data-label>Меню</span>
+        <span aria-hidden="true" data-icon>▾</span>
+      </button>
       <nav id="site-nav" aria-label="Основная навигация">
         <div class="container">
           <a href="#services">Услуги</a>
@@ -272,7 +285,7 @@
           </ul>
         </div>
         <div class="portrait" aria-label="Фото психолога">
-          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" decoding="async" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -443,14 +456,50 @@
     // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('site-nav');
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded','false');
-    }));
+    if (navToggle && nav) {
+      const navLabel = navToggle.querySelector('[data-label]');
+      const navIcon = navToggle.querySelector('[data-icon]');
+      const mobileQuery = window.matchMedia('(max-width: 860px)');
+      const setNavState = (open) => {
+        nav.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', open ? 'Закрыть меню навигации' : 'Открыть меню навигации');
+        navToggle.classList.toggle('is-open', open);
+        if (navLabel) {
+          navLabel.textContent = open ? 'Закрыть' : 'Меню';
+        }
+        if (navIcon) {
+          navIcon.textContent = '▾';
+        }
+        if (mobileQuery.matches && !open) {
+          nav.setAttribute('aria-hidden', 'true');
+        } else {
+          nav.removeAttribute('aria-hidden');
+        }
+      };
+      setNavState(false);
+      navToggle.addEventListener('click', () => {
+        const open = !nav.classList.contains('open');
+        setNavState(open);
+      });
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        if (mobileQuery.matches) {
+          setNavState(false);
+        }
+      }));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && nav.classList.contains('open')) {
+          setNavState(false);
+          navToggle.focus();
+        }
+      });
+      const handleBreakpointChange = () => setNavState(false);
+      if (typeof mobileQuery.addEventListener === 'function') {
+        mobileQuery.addEventListener('change', handleBreakpointChange);
+      } else if (typeof mobileQuery.addListener === 'function') {
+        mobileQuery.addListener(handleBreakpointChange);
+      }
+    }
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
     // Reveal on scroll
