@@ -85,11 +85,15 @@
     .btn-ghost{ background:transparent; }
     /* Mobile nav */
     .nav-toggle{ display:none; background:transparent; border:1px solid var(--border); border-radius:10px; padding:8px 10px; color:var(--text); }
+    body:not(.js) .nav-toggle{ display:none; }
     @media (max-width: 860px){
       .nav-toggle{ display:inline-flex; align-items:center; gap:8px; }
-      nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); display:none; }
-      nav.open{ display:block; }
-      nav .container{ display:flex; flex-direction:column; gap:14px; padding:16px 20px 24px; }
+      body.js nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); }
+      body.js nav[data-state="closed"]{ display:none; }
+      body.js nav[data-state="open"]{ display:block; }
+      body.js nav .container{ display:flex; flex-direction:column; gap:14px; padding:16px 20px 24px; }
+      body:not(.js) nav{ position:static; display:block; border-bottom:none; }
+      body:not(.js) nav .container{ display:flex; flex-wrap:wrap; gap:12px; padding:0; }
     }
     /* ===== HERO ===== */
     .hero{ padding:84px 0 36px; background-color:#C0E0F0; }
@@ -223,7 +227,8 @@
     });
   </script>
 </head>
-<body>
+<body class="no-js">
+  <script>document.body.classList.replace('no-js','js');</script>
   <noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -237,8 +242,8 @@
         </svg>
         ОЛЬГА КОРОЛЁВА
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Меню ▾</button>
-      <nav id="site-nav" aria-label="Основная навигация">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню" id="navToggle">Меню ▾</button>
+      <nav id="site-nav" aria-label="Основная навигация" data-state="closed">
         <div class="container">
           <a href="#services">Услуги</a>
           <a href="#approach">Подход</a>
@@ -272,7 +277,7 @@
           </ul>
         </div>
         <div class="portrait" aria-label="Фото психолога">
-          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;" />
         </div>
       </div>
     </section>
@@ -440,17 +445,62 @@
   <a class="fab" href="#contacts" aria-label="Связаться любым удобным способом" data-goal="fab_contact">Связаться</a>
 
   <script defer>
+    document.body.classList.add('js');
+    document.body.classList.remove('no-js');
     // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('site-nav');
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
+    const mobileQuery = window.matchMedia('(max-width: 860px)');
+
+    function setNavState(open){
+      if(!mobileQuery.matches){
+        nav.removeAttribute('data-state');
+        navToggle.setAttribute('aria-expanded','false');
+        navToggle.setAttribute('aria-label','Открыть меню');
+        navToggle.textContent = 'Меню ▾';
+        return;
+      }
+
+      nav.setAttribute('data-state', open ? 'open' : 'closed');
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+      navToggle.textContent = open ? 'Закрыть меню ✕' : 'Меню ▾';
+    }
+
+    navToggle.addEventListener('click', () => {
+      const open = nav.getAttribute('data-state') !== 'open';
+      setNavState(open);
     });
+
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded','false');
+      setNavState(false);
     }));
+
+    window.addEventListener('keydown', event => {
+      if(event.key === 'Escape' && nav.getAttribute('data-state') === 'open'){
+        setNavState(false);
+        navToggle.focus();
+      }
+    });
+
+    function handleViewportChange(){
+      if(mobileQuery.matches){
+        if(!nav.hasAttribute('data-state')){
+          nav.setAttribute('data-state', 'closed');
+        }
+        setNavState(nav.getAttribute('data-state') === 'open');
+      } else {
+        setNavState(false);
+      }
+    }
+
+    if(typeof mobileQuery.addEventListener === 'function'){
+      mobileQuery.addEventListener('change', handleViewportChange);
+    } else if (typeof mobileQuery.addListener === 'function'){
+      mobileQuery.addListener(handleViewportChange);
+    }
+
+    handleViewportChange();
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
     // Reveal on scroll
