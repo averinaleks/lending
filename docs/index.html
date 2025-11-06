@@ -90,6 +90,7 @@
       nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); display:none; }
       nav.open{ display:block; }
       nav .container{ display:flex; flex-direction:column; gap:14px; padding:16px 20px 24px; }
+      body.nav-open{ overflow:hidden; }
     }
     /* ===== HERO ===== */
     .hero{ padding:84px 0 36px; background-color:#C0E0F0; }
@@ -237,7 +238,9 @@
         </svg>
         ОЛЬГА КОРОЛЁВА
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle">Меню ▾</button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" id="navToggle" aria-label="Открыть меню">
+        <span aria-hidden="true">Меню ▾</span>
+      </button>
       <nav id="site-nav" aria-label="Основная навигация">
         <div class="container">
           <a href="#services">Услуги</a>
@@ -272,7 +275,7 @@
           </ul>
         </div>
         <div class="portrait" aria-label="Фото психолога">
-          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <img src="img/olga-koroleva.png" alt="Портрет психолога Ольги Королёвой" width="640" height="800" style="width:100%; height:100%; object-fit:cover; display:block;" decoding="async" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -443,23 +446,86 @@
     // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const nav = document.getElementById('site-nav');
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    const closeNav = () => {
       nav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded','false');
-    }));
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Открыть меню');
+      document.body.classList.remove('nav-open');
+    };
+    const openNav = () => {
+      nav.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Закрыть меню');
+      document.body.classList.add('nav-open');
+    };
+    navToggle.addEventListener('click', () => {
+      if (nav.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+    nav.addEventListener('click', event => {
+      if (event.target.closest('a')) {
+        closeNav();
+      }
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) {
+        closeNav();
+        navToggle.focus();
+      }
+    });
+    const syncNavState = mqEvent => {
+      if (mqEvent && !mqEvent.matches) {
+        document.body.classList.remove('nav-open');
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Открыть меню');
+      }
+    };
+    let mobileNavMedia = null;
+    if (typeof window.matchMedia === 'function') {
+      mobileNavMedia = window.matchMedia('(max-width: 860px)');
+      syncNavState(mobileNavMedia);
+      if (typeof mobileNavMedia.addEventListener === 'function') {
+        mobileNavMedia.addEventListener('change', syncNavState);
+      } else if (typeof mobileNavMedia.addListener === 'function') {
+        mobileNavMedia.addListener(syncNavState);
+      }
+    }
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
     // Reveal on scroll
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){ entry.target.classList.add('in'); }
-      });
-    }, {threshold: 0.12});
-    document.querySelectorAll('.reveal').forEach(node => io.observe(node));
+    const revealNodes = document.querySelectorAll('.reveal');
+    const prefersReducedMotion = typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)')
+      : { matches: false };
+    const shouldAnimate = !prefersReducedMotion.matches && 'IntersectionObserver' in window;
+    if (shouldAnimate) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){ entry.target.classList.add('in'); }
+        });
+      }, {threshold: 0.12});
+      revealNodes.forEach(node => io.observe(node));
+      if (typeof prefersReducedMotion.addEventListener === 'function') {
+        prefersReducedMotion.addEventListener('change', event => {
+          if (event.matches) {
+            revealNodes.forEach(node => node.classList.add('in'));
+            io.disconnect();
+          }
+        });
+      } else if (typeof prefersReducedMotion.addListener === 'function') {
+        prefersReducedMotion.addListener(event => {
+          if (event.matches) {
+            revealNodes.forEach(node => node.classList.add('in'));
+          }
+        });
+      }
+    } else {
+      revealNodes.forEach(node => node.classList.add('in'));
+    }
     // Яндекс.Метрика: отслеживание целей
     function sendMetrikaGoal(goalName){
       if(!goalName){ return; }
