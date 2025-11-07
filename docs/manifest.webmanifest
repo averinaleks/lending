@@ -6,6 +6,6 @@
   "background_color": "#F8F6F3",
   "theme_color": "#F8F6F3",
   "icons": [
-    { "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><rect rx='24' width='128' height='128' fill='%23FFFFFF'/><circle cx='40' cy='40' r='18' fill='%236CC4A1'/><text x='64' y='74' font-family='Arial' font-size='44' fill='%231E2430'>Ps</text></svg>", "sizes": "128x128", "type": "image/svg+xml" }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }

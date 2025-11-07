@@ -5,7 +5,7 @@ Allow: /$
 Allow: /services/
 Allow: /img/
 Allow: /manifest.webmanifest
-Allow: /favicon.ico
+Allow: /favicon.svg
 Allow: /*.css$
 Allow: /*.js$
 Disallow: /*.md$
