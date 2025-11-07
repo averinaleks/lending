@@ -126,8 +126,9 @@
     .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted); }
     .fab{ position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px; background:var(--accent); color:var(--accent-ink); border:1px solid rgba(8,50,48,.18); box-shadow:0 8px 22px rgba(210,191,171,.28); font-weight:700; }
     /* Анимация появления */
-    .reveal{ opacity:0; transform:translateY(12px); transition:.6s ease; }
-    .reveal.in{ opacity:1; transform:none; }
+    .reveal{ transition:.6s ease; }
+    .animate .reveal{ opacity:0; transform:translateY(12px); }
+    .animate .reveal.in{ opacity:1; transform:none; }
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
     }
@@ -260,6 +261,14 @@
       </nav>
     </div>
   </header>
+
+  <noscript>
+    <style>
+      #site-nav{display:block !important; position:static !important; inset:auto !important;}
+      #site-nav .container{display:flex !important; flex-direction:column !important; gap:14px !important;}
+      body{overflow:auto !important;}
+    </style>
+  </noscript>
 
   <!-- ===== MAIN ===== -->
   <main id="main">
@@ -534,6 +543,7 @@
       : { matches: false };
     const shouldAnimate = !prefersReducedMotion.matches && 'IntersectionObserver' in window;
     if (shouldAnimate) {
+      document.body.classList.add('animate');
       const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if(entry.isIntersecting){ entry.target.classList.add('in'); }
@@ -555,6 +565,7 @@
         });
       }
     } else {
+      document.body.classList.remove('animate');
       revealNodes.forEach(node => node.classList.add('in'));
     }
     // Яндекс.Метрика: отслеживание целей
