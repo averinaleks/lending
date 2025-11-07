@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
+Clean-param: utm_referrer&ref&yclid&gclid&fbclid /
+
 Host: okoroleva.com
 Sitemap: https://okoroleva.com/sitemap.xml
