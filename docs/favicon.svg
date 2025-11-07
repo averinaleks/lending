@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F3EE" />
+      <stop offset="1" stop-color="#F0E9E2" />
+    </linearGradient>
+    <radialGradient id="sphere" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#6F8FB7" />
+      <stop offset="1" stop-color="#2F3C58" />
+    </radialGradient>
+    <linearGradient id="psi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4E7D8" />
+      <stop offset="1" stop-color="#E1C9AE" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)" />
+  <g transform="translate(64 64)">
+    <circle r="46" fill="url(#sphere)" />
+    <g fill="url(#psi)">
+      <rect x="-6" y="-6" width="12" height="56" rx="6" />
+      <path d="M-30 -32a8 8 0 0 1 8 -8h12a8 8 0 0 1 8 8v18h-12v-11a4 4 0 0 0 -4 -4h-4a4 4 0 0 0 -4 4v11h-12z" />
+      <path d="M14 -40h12a8 8 0 0 1 8 8v18h-12v-11a4 4 0 0 0 -4 -4h-4a4 4 0 0 0 -4 4v11h-12v-18a8 8 0 0 1 8 -8z" />
+    </g>
+    <circle cy="16" r="10" fill="#D9C0A5" />
+  </g>
+</svg>
