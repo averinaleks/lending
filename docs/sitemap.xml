@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://okoroleva.com/</loc>
-    <lastmod>2024-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2024-06-15T00:00:00+03:00</lastmod>
   </url>
   <url>
-    <loc>https://okoroleva.com/services/individual-therapy</loc>
-    <lastmod>2024-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://okoroleva.com/services/individual-therapy.html</loc>
+    <lastmod>2024-06-18T00:00:00+03:00</lastmod>
   </url>
   <url>
-    <loc>https://okoroleva.com/microdata-validator</loc>
-    <lastmod>2024-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://okoroleva.com/microdata-validator.html</loc>
+    <lastmod>2024-06-15T00:00:00+03:00</lastmod>
   </url>
   <url>
-    <loc>https://okoroleva.com/yandex-webmaster-advanced</loc>
-    <lastmod>2024-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://okoroleva.com/yandex-webmaster-advanced.html</loc>
+    <lastmod>2024-06-15T00:00:00+03:00</lastmod>
   </url>
 </urlset>
