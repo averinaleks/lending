@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Мониторинг поисковых запросов в Яндекс.Вебмастере — шпаргалка</title>
+  <meta name="description" content="Краткое руководство по разделу «Мониторинг поисковых запросов» в Яндекс.Вебмастере: метрики, фильтры, анализ позиций и спроса." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://okoroleva.com/yandex-popular-queries-monitoring.html" />
+  <script>
+    (function() {
+      if (location.protocol === 'http:' && !/^localhost(?::\d+)?$/.test(location.hostname)) {
+        var destination = 'https://' + location.host + location.pathname + location.search + location.hash;
+        location.replace(destination);
+      }
+    })();
+  </script>
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Мониторинг поисковых запросов в Яндекс.Вебмастере — шпаргалка" />
+  <meta property="og:description" content="Разобрались, какие данные показывает раздел «Мониторинг поисковых запросов» и как использовать фильтры, чтобы увидеть тренды спроса." />
+  <meta property="og:url" content="https://okoroleva.com/yandex-popular-queries-monitoring.html" />
+  <meta property="og:site_name" content="Психолог Ольга Королёва" />
+  <meta property="og:image" content="https://okoroleva.com/img/5199825070732737049.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Мониторинг поисковых запросов в Яндекс.Вебмастере — шпаргалка" />
+  <meta name="twitter:description" content="Подсказки по работе с отчётом: трактовка показов, кликов и спроса, настройка фильтров и проверка позиций." />
+  <meta name="twitter:image" content="https://okoroleva.com/img/5199825070732737049.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#F5F7FA; --bg-soft:#FFFFFF; --text:#1E2430; --muted:#6B7280;
+      --accent:#D2BFAB; --accent-ink:#1E2430; --border:rgba(30,36,48,.12);
+      --radius:18px; --maxw:880px;
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    body{margin:0; font-family:Lato,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+    a{color:inherit;}
+    header{background:var(--bg-soft); border-bottom:1px solid var(--border); padding:28px 0;}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 22px;}
+    h1,h2,h3{font-family:"Playfair Display",Georgia,serif; line-height:1.25; margin:0 0 18px;}
+    h1{font-size:clamp(32px,4.4vw,50px);}
+    h2{font-size:clamp(24px,3.2vw,34px); margin-top:52px;}
+    h3{font-size:clamp(20px,2.6vw,26px); margin-top:30px;}
+    p{margin:0 0 16px;}
+    ul{margin:0 0 20px; padding-left:22px;}
+    .lead{font-size:clamp(17px,2.4vw,21px); color:#4B5563; max-width:720px;}
+    .card{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); padding:22px 24px; box-shadow:0 14px 28px rgba(30,36,48,.08); margin:26px 0;}
+    .pill{display:inline-block; padding:6px 12px; border-radius:999px; background:#EEF7F2; color:#365B4E; font-size:13px; font-weight:600; letter-spacing:.3px; margin-bottom:14px;}
+    footer{margin:72px 0 40px; font-size:14px; color:var(--muted); text-align:center;}
+    .muted{color:var(--muted); font-size:15px;}
+    .skip-link{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;}
+    .skip-link:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; padding:10px 14px; background:var(--accent); color:var(--accent-ink); border-radius:10px; z-index:10;}
+    @media (max-width:640px){
+      header{padding:24px 0 18px;}
+      .card{padding:18px 20px;}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Перейти к содержимому</a>
+  <header>
+    <div class="container">
+      <p class="muted"><a href="/">← На главную</a></p>
+      <h1>Мониторинг поисковых запросов в Яндекс.Вебмастере</h1>
+      <p class="lead">Подборка ключевых рекомендаций из справки Яндекса: как читать данные отчёта, настраивать фильтры и отличать падение спроса от проблем с видимостью.</p>
+    </div>
+  </header>
+  <main id="content" class="container">
+    <section>
+      <h2>Что показывает отчёт</h2>
+      <div class="card">
+        <span class="pill">Обзор</span>
+        <ul>
+          <li>В отчёте собирается до 150 000 поисковых запросов, по которым сайт уже отображается в выдаче Яндекса.</li>
+          <li>Данные сгруппированы в два представления: <strong>«Запрос»</strong> показывает частотный URL для каждого запроса, <strong>«URL»</strong> — самый популярный запрос для выбранной страницы.</li>
+          <li>При переключении между представлениями Яндекс автоматически связывает запросы и страницы, поэтому удобно искать не только запросы, но и посадочные страницы.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Метрики и трактовка</h2>
+      <div class="card">
+        <span class="pill">Показатели</span>
+        <ul>
+          <li><strong>Показы</strong> фиксируют фактические появления сниппета на экране пользователя (включая динамические места). Потенциальные показы на следующих страницах не считаются.</li>
+          <li><strong>Клики</strong> учитывают переходы со сниппета в органической выдаче и в динамических местах.</li>
+          <li><strong>CTR</strong> рассчитывается по суммарным показам и кликам, помогает судить о привлекательности сниппета.</li>
+          <li><strong>Позиция</strong> — среднее место выдачи, на котором виден сайт. Значение может отсутствовать, если сайт не показался, спрос равен нулю или пользователи не дошли до сайта.</li>
+          <li><strong>Спрос</strong> отражает, насколько часто пользователи вводят запрос. Он доступен только в представлении «Запрос» и может быть выше суммарных показов, если сайт появляется несколько раз на первой странице.</li>
+        </ul>
+        <p class="muted">Когда для одного запроса ранжируется несколько страниц, Яндекс суммирует показы и клики, позицию усредняет, а CTR считает по общей сумме.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Как работать с фильтрами</h2>
+      <div class="card">
+        <span class="pill">Сегментация</span>
+        <ul>
+          <li>Используйте фильтры «включает», «не включает», «точное соответствие» или регулярные выражения, чтобы выбрать или исключить запросы и URL.</li>
+          <li>Фильтр «содержится в группе» подтягивает ранее сохранённые группы запросов из списка — удобно для повторных проверок.</li>
+          <li>Для метрик (показы, клики, позиция, CTR, спрос) задавайте условия «больше/меньше» на выбранном интервале — в таблице останутся строки, которые соответствовали условию во все дни.</li>
+          <li>Интервал мониторинга поддерживает последние две недели с разбивкой по дням или 18 месяцев с усреднением по месяцам.</li>
+        </ul>
+        <p class="muted">При работе в представлении «URL» спрос не отображается — он доступен только по запросам, и фильтр по спросу тоже работает в этом режиме.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Проверка позиций и спроса</h2>
+      <div class="card">
+        <span class="pill">Практические шаги</span>
+        <ul>
+          <li>Чтобы отслеживать видимость, выберите показатель «Позиция», при необходимости задайте регион и тип устройства — так проще понять, где проседает выдача.</li>
+          <li>Сравнивайте «Спрос» и «Показы», чтобы отделить сезонные колебания спроса от технических проблем. Для удобства выгружайте данные в XLS.</li>
+          <li>Фиксируйте сегменты запросов или URL и смотрите динамику спроса — помогает планировать контент и приоритизировать страницы.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Полезные заметки</h2>
+      <div class="card">
+        <span class="pill">Нюансы</span>
+        <ul>
+          <li>Если позиция отсутствует, сначала проверьте значение спроса: ноль означает, что запрос не вводили, ненулевой спрос — сигнал проверить, нашёл ли пользователь сайт.</li>
+          <li>Подсказка в графике показывает точные значения по наведению — удобно отслеживать изменения в конкретную дату.</li>
+          <li>Для детальной аналитики по URL используйте переключатель представлений: в режиме «Запрос» легко найти связку запрос → страница, а в режиме «URL» — отследить, какие поисковые запросы тянут страницу вверх.</li>
+        </ul>
+        <p class="muted">Подробнее см. официальную справку — <a href="https://yandex.ru/support/webmaster/ru/service/popular-queries" rel="noreferrer noopener">«Мониторинг поисковых запросов»</a>.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Материал подготовлен по рекомендациям Яндекс.Вебмастера, чтобы быстрее применять отчёт «Мониторинг поисковых запросов» на практике.
+  </footer>
+</body>
+</html>
