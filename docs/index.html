@@ -164,6 +164,16 @@
     ],
     "areaServed":"Москва, онлайн — Россия/СНГ",
     "serviceArea":{"@type":"AdministrativeArea","name":"Россия и страны СНГ"},
+    "founder":{"@type":"Person","name":"Ольга Королёва"},
+    "contactPoint":[
+      {
+        "@type":"ContactPoint",
+        "telephone":"+7-977-766-58-15",
+        "contactType":"customer support",
+        "availableLanguage":["ru"],
+        "areaServed":["RU","BY","KZ"]
+      }
+    ],
     "geo":{
       "@type":"GeoCoordinates",
       "latitude":55.7601,
@@ -177,15 +187,6 @@
       "addressCountry":"RU"
     },
     "hasMap":"https://yandex.ru/maps/-/CDBYbYIQ",
-    "makesOffer":[
-      {
-        "@type":"Offer",
-        "name":"Индивидуальная сессия 60 минут",
-        "price":"4000",
-        "priceCurrency":"RUB",
-        "availability":"https://schema.org/InStock"
-      }
-    ],
     "openingHoursSpecification":[
       {
         "@type":"OpeningHoursSpecification",
@@ -208,7 +209,11 @@
     "@type":"Person",
     "name":"Ольга Королёва",
     "jobTitle":"Психолог, психоаналитик",
+    "url":"https://okoroleva.com/",
+    "telephone":"+7-977-766-58-15",
     "worksFor":{"@type":"Organization","name":"Психолог Ольга Королёва"},
+    "alumniOf":[{"@type":"CollegeOrUniversity","name":"НИУ ВШЭ"}],
+    "knowsAbout":["психоанализ","психодинамическая терапия","работа с тревожностью"],
     "sameAs":["https://t.me/Olgakoroleva05"]
   }
   </script>
@@ -220,7 +225,8 @@
       {"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"15 минут онлайн: знакомство, запрос, формат, ответы на вопросы. Если ок — назначаем сессию."}},
       {"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Зависит от запроса. Может длиться несколько месяцев или больше года — всё индивидуально. Регулярно обсуждаем прогресс."}},
       {"@type":"Question","name":"Онлайн так же эффективно?","acceptedAnswer":{"@type":"Answer","text":"Для многих запросов — да. Психоанализ возможен онлайн; важны регулярность встреч и доверительный контакт."}},
-      {"@type":"Question","name":"Можно отменить или перенести встречу?","acceptedAnswer":{"@type":"Answer","text":"Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс‑мажоре)."}}
+      {"@type":"Question","name":"Можно отменить или перенести встречу?","acceptedAnswer":{"@type":"Answer","text":"Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс‑мажоре)."}},
+      {"@type":"Question","name":"Как обрабатываются персональные данные?","acceptedAnswer":{"@type":"Answer","text":"Контактные данные используются только для связи по консультациям, доступны лишь специалисту и удаляются по запросу клиента."}}
     ],
     "hasPart":{"@type":"WebPageElement","name":"Как добраться","url":"https://yandex.ru/maps/-/CDBYbYIQ"}
   }
@@ -429,6 +435,12 @@
             <div itemprop="text">Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс‑мажоре).</div>
           </div>
         </details>
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Как обрабатываются персональные данные?</summary>
+          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <div itemprop="text">Контактная информация используется только для связи по вопросам консультаций. Доступ к ней имеет только специалист, при необходимости могу удалить или скорректировать данные по вашему запросу.</div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -445,7 +457,7 @@
       <div class="container">
         <h2>Политика конфиденциальности</h2>
         <p>Я бережно отношусь к вашим данным. Контактная информация из формы записи и сообщений используется только для организации консультаций и не передается третьим лицам.</p>
-        <p class="muted">Отправляя форму, вы соглашаетесь на обработку персональных данных для связи по указанным контактам. Электронные письма и сообщения хранятся в защищенных почтовых сервисах, и по вашему запросу я удалю их.</p>
+        <p class="muted">Отправляя заявку, вы соглашаетесь на обработку персональных данных в целях связи и подготовки консультации. Данные хранятся в защищённых почтовых сервисах, доступ к ним имеет только специалист, и по вашему запросу они будут удалены или скорректированы.</p>
       </div>
     </section>
 
@@ -463,14 +475,6 @@
             <p style="margin-bottom:12px" itemprop="description">Позвоните или напишите — обычно отвечаю в течение рабочего дня и подбираю ближайшие свободные слоты.</p>
             <p style="margin-bottom:12px"><strong>Телефон:</strong> <a href="tel:+79777665815" data-goal="contact_phone" itemprop="telephone">+7 977 766‑58‑15</a></p>
             <p style="margin-bottom:12px"><strong>Telegram:</strong> <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="contact_telegram">@Olgakoroleva05</a></p>
-            <ul class="contact-hours" aria-label="График работы">
-              <li>Пн–Пт: 10:00–20:00</li>
-              <li>Сб: 11:00–16:00</li>
-              <li>Вс: выходной</li>
-            </ul>
-            <meta itemprop="openingHours" content="Mo-Fr 10:00-20:00" />
-            <meta itemprop="openingHours" content="Sa 11:00-16:00" />
-            <p class="muted" style="margin-bottom:0">Работаю очно в Москве и онлайн для регионов России и стран СНГ. Оплата картой, через СБП или наличными.</p>
           </div>
           <p style="margin-top:18px"><strong>Адрес очного приёма:</strong> <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">ул. Петровка, 18</span>, <span itemprop="addressLocality">Москва</span></span></p>
           <div class="card card-pad" style="margin-top:8px">
