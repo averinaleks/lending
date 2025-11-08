@@ -23,8 +23,14 @@
   </url>
   <url>
     <loc>https://okoroleva.com/yandex-webmaster-advanced.html</loc>
-    <lastmod>2024-07-10T00:00:00+03:00</lastmod>
+    <lastmod>2024-07-12T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://okoroleva.com/yandex-popular-queries-monitoring.html</loc>
+    <lastmod>2024-07-12T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
