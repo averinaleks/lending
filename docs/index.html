@@ -71,7 +71,7 @@
     a{ color:inherit; text-decoration:none; }
     .muted{ color:var(--muted); }
     .hint{ color:var(--muted); font-size:12px; }
-    .lead{ font-size:clamp(16px, 2.6vw, 20px); color:#4B5563; }
+    .lead{ font-size:clamp(16px, 2.6vw, 20px); color:#4B5563; max-width:640px; }
     .section{ padding:72px 0; }
     .card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); }
     .card-pad{ padding:22px; }
@@ -309,8 +309,8 @@
       <div class="container hero-grid">
         <div>
           <span class="pill">Психолог • Москва • онлайн/очно</span>
-          <h1>Психоанализ как путь к себе</h1>
-          <p class="lead">Терапия, которая помогает услышать себя, разобраться с внутренними конфликтами и снизить тревожность.</p>
+          <h1>Психолог Ольга Королёва — консультации в Москве и онлайн</h1>
+          <p class="lead">Терапия, которая помогает услышать себя, разобраться с внутренними конфликтами и снизить тревожность. Работаю очно в центре Москвы и онлайн, подбираю формат под ваш запрос.</p>
           <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap">
             <a class="btn btn-primary" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="hero_signup">Записаться на встречу</a>
           </div>
@@ -481,8 +481,14 @@
             <p style="margin-bottom:12px" itemprop="description">Позвоните или напишите — обычно отвечаю в течение рабочего дня и подбираю ближайшие свободные слоты.</p>
             <p style="margin-bottom:12px"><strong>Телефон:</strong> <a href="tel:+79777665815" data-goal="contact_phone" itemprop="telephone">+7 977 766‑58‑15</a></p>
             <p style="margin-bottom:12px"><strong>Telegram:</strong> <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="contact_telegram">@Olgakoroleva05</a></p>
+            <p style="margin-bottom:12px"><strong>Адрес:</strong> <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">ул. Петровка, 18</span>, <span itemprop="addressLocality">Москва</span></span></p>
+            <ul class="contact-hours" aria-label="Часы приёма">
+              <li>Пн–Пт 10:00–20:00</li>
+              <li>Сб 11:00–16:00</li>
+            </ul>
+            <meta itemprop="openingHours" content="Mo-Fr 10:00-20:00" />
+            <meta itemprop="openingHours" content="Sa 11:00-16:00" />
           </div>
-          <p style="margin-top:18px"><strong>Адрес очного приёма:</strong> <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">ул. Петровка, 18</span>, <span itemprop="addressLocality">Москва</span></span></p>
           <div class="card card-pad" style="margin-top:8px">
             <strong>Важно:</strong> если вы в остром кризисе или чувствуете угрозу жизни, обратитесь в экстренные службы вашего региона. Терапия не заменяет медицинскую помощь.
           </div>
