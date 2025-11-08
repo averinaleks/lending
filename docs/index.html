@@ -123,6 +123,8 @@
     .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
     .map-embed__fallback{ margin:8px 0 0; font-size:14px; color:var(--muted); }
     .map-embed__fallback a{ color:inherit; text-decoration:underline; }
+    .contact-hours{ list-style:none; margin:12px 0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
+    .contact-hours li{ padding:6px 10px; border-radius:10px; background:#EEF2F7; color:var(--text); font-size:14px; }
     /* ===== FOOTER / FAB ===== */
     .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted); }
     .fab{ position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px; background:var(--accent); color:var(--accent-ink); border:1px solid rgba(8,50,48,.18); box-shadow:0 8px 22px rgba(210,191,171,.28); font-weight:700; }
@@ -150,6 +152,16 @@
     "telephone":"+7-977-766-58-15",
     "priceRange":"₽₽",
     "paymentAccepted":"Card,SBP,Cash",
+    "currenciesAccepted":"RUB",
+    "contactPoint":[
+      {
+        "@type":"ContactPoint",
+        "telephone":"+7-977-766-58-15",
+        "contactType":"customer service",
+        "areaServed":"RU",
+        "availableLanguage":["Russian"]
+      }
+    ],
     "areaServed":"Москва, онлайн — Россия/СНГ",
     "serviceArea":{"@type":"AdministrativeArea","name":"Россия и страны СНГ"},
     "geo":{
@@ -165,6 +177,15 @@
       "addressCountry":"RU"
     },
     "hasMap":"https://yandex.ru/maps/-/CDBYbYIQ",
+    "makesOffer":[
+      {
+        "@type":"Offer",
+        "name":"Индивидуальная сессия 60 минут",
+        "price":"4000",
+        "priceCurrency":"RUB",
+        "availability":"https://schema.org/InStock"
+      }
+    ],
     "openingHoursSpecification":[
       {
         "@type":"OpeningHoursSpecification",
@@ -349,19 +370,19 @@
         <h2>Форматы и стоимость</h2>
         <div class="grid" style="margin-top:16px">
           <div class="card card-pad reveal">
-            <h3>Индивидуальная</h3>
+            <h3>Индивидуальная сессия</h3>
             <div style="font-size:28px; font-weight:800">4 000 ₽</div>
             <div class="muted">60 минут • онлайн/очно</div>
-            <p class="muted">Оплата заранее, перенос за 24 часа.</p>
+            <p class="muted">Перенос за 24 часа, оплата до начала встречи.</p>
           </div>
           <div class="card card-pad reveal">
             <h3>Вводная встреча</h3>
             <div style="font-size:28px; font-weight:800">0 ₽</div>
             <div class="muted">15 минут онлайн</div>
-            <p class="muted">Познакомимся, уточним запрос и формат.</p>
+            <p class="muted">Знакомимся, формулируем запрос и согласуем формат работы.</p>
           </div>
         </div>
-        <p class="hint">Доступны: перевод, СБП, карта. Чеки по запросу.</p>
+        <p class="hint">Оплата картой, через СБП или наличными. Чеки по запросу, работаю с физическими лицами.</p>
       </div>
     </section>
 
@@ -433,13 +454,25 @@
       <div class="container contact">
         <div>
           <h2>Контакты и запись</h2>
-          <div class="card card-pad reveal">
-            <p style="margin-bottom:12px">Позвоните или напишите в мессенджер — обычно отвечаю в течение рабочего дня.</p>
-            <p style="margin-bottom:12px"><strong>Телефон:</strong> <a href="tel:+79777665815" data-goal="contact_phone">+7 977 766‑58‑15</a></p>
+          <div class="card card-pad reveal" itemscope itemtype="https://schema.org/LocalBusiness">
+            <meta itemprop="name" content="Психолог Ольга Королёва" />
+            <meta itemprop="url" content="https://okoroleva.com/" />
+            <meta itemprop="paymentAccepted" content="Card, SBP, Cash" />
+            <meta itemprop="priceRange" content="₽₽" />
+            <meta itemprop="areaServed" content="Москва, Россия и страны СНГ" />
+            <p style="margin-bottom:12px" itemprop="description">Позвоните или напишите — обычно отвечаю в течение рабочего дня и подбираю ближайшие свободные слоты.</p>
+            <p style="margin-bottom:12px"><strong>Телефон:</strong> <a href="tel:+79777665815" data-goal="contact_phone" itemprop="telephone">+7 977 766‑58‑15</a></p>
             <p style="margin-bottom:12px"><strong>Telegram:</strong> <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="contact_telegram">@Olgakoroleva05</a></p>
-            <p class="muted" style="margin-bottom:0">Сообщите желаемый формат встречи и удобное время — предложу ближайшие слоты.</p>
+            <ul class="contact-hours" aria-label="График работы">
+              <li>Пн–Пт: 10:00–20:00</li>
+              <li>Сб: 11:00–16:00</li>
+              <li>Вс: выходной</li>
+            </ul>
+            <meta itemprop="openingHours" content="Mo-Fr 10:00-20:00" />
+            <meta itemprop="openingHours" content="Sa 11:00-16:00" />
+            <p class="muted" style="margin-bottom:0">Работаю очно в Москве и онлайн для регионов России и стран СНГ. Оплата картой, через СБП или наличными.</p>
           </div>
-          <p style="margin-top:18px"><strong>Адрес очного приёма:</strong> ул. Петровка, 18, Москва</p>
+          <p style="margin-top:18px"><strong>Адрес очного приёма:</strong> <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">ул. Петровка, 18</span>, <span itemprop="addressLocality">Москва</span></span></p>
           <div class="card card-pad" style="margin-top:8px">
             <strong>Важно:</strong> если вы в остром кризисе или чувствуете угрозу жизни, обратитесь в экстренные службы вашего региона. Терапия не заменяет медицинскую помощь.
           </div>
