@@ -12,6 +12,7 @@
 - **Контактный блок дополнен картой.** Для удобства пользователей и ассессоров добавлена встроенная карта Яндекс с fallback-ссылкой и отражением в JSON-LD. 【F:docs/index.html†L121-L173】【F:docs/index.html†L408-L430】
 - **Контент доступен без JavaScript.** Ключевые секции страницы показываются сразу, а анимации подключаются только при поддержке браузером Intersection Observer; для мобильного меню добавлен noscript-стиль, чтобы оно оставалось доступным роботам и посетителям. 【F:docs/index.html†L128-L131】【F:docs/index.html†L265-L271】【F:docs/index.html†L544-L569】
 - **Канонические URL соответствуют реальным путям.** У материалов `microdata-validator`, `yandex-webmaster-advanced` и страницы услуги канонические ссылки, `og:url` и JSON-LD теперь указывают на `.html`-версии, чтобы Яндекс не фиксировал «фатальные» 404 при обходе. 【F:docs/microdata-validator.html†L10-L24】【F:docs/yandex-webmaster-advanced.html†L8-L24】【F:docs/services/individual-therapy.html†L8-L70】
+- **Исправления по «Диагностике сайта».** На странице услуги включён редирект на HTTPS и полный набор Open Graph/Twitter-тегов, чтобы закрыть советы о безопасном зеркале и корректном сниппете. В `sitemap.xml` для всех URL добавлены свежие `lastmod`, `changefreq` и `priority`, как рекомендует раздел про XML-карты. 【F:docs/services/individual-therapy.html†L8-L43】【F:docs/sitemap.xml†L1-L20】
 
 ## Зоны роста
 1. **Регулярно сверять данные `lastmod`.** После релизов обновляйте даты в `sitemap.xml`, чтобы отчёт «Файлы sitemap» показывал свежесть страниц. 【F:docs/sitemap.xml†L1-L20】
