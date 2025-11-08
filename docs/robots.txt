@@ -1,11 +1,21 @@
-# robots.txt для okoroleva.com — настройки по рекомендациям Яндекс.Вебмастера
-# Общие правила: закрываем служебные файлы и дубли, не ограничивая индексацию контента и статических ресурсов.
+# robots.txt for okoroleva.com — tuned per Yandex Webmaster recommendations
+# General rules: keep key content and static assets crawlable while blocking service duplicates.
 User-agent: *
+Allow: /$
+Allow: /favicon.svg
+Allow: /manifest.webmanifest
+Allow: /img/
+Allow: /services/
 Disallow: /404.html
 Disallow: /*.md$
 
-# Для робота Яндекса дополнительно указываем обработку параметров URL.
+# Yandex-specific settings, including URL parameter normalization.
 User-agent: Yandex
+Allow: /$
+Allow: /favicon.svg
+Allow: /manifest.webmanifest
+Allow: /img/
+Allow: /services/
 Disallow: /404.html
 Disallow: /*.md$
 Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
