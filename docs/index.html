@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="ru" dir="ltr">
 <head>
-  <!-- ===== БАЗА ===== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="MobileOptimized" content="width" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="robots" content="all" />
-  <meta name="theme-color" content="#F8F6F3" />
+  <meta name="theme-color" content="#F4EFE6" />
   <meta name="geo.region" content="RU-MOW" />
   <meta name="geo.placename" content="Москва" />
   <meta name="geo.position" content="55.7601;37.6156" />
@@ -18,7 +17,6 @@
   <meta name="keywords" content="психолог, консультация психолога, психотерапия, психоанализ, Москва, онлайн терапия" />
   <link rel="canonical" href="https://okoroleva.com/" />
   <link rel="alternate" href="https://okoroleva.com/" hreflang="ru-RU" />
-  <!-- Код подтверждения в Яндекс.Вебмастере -->
   <meta name="yandex-verification" content="3f5f9e6fca0df4b3" />
   <script>
     (function() {
@@ -29,7 +27,6 @@
     })();
   </script>
 
-  <!-- ===== Open Graph / Twitter ===== -->
   <meta property="og:locale" content="ru_RU">
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Психолог-психоаналитик Ольга Королёва — консультации в Москве и онлайн" />
@@ -39,127 +36,16 @@
   <meta property="og:image" content="https://okoroleva.com/img/5199825070732737049.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ===== Шрифты ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" as="style" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" />
-  </noscript>
-  <link rel="preload" as="image" href="/img/5199825070732737049.jpg" imagesrcset="/img/5199825070732737049.jpg 640w" imagesizes="(max-width: 860px) 100vw, 480px" fetchpriority="high" />
-  <!-- ===== Favicon / Icons ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Forum&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preload" as="image" href="/img/5199825070732737049.jpg" imagesrcset="/img/5199825070732737049.jpg 640w" imagesizes="(max-width: 860px) 100vw, 480px" fetchpriority="high" />
+  <link rel="stylesheet" href="/assets/css/book.css" />
 
-  <style>
-    /* ===== ТЕМА / ПАЛИТРА ===== */
-    :root{
-      --bg:#F5F7FA; --bg-soft:#FFFFFF; --text:#1E2430; --muted:#6B7280;
-      --accent:#D2BFAB; --accent-ink:#1E2430; --card:#FFFFFF; --border:rgba(30,36,48,.10);
-      --shadow:0 10px 30px rgba(30,36,48,.06); --maxw:1120px; --radius:20px;
-    }
-    /* ===== БАЗА ===== */
-    *,*::before,*::after{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
-    body{
-      margin:0; font-family: Lato, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      color:var(--text); line-height:1.6;
-      background: var(--bg);
-      overflow-wrap:break-word;
-    }
-    .container{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
-    h1,h2,h3{ line-height:1.2; margin:0 0 12px; }
-    h1{ font-size:clamp(32px, 6.4vw, 56px); letter-spacing:-.01em; font-family:"Playfair Display", Georgia, serif; }
-    h2{ font-size:clamp(24px, 3.6vw, 36px); font-family:"Playfair Display", Georgia, serif; }
-    h3{ font-size:clamp(18px, 2.5vw, 22px); }
-    p{ margin:0 0 12px; }
-    a{ color:inherit; text-decoration:none; }
-    img,picture,video{ max-width:100%; height:auto; }
-    iframe{ max-width:100%; }
-    .muted{ color:var(--muted); }
-    .hint{ color:var(--muted); font-size:12px; }
-    .lead{ font-size:clamp(16px, 2.6vw, 20px); color:#4B5563; }
-    .section{ padding:72px 0; }
-    .card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); }
-    .card-pad{ padding:22px; }
-    .pill{ display:inline-block; padding:6px 10px; border-radius:999px; background:#EEF7F2; color:#365B4E; border:1px solid #D7EFE4; font-size:12px; }
-    :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:8px; }
-    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; background:var(--accent); color:var(--accent-ink); padding:10px 14px; border-radius:8px; z-index:9999; }
-    /* ===== HEADER ===== */
-    .site-header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,.76); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid var(--border); }
-    .nav-row{ display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px; }
-    .logo svg{ width:24px; height:24px; }
-    nav a{ margin:0 14px; color:var(--muted); display:inline-flex; align-items:center; padding:8px 0; min-height:48px; touch-action:manipulation; }
-    nav a[aria-current="page"]{ color:var(--text); }
-    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:14px 18px; border-radius:16px; border:1px solid var(--border); background:var(--bg-soft); transition:transform .08s ease, background .2s ease, border-color .2s ease; font-weight:600; min-height:48px; touch-action:manipulation; }
-    .btn:hover{ transform:translateY(-2px); }
-    .btn-primary{ background:var(--accent); color:var(--accent-ink); border-color:rgba(8,50,48,.18); box-shadow:0 6px 14px rgba(210,191,171,.22); }
-    .btn-ghost{ background:transparent; }
-    .service-card h3{ margin-bottom:6px; }
-    .service-card h3 a{ color:var(--text); text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:6px; }
-    .service-card .service-link{ display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-weight:600; color:#365B4E; min-height:48px; padding:12px 0; touch-action:manipulation; }
-    .service-card .service-link svg{ width:16px; height:16px; }
-    /* Mobile nav */
-    .nav-toggle{ display:none; background:transparent; border:1px solid var(--border); border-radius:10px; padding:12px 14px; color:var(--text); align-items:center; gap:8px; min-height:48px; touch-action:manipulation; }
-    @media (max-width: 860px){
-      .nav-toggle{ display:inline-flex; align-items:center; gap:8px; }
-      nav{ position:fixed; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--border); display:none; }
-      nav.open{ display:block; }
-      nav .container{ display:flex; flex-direction:column; gap:0; padding:16px 20px 24px; }
-      nav a{ width:100%; padding:14px 0; margin:0; border-bottom:1px solid var(--border); }
-      nav a:last-child{ border-bottom:none; }
-      body.nav-open{ overflow:hidden; }
-    }
-    /* ===== HERO ===== */
-    .hero{ padding:84px 0 36px; background-color:#C0E0F0; }
-    .hero-grid{ display:grid; gap:28px; grid-template-columns:1.25fr .75fr; }
-    @media (max-width: 860px){ .hero-grid{ grid-template-columns:1fr; } }
-    .stats{ display:flex; flex-wrap:wrap; gap:14px; margin-top:18px; }
-    .stats li{ list-style:none; padding:8px 10px; border:1px dashed var(--border); border-radius:10px; color:var(--muted); }
-    .portrait{ min-height:280px; border-radius:20px; border:1px solid var(--border); overflow:hidden; background:linear-gradient(180deg, #FFFFFF, #FAFAF9); }
-    /* ===== GRID ===== */
-    .grid{ display:grid; gap:18px; grid-template-columns:repeat(3,minmax(0,1fr)); }
-    @media (max-width: 960px){ .grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width: 560px){ .grid{ grid-template-columns:1fr; } }
-    /* ===== TESTIMONIALS ===== */
-    .t-carousel{ display:grid; gap:12px; }
-    .t-track{ display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:4px; }
-    .t-card{ flex:0 0 min(360px,86%); scroll-snap-align:start; padding:16px; border-radius:16px; border:1px solid var(--border); background:#fff; box-shadow:0 8px 18px rgba(30,36,48,.05); }
-    /* ===== FAQ ===== */
-    details{ border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff; }
-    details + details{ margin-top:10px; }
-    summary{ cursor:pointer; font-weight:600; outline:none; }
-    /* ===== CONTACTS ===== */
-    .contact{ display:grid; gap:18px; grid-template-columns:1.1fr .9fr; }
-    @media (max-width: 900px){ .contact{ grid-template-columns:1fr; } }
-    .map-embed{ position:relative; padding-bottom:66%; border-radius:16px; overflow:hidden; border:1px solid var(--border); background:#fff; box-shadow:0 10px 24px rgba(30,36,48,.08); }
-    .map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
-    .map-embed__fallback{ margin:8px 0 0; font-size:14px; color:var(--muted); }
-    .map-embed__fallback a{ color:inherit; text-decoration:underline; }
-    .contact-hours{ list-style:none; margin:12px 0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
-    .contact-hours li{ padding:6px 10px; border-radius:10px; background:#EEF2F7; color:var(--text); font-size:14px; }
-    /* ===== FOOTER / FAB ===== */
-    .site-footer{ border-top:1px solid var(--border); padding:32px 0 56px; color:var(--muted); }
-    .footer-links{ list-style:none; margin:8px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:12px; }
-    .footer-links li{ margin:0; }
-    .footer-links a{ text-decoration:underline; color:inherit; }
-    .fab{ position:fixed; right:18px; bottom:18px; z-index:60; border-radius:999px; padding:14px 18px; background:var(--accent); color:var(--accent-ink); border:1px solid rgba(8,50,48,.18); box-shadow:0 8px 22px rgba(210,191,171,.28); font-weight:700; display:inline-flex; align-items:center; justify-content:center; min-height:52px; touch-action:manipulation; }
-    /* Анимация появления */
-    .reveal{ transition:.6s ease; }
-    .animate .reveal{ opacity:0; transform:translateY(12px); }
-    .animate .reveal.in{ opacity:1; transform:none; }
-    @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
-    }
-  </style>
-
-  <!-- ===== Structured Data (JSON‑LD) ===== -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -245,14 +131,13 @@
       {"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"15 минут онлайн: знакомство, запрос, формат, ответы на вопросы. Если ок — назначаем сессию."}},
       {"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Зависит от запроса. Может длиться несколько месяцев или больше года — всё индивидуально. Регулярно обсуждаем прогресс."}},
       {"@type":"Question","name":"Онлайн так же эффективно?","acceptedAnswer":{"@type":"Answer","text":"Для многих запросов — да. Психоанализ возможен онлайн; важны регулярность встреч и доверительный контакт."}},
-      {"@type":"Question","name":"Можно отменить или перенести встречу?","acceptedAnswer":{"@type":"Answer","text":"Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс‑мажоре)."}},
-      {"@type":"Question","name":"Чем психоаналитическая терапия отличается от других подходов?","acceptedAnswer":{"@type":"Answer","text":"В психоанализе исследуем бессознательные конфликты, отношения и переживания, которые повторяются. Работа строится на регулярных сессиях, анализе переноса и свободных ассоциаций, чтобы добраться до глубинных причин симптомов. В отличие от техник, сфокусированных на быстром устранении симптома, психоаналитический подход помогает понять корни переживаний и изменить устойчивые паттерны поведения."}},
+      {"@type":"Question","name":"Можно отменить или перенести встречу?","acceptedAnswer":{"@type":"Answer","text":"Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс-мажоре)."}},
+      {"@type":"Question","name":"Чем психоаналитическая терапия отличается от других подходов?","acceptedAnswer":{"@type":"Answer","text":"В психоанализе исследуем бессознательные конфликты, отношения и переживания, которые повторяются. Работа строится на регулярных сессиях, анализе переноса и свободных ассоциаций, чтобы добраться до глубинных причин симптомов."}},
       {"@type":"Question","name":"Как обрабатываются персональные данные?","acceptedAnswer":{"@type":"Answer","text":"Контактные данные используются только для связи по консультациям, доступны лишь специалисту и удаляются по запросу клиента."}}
     ],
     "hasPart":{"@type":"WebPageElement","name":"Как добраться","url":"https://yandex.ru/maps/-/CDBYbYIQ"}
   }
   </script>
-  <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -279,396 +164,195 @@
 </head>
 <body>
   <noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
-  <!-- ===== HEADER ===== -->
-  <header class="site-header" role="banner">
-    <div class="container nav-row">
-      <a href="#home" class="logo" aria-label="Логотип: психолог Ольга Королёва">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 32" aria-hidden="true">
-          <rect x="0" y="0" width="128" height="32" rx="8" fill="#FFFFFF"/>
-          <circle cx="16" cy="16" r="8" fill="#6CC4A1"/>
-        </svg>
-        ОЛЬГА КОРОЛЁВА
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" id="navToggle" aria-label="Открыть меню">
-        <span aria-hidden="true">Меню ▾</span>
-      </button>
-      <nav id="site-nav" aria-label="Основная навигация">
-        <div class="container">
-          <a href="#services">Услуги</a>
-          <a href="services/individual-therapy.html">Индивидуальная терапия</a>
-          <a href="#approach">Подход</a>
-          <a href="#about">Обо мне</a>
-          <a href="#pricing">Стоимость</a>
-          <a href="#testimonials">Отзывы</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contacts">Контакты</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <noscript>
-    <style>
-      #site-nav{display:block !important; position:static !important; inset:auto !important;}
-      #site-nav .container{display:flex !important; flex-direction:column !important; gap:14px !important;}
-      body{overflow:auto !important;}
-    </style>
-  </noscript>
-
-  <!-- ===== MAIN ===== -->
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero" id="home" aria-label="Первый экран">
-      <div class="container hero-grid">
-        <div>
-          <span class="pill">Психолог • Москва • онлайн/очно</span>
-          <h1>Психоанализ как путь к себе</h1>
-          <p class="lead">Добро пожаловать в безопасное пространство психоанализа, где мы вместе исследуем бессознательное и прислушиваемся к тихим смыслам вашей жизни. Здесь можно опереться на мою поддержку, встречаться с чувствами и шаг за шагом восстанавливать внутренние связи. Приглашаю вас стать соавтором собственной истории и записаться на встречу, когда будете готовы.</p>
-          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap">
-            <a class="btn btn-primary" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="hero_signup">Записаться на встречу</a>
-          </div>
-          <ul class="stats" aria-label="Факты и доверие">
-            <li>60‑мин сессии</li>
-            <li>Конфиденциально</li>
-            <li>Доказательный подход</li>
-          </ul>
-        </div>
-        <div class="portrait" aria-label="Фото психолога">
-          <img src="img/5199825070732737049.jpg" alt="Портрет психолога Ольги Королёвой" width="640" height="640" style="width:100%; height:100%; object-fit:cover; display:block;" decoding="async" fetchpriority="high" />
-        </div>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="book">
+    <header class="header" id="home">
+      <div class="brand" aria-label="Психолог-психоаналитик Ольга Королёва">
+        <a href="#home">Ольга Королёва</a>
       </div>
-    </section>
-      <svg width="100%" height="80" viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,32 C320,80 720,0 1440,32 L1440,80 L0,80 Z" fill="#F5F7FA"/>
-      </svg>
-    <!-- SERVICES -->
-    <section class="section" id="services" aria-label="С чем помогаю">
-      <div class="container">
-        <h2>С чем помогаю</h2>
-        <p class="muted">Если вы узнали себя — это хороший повод прийти на первую встречу.</p>
-        <div class="grid" style="margin-top:16px">
-          <div class="card card-pad reveal service-card">
-            <h3><a href="services/individual-therapy.html">Индивидуальная психотерапия</a></h3>
-            <p>Глубокая работа с тревогой, кризисами и отношениями — онлайн и очно в центре Москвы. Когда внутри тяжесть и мысли не дают расслабиться.</p>
-            <a class="service-link" href="services/individual-therapy.html">Подробнее
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 11h10.17l-3.58-3.59L13 6l6 6-6 6-1.41-1.41L15.17 13H5z"/></svg>
-            </a>
-          </div>
-          <div class="card card-pad reveal"><h3>Выгорание</h3><p>Усталость, потеря мотивации, прокрастинация, ощущение пустоты и «ватовой» головы.</p></div>
-          <div class="card card-pad reveal"><h3>Отношения</h3><p>Конфликты, разрывы, сложности с границами, чувство одиночества рядом с близкими.</p></div>
-          <div class="card card-pad reveal"><h3>Самооценка</h3><p>Критика к себе, страх ошибки, сравнение с другими, тревожные зажимы в теле.</p></div>
-          <div class="card card-pad reveal"><h3>Кризисы</h3><p>Перемены, утраты, поиск опор и смысла, ощущение, что земля уходит из‑под ног.</p></div>
-          <div class="card card-pad reveal"><h3>Сон и стресс</h3><p>Бессонница, тревожный фон, напряжение, ком в горле и дрожь в теле.</p></div>
-        </div>
-      </div>
+      <p class="muted">Психоаналитическая психотерапия в Москве и онлайн</p>
+    </header>
+
+    <section class="cover" aria-labelledby="cover-title">
+      <h1 id="cover-title">Психоанализ как бережный способ встретиться с собой</h1>
+      <p class="lead">Создаю безопасное пространство, где можно исследовать бессознательные смыслы, говорить о сложном и постепенно возвращать устойчивость. Очные и онлайн‑встречи, 60 минут внимания к вашей истории.</p>
+      <p style="margin-top:1.5rem;">
+        <a class="btn" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="hero_signup">Записаться на встречу</a>
+      </p>
+      <figure style="margin:2rem 0 0;">
+        <img src="/img/5199825070732737049.jpg" width="640" height="640" alt="Психолог Ольга Королёва" style="border-radius:.5rem; box-shadow:0 24px 40px -30px rgba(0,0,0,.4);" />
+      </figure>
+      <img src="/assets/img/rorschach.svg" class="inkblot" alt="" aria-hidden="true" />
     </section>
 
-    <!-- APPROACH -->
-    <section class="section" id="approach" aria-label="Как я работаю">
-      <div class="container">
-        <h2>Как я работаю</h2>
-        <p>Психоанализ обращается к бессознательным процессам и повторяющимся жизненным сценариям, помогая лучше понять корни переживаемых чувств. Это длительный путь: обычно работа занимает месяцы или годы, а регулярность встреч становится опорой для глубоких изменений. Ценность метода — в устойчивой трансформации, которая идёт дальше снятия симптомов и затрагивает способы отношений с собой и с другими.</p>
-        <div class="grid" style="margin-top:10px">
-          <div class="card card-pad reveal">
-            <p><strong>Структура работы</strong> — встречаемся в формате 60&nbsp;минут, поддерживаем устойчивый ритм и создаём безопасное пространство, где можно исследовать переживания без страха оценки.</p>
-          </div>
-          <div class="card card-pad reveal">
-            <p><strong>Инсайт</strong> — внимательно отслеживаем эмоции, фантазии и оговорки; через совместный анализ появляются инсайты, которые связывают прошлый опыт с текущими трудностями.</p>
-          </div>
-          <div class="card card-pad reveal">
-            <p><strong>Перенос</strong> — отношение с терапевтом становится рабочим инструментом: то, что происходит между нами, помогает заметить устойчивые сценарии и мягко изменить их.</p>
-          </div>
-          <div class="card card-pad reveal">
-            <p><strong>Ожидания от клиента</strong> — важна готовность говорить о сложном, регулярно приходить на сессии и делиться тем, что возникает между встречами; это обеспечивает глубину и непрерывность процесса.</p>
-          </div>
-        </div>
-        <p>Метод подходит людям, готовым исследовать свою внутреннюю жизнь и выстраивать долгосрочные изменения, включая тех, кто сталкивается с повторяющимися проблемами в отношениях или переживает глубокие кризисы. Если вы ждёте мгновенных инструкций, быстрых лайфхаков или не готовы вкладываться во время и регулярность, лучше выбрать другой формат помощи — так честно по отношению к вам и к терапии.</p>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about" aria-label="Обо мне">
-      <div class="container" style="display:grid; gap:24px; grid-template-columns:1fr">
-        <div>
-          <h2>Обо мне</h2>
-          <p>Меня зовут <strong>Ольга Королёва</strong>. Получила базовое психологическое образование в НИУ ВШЭ, затем закончила магистратуру по психоаналитически ориентированному консультированию и прошла трёхлетнюю программу Московского института психоанализа по психодинамической терапии.</p>
-          <p>Практикую более семи лет: начинала в университетском центре психологической поддержки, затем вела приём в благотворительном проекте и уже несколько лет сопровождаю клиентов в частной практике. Регулярно прохожу индивидуальные и групповые супервизии у членов профессиональных ассоциаций, поддерживаю собственную терапию и участвую в международных обучающих семинарах.</p>
-          <p>В основе моей работы — уважение к уникальности каждого клиента, конфиденциальность, честный диалог и бережное исследование внутренних процессов. Я мотивирована помогать людям возвращать себе чувство устойчивости и свободы выбора, потому что искренне верю в силу внимательного присутствия и аналитического мышления.</p>
-          <p>На сессиях я держу устойчивую структуру, внимательно слушаю, задаю проясняющие вопросы и мягко отражаю то, что замечаю. Стремлюсь к партнёрству, где у клиента достаточно пространства для своих тем, а у меня — ответственность быть рядом и поддерживать глубину процесса. <a href="about.html">Подробнее</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section" id="pricing" aria-label="Стоимость">
-      <div class="container">
-        <h2>Форматы и стоимость</h2>
-        <div class="grid" style="margin-top:16px">
-          <div class="card card-pad reveal">
-            <h3>Индивидуальная сессия</h3>
-            <div style="font-size:28px; font-weight:800">4 000 ₽</div>
-            <div class="muted">60 минут • онлайн/очно</div>
-            <p class="muted">Перенос за 24 часа, оплата до начала встречи.</p>
-          </div>
-          <div class="card card-pad reveal">
-            <h3>Вводная встреча</h3>
-            <div style="font-size:28px; font-weight:800">0 ₽</div>
-            <div class="muted">15 минут онлайн</div>
-            <p class="muted">Знакомимся, формулируем запрос и согласуем формат работы.</p>
-          </div>
-        </div>
-        <p class="hint">Оплата картой, через СБП или наличными. Чеки по запросу, работаю с физическими лицами.</p>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials" aria-label="Отзывы клиентов">
-      <div class="container t-carousel">
-        <h2>Отзывы</h2>
-        <p class="muted">Имена изменены в целях конфиденциальности.</p>
-        <div class="t-track" aria-live="polite">
-          <article class="t-card"><p>«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!»</p><div style="font-weight:600; margin-top:8px">— Анна, 32</div></article>
-          <article class="t-card"><p>«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по‑человечески.»</p><div style="font-weight:600; margin-top:8px">— Никита, 28</div></article>
-          <article class="t-card"><p>«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.»</p><div style="font-weight:600; margin-top:8px">— Ольга, 35</div></article>
-          <article class="t-card"><p>«Стало легче понимать себя. Глубокая терапия помогла принять свои эмоции — тревоги меньше.»</p><div style="font-weight:600; margin-top:8px">— Иван, 30</div></article>
-          <article class="t-card"><p>«Проблема: постоянное чувство вины и сложности в отношениях с матерью. Ход терапии: 10&nbsp;месяцев психоанализа, исследовали детские воспоминания и бессознательные конфликты; через анализ переноса получили важные инсайты. Результат: чувство вины заметно снизилось, отношения с матерью улучшились, появилась уверенность в себе.»</p><div style="font-weight:600; margin-top:8px">— Мария, 38</div></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq" aria-label="Вопросы и ответы" itemscope itemtype="https://schema.org/FAQPage">
-      <div class="container">
-        <h2>FAQ</h2>
-        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <summary itemprop="name">Как проходит первая встреча?</summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-            <div itemprop="text">15 минут онлайн: знакомство, запрос, формат, ответы на вопросы. Если ок — назначаем сессию.</div>
-          </div>
-        </details>
-        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <summary itemprop="name">Сколько длится терапия?</summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-            <div itemprop="text">Зависит от запроса. Может длиться несколько месяцев или больше года — всё индивидуально. Регулярно обсуждаем прогресс.</div>
-          </div>
-        </details>
-        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <summary itemprop="name">Онлайн так же эффективно?</summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-            <div itemprop="text">Для многих запросов — да. Психоанализ возможен онлайн; важны регулярность встреч и доверительный контакт.</div>
-          </div>
-        </details>
-        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <summary itemprop="name">Можно отменить или перенести встречу?</summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-            <div itemprop="text">Да, за 24 часа без оплаты. Позже — считается проведённой (исключения в форс‑мажоре).</div>
-          </div>
-        </details>
-        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <summary itemprop="name">Чем психоаналитическая терапия отличается от других подходов?</summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-            <div itemprop="text">Психоанализ помогает понять бессознательные конфликты, которые лежат в основе симптомов. На сессиях исследуем повторяющиеся переживания, перенос и свободные ассоциации, чтобы добраться до глубинных причин. В отличие от методов, предлагающих готовые техники и быстрые советы, психоаналитическая терапия создаёт пространство для долгосрочных изменений и устойчивых новых способов реагирования.</div>
-          </div>
-        </details>
-        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <summary itemprop="name">Как обрабатываются персональные данные?</summary>
-          <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-            <div itemprop="text">Контактная информация используется только для связи по вопросам консультаций. Доступ к ней имеет только специалист, при необходимости могу удалить или скорректировать данные по вашему запросу.</div>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- CONFIDENTIALITY -->
-    <section class="section" id="confidentiality" aria-label="Конфиденциальность и этика" style="background-color:#F8F4EF;">
-      <div class="container">
-        <h2>Конфиденциальность и этика</h2>
-        <p>Все, что вы рассказываете в процессе терапии, остается между нами — строго конфиденциально. Я соблюдаю принципы конфиденциальности и этический кодекс психоаналитика.</p>
-      </div>
-    </section>
-
-    <!-- PRIVACY -->
-    <section class="section" id="privacy-policy" aria-label="Политика конфиденциальности" style="background-color:#FFFFFF;">
-      <div class="container">
-        <h2>Политика конфиденциальности</h2>
-        <p>Я бережно отношусь к вашим данным. Контактная информация из формы записи и сообщений используется только для организации консультаций и не передается третьим лицам.</p>
-        <p class="muted">Отправляя заявку, вы соглашаетесь на обработку персональных данных в целях связи и подготовки консультации. Данные хранятся в защищённых почтовых сервисах, доступ к ним имеет только специалист, и по вашему запросу они будут удалены или скорректированы.</p>
-      </div>
-    </section>
-
-    <!-- CONTACTS -->
-    <section class="section" id="contacts" aria-label="Контакты и запись">
-      <div class="container contact">
-        <div>
-          <h2>Контакты и запись</h2>
-          <div class="card card-pad reveal" itemscope itemtype="https://schema.org/LocalBusiness">
-            <meta itemprop="name" content="Психолог Ольга Королёва" />
-            <meta itemprop="url" content="https://okoroleva.com/" />
-            <meta itemprop="paymentAccepted" content="Card, SBP, Cash" />
-            <meta itemprop="priceRange" content="₽₽" />
-            <meta itemprop="areaServed" content="Москва, Россия и страны СНГ" />
-            <p style="margin-bottom:12px" itemprop="description">Позвоните или напишите — обычно отвечаю в течение рабочего дня и подбираю ближайшие свободные слоты.</p>
-            <p style="margin-bottom:12px"><strong>Телефон:</strong> <a href="tel:+79777665815" data-goal="contact_phone" itemprop="telephone">+7 977 766‑58‑15</a></p>
-            <p style="margin-bottom:12px"><strong>Telegram:</strong> <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="contact_telegram">@Olgakoroleva05</a></p>
-            <ul class="contact-hours" aria-label="Часы работы">
-              <li>
-                <time datetime="Mo-Fr 10:00-20:00">Пн–Пт: 10:00–20:00</time>
-                <meta itemprop="openingHours" content="Mo-Fr 10:00-20:00" />
-              </li>
-              <li>
-                <time datetime="Sa 11:00-16:00">Сб: 11:00–16:00</time>
-                <meta itemprop="openingHours" content="Sa 11:00-16:00" />
-              </li>
-              <li>
-                <span>Вс: выходной</span>
-                <meta itemprop="openingHours" content="Su Closed" />
-              </li>
-            </ul>
-          </div>
-          <p style="margin-top:18px"><strong>Адрес очного приёма:</strong> <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">ул. Петровка, 18</span>, <span itemprop="addressLocality">Москва</span></span></p>
-          <div class="card card-pad" style="margin-top:8px">
-            <strong>Важно:</strong> если вы в остром кризисе или чувствуете угрозу жизни, обратитесь в экстренные службы вашего региона. Терапия не заменяет медицинскую помощь.
-          </div>
-        </div>
-        <div>
-          <div class="map-embed" role="group" aria-label="Карта офиса на улице Петровка, 18">
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.615600%2C55.760100&z=16&um=constructor%3A24e1e143e0edb61fb98f38f2d01b5840690ef9b8679513762c508d57f0754441" loading="lazy" title="Маршрут к кабинету психолога на Петровке, 18"></iframe>
-          </div>
-          <p class="map-embed__fallback">Карта не загрузилась? Постройте маршрут в <a href="https://yandex.ru/maps/-/CDBYbYIQ" target="_blank" rel="noopener">Яндекс.Картах</a>.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer" id="privacy">
-    <div class="container">
-      <p>© <span id="year"></span> Психолог Ольга Королёва. Все права защищены.</p>
-      <nav aria-label="Важные страницы для индексации и посетителей">
-        <ul class="footer-links">
-          <li><a href="/about.html">Обо мне</a></li>
-          <li><a href="/services/individual-therapy.html">Услуги</a></li>
-          <li><a href="/sitemap.xml">Карта сайта</a></li>
-          <li><a href="/robots.txt">robots.txt</a></li>
+    <nav class="topbar" aria-label="Быстрые ссылки по странице">
+      <div class="topbar-inner">
+        <button class="btn" type="button" data-toggle-theme aria-pressed="false">Тёмная тема</button>
+        <ul class="toc">
+          <li><a href="#chapter-1"><span class="num">I</span>Приглашение</a></li>
+          <li><a href="#chapter-2"><span class="num">II</span>Как проходит работа</a></li>
+          <li><a href="#chapter-3"><span class="num">III</span>С чем работаю</a></li>
+          <li><a href="#chapter-4"><span class="num">IV</span>Стоимость</a></li>
+          <li><a href="#chapter-5"><span class="num">V</span>О специалисте</a></li>
+          <li><a href="#chapter-6"><span class="num">VI</span>Отзывы и FAQ</a></li>
+          <li><a href="#chapter-7"><span class="num">VII</span>Контакты</a></li>
         </ul>
-      </nav>
-      <p><a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Telegram</a> • <a href="#privacy-policy">Политика конфиденциальности</a></p>
-    </div>
-  </footer>
+      </div>
+    </nav>
 
-  <a class="fab" href="#contacts" aria-label="Связаться любым удобным способом" data-goal="fab_contact">Связаться</a>
+    <main id="main">
+      <section class="chapter" id="chapter-1">
+        <div class="content">
+          <h2>Приглашение</h2>
+          <p class="lead">Психоанализ — это диалог, который разворачивается в вашем темпе. Вместе мы замечаем повторяющиеся сюжеты, исследуем чувства и находим новые смыслы.</p>
+          <p>Сессия длится 60 минут, проходит в тихом кабинете в центре Москвы или онлайн в защищённом пространстве. У вас есть возможность взять паузу, говорить свободно и быть услышанным без оценок.</p>
+          <p>Если вам важно убедиться, что мы подходим друг другу, назначьте 15‑минутную вводную встречу. Мы познакомимся, уточним запрос и договоримся о формате. <sup class="fn-ref" data-note="Первая короткая встреча проводится онлайн, чтобы обсудить ожидания и решить организационные вопросы."></sup></p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Запросы, с которыми приходят:</strong> тревога, выгорание, сложные отношения, кризисы, вопросы самооценки.</p>
+          <p>Записаться можно в Telegram: <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">@Olgakoroleva05</a>.</p>
+        </aside>
+      </section>
 
-  <script defer>
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const nav = document.getElementById('site-nav');
-    const closeNav = () => {
-      nav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Открыть меню');
-      document.body.classList.remove('nav-open');
-    };
-    const openNav = () => {
-      nav.classList.add('open');
-      navToggle.setAttribute('aria-expanded', 'true');
-      navToggle.setAttribute('aria-label', 'Закрыть меню');
-      document.body.classList.add('nav-open');
-    };
-    navToggle.addEventListener('click', () => {
-      if (nav.classList.contains('open')) {
-        closeNav();
-      } else {
-        openNav();
-      }
-    });
-    nav.addEventListener('click', event => {
-      if (event.target.closest('a')) {
-        closeNav();
-      }
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && nav.classList.contains('open')) {
-        closeNav();
-        navToggle.focus();
-      }
-    });
-    const syncNavState = mqEvent => {
-      if (mqEvent && !mqEvent.matches) {
-        document.body.classList.remove('nav-open');
-        nav.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Открыть меню');
-      }
-    };
-    let mobileNavMedia = null;
-    if (typeof window.matchMedia === 'function') {
-      mobileNavMedia = window.matchMedia('(max-width: 860px)');
-      syncNavState(mobileNavMedia);
-      if (typeof mobileNavMedia.addEventListener === 'function') {
-        mobileNavMedia.addEventListener('change', syncNavState);
-      } else if (typeof mobileNavMedia.addListener === 'function') {
-        mobileNavMedia.addListener(syncNavState);
-      }
-    }
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Reveal on scroll
-    const revealNodes = document.querySelectorAll('.reveal');
-    const prefersReducedMotion = typeof window.matchMedia === 'function'
-      ? window.matchMedia('(prefers-reduced-motion: reduce)')
-      : { matches: false };
-    const shouldAnimate = !prefersReducedMotion.matches && 'IntersectionObserver' in window;
-    if (shouldAnimate) {
-      document.body.classList.add('animate');
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){ entry.target.classList.add('in'); }
-        });
-      }, {threshold: 0.12});
-      revealNodes.forEach(node => io.observe(node));
-      if (typeof prefersReducedMotion.addEventListener === 'function') {
-        prefersReducedMotion.addEventListener('change', event => {
-          if (event.matches) {
-            revealNodes.forEach(node => node.classList.add('in'));
-            io.disconnect();
-          }
-        });
-      } else if (typeof prefersReducedMotion.addListener === 'function') {
-        prefersReducedMotion.addListener(event => {
-          if (event.matches) {
-            revealNodes.forEach(node => node.classList.add('in'));
-          }
-        });
-      }
-    } else {
-      document.body.classList.remove('animate');
-      revealNodes.forEach(node => node.classList.add('in'));
-    }
-    // Яндекс.Метрика: отслеживание целей
-    function sendMetrikaGoal(goalName){
-      if(!goalName){ return; }
-      if (typeof ym === 'function') {
-        ym(105124237, 'reachGoal', goalName);
-      } else {
-        (window._pendingYandexGoals = window._pendingYandexGoals || []).push(goalName);
-      }
-    }
-    document.querySelectorAll('[data-goal]').forEach(element => {
-      element.addEventListener('click', () => sendMetrikaGoal(element.getAttribute('data-goal')));
-    });
-    if(!window.__metrikaGoalFlush){
-      window.__metrikaGoalFlush = setInterval(() => {
-        if (typeof ym === 'function' && Array.isArray(window._pendingYandexGoals) && window._pendingYandexGoals.length){
-          window._pendingYandexGoals.splice(0).forEach(goal => ym(105124237, 'reachGoal', goal));
+      <section class="chapter" id="chapter-2">
+        <div class="content">
+          <h2>Как проходит работа</h2>
+          <p>Психоаналитический процесс строится на регулярности и внимании к тому, что происходит между нами. Встречаемся раз в неделю или чаще, опираемся на свободные ассоциации и исследуем перенос — чувства, которые возникают по отношению ко мне и отражают важные отношения в вашей жизни.</p>
+          <p>В ходе терапии мы:</p>
+          <ul>
+            <li>замечаем бессознательные конфликты и повторяющиеся сценарии,</li>
+            <li>учимся выдерживать эмоции, не заглушая их,</li>
+            <li>ищем слова для сложных переживаний,</li>
+            <li>постепенно выстраиваем новые способы взаимодействовать с собой и другими.</li>
+          </ul>
+          <p>Регулярность поддерживает глубину процесса и помогает замечать изменения. Если нужно перенести встречу, достаточно предупредить за 24 часа. <sup class="fn-ref" data-note="Поздняя отмена приравнивается к проведённой сессии: время и пространство зарезервированы специально для вас."></sup></p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Подход</strong></p>
+          <p>Психоанализ — долгосрочная работа, нацеленная на устойчивые изменения, а не быстрые советы. Мы создаём пространство, где можно честно смотреть на свои чувства.</p>
+        </aside>
+      </section>
+
+      <section class="chapter" id="chapter-3">
+        <div class="content">
+          <h2>С чем работаю</h2>
+          <p>Ко мне обращаются, когда внутри копится тревога, выгорание, тяжесть от сложных отношений или повторяющихся кризисов. Вот несколько частых направлений:</p>
+          <ul>
+            <li><strong>Выгорание и усталость.</strong> Возвращаем контакт с потребностями, учимся отдыхать без чувства вины.</li>
+            <li><strong>Отношения.</strong> Исследуем конфликты, границы, ощущение одиночества рядом с близкими.</li>
+            <li><strong>Самооценка.</strong> Работаем с внутренним критиком, страхом ошибки, телесными проявлениями тревоги.</li>
+            <li><strong>Кризисы и утраты.</strong> Находим опору, проживаем изменения шаг за шагом.</li>
+            <li><strong>Сон и стресс.</strong> Учимся замечать сигналы тела, перестраиваем привычные реакции.</li>
+          </ul>
+          <p>Если вы не увидели свой запрос, напишите — обсудим, как лучше выстроить работу или к кому обратиться.</p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Индивидуальная психотерапия</strong></p>
+          <p><a href="/services/individual-therapy.html">Подробнее о формате</a></p>
+        </aside>
+      </section>
+
+      <section class="chapter" id="chapter-4">
+        <div class="content">
+          <h2>Стоимость и форматы</h2>
+          <p><strong>Индивидуальная сессия</strong> — 4 000 ₽, 60 минут, онлайн или очно.</p>
+          <p><strong>Вводная встреча</strong> — 0 ₽, 15 минут онлайн для знакомства и обсуждения запроса.</p>
+          <p>Оплата принимается картой, через СБП или наличными. Чек предоставляется по запросу.</p>
+          <p class="muted">Перенос возможен за 24 часа. Поздняя отмена считается проведённой сессией.</p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Подготовка</strong></p>
+          <p>Перед встречей удобно записать мысли, ощущения, сны или вопросы. Это поможет точнее настроить наш диалог.</p>
+        </aside>
+      </section>
+
+      <section class="chapter" id="chapter-5">
+        <div class="content">
+          <h2>О специалисте</h2>
+          <p>Меня зовут <strong>Ольга Королёва</strong>. Получила базовое психологическое образование в НИУ ВШЭ, затем закончила магистратуру по психоаналитически ориентированному консультированию и трёхлетнюю программу Московского института психоанализа по психодинамической терапии.</p>
+          <p>Практикую более семи лет. Начинала в университетском центре поддержки, затем работала в благотворительном проекте и веду частную практику. Регулярно прохожу индивидуальные и групповые супервизии, поддерживаю собственную терапию и участвую в международных семинарах.</p>
+          <p>В основе работы — уважение к уникальности каждого клиента, конфиденциальность и ответственность за пространство встречи. Подробно обо мне можно прочитать на отдельной странице. <a href="/about.html">Узнать больше</a></p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Профессиональные опоры</strong></p>
+          <p>— НИУ ВШЭ, психологическое образование<br>— Московский институт психоанализа<br>— Регулярные супервизии и личная терапия</p>
+        </aside>
+      </section>
+
+      <section class="chapter" id="chapter-6">
+        <div class="content">
+          <h2>Отзывы и ответы</h2>
+          <p>Клиенты отмечают облегчение, возвращение энергии и способность мягче относиться к себе. Несколько голосов:</p>
+          <blockquote>
+            <p>«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!» — Анна, 32</p>
+          </blockquote>
+          <blockquote>
+            <p>«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по‑человечески.» — Никита, 28</p>
+          </blockquote>
+          <blockquote>
+            <p>«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.» — Ольга, 35</p>
+          </blockquote>
+          <h3>Частые вопросы</h3>
+          <p><strong>Как проходит первая встреча?</strong> 15 минут онлайн: знакомство, обсуждение запроса, организационные детали. Если чувствуем, что можем работать вместе, назначаем полноценную сессию.</p>
+          <p><strong>Сколько длится терапия?</strong> Всё зависит от запроса. Психоанализ — глубинный процесс, который может занять месяцы или годы. Мы регулярно обсуждаем прогресс и ваше самочувствие.</p>
+          <p><strong>Онлайн так же эффективно?</strong> Да, если сохраняется регулярность и доверие. Для многих клиентов дистанционный формат удобен и безопасен.</p>
+          <p><strong>Как обрабатываются данные?</strong> Контакты используются только для связи по консультациям и хранятся в защищённых сервисах. По запросу данные могу удалить или скорректировать.</p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Конфиденциальность</strong></p>
+          <p>Всё, что происходит на сессиях, остаётся между нами. Соблюдаю этический кодекс психоаналитика и законы о персональных данных.</p>
+        </aside>
+      </section>
+
+      <section class="chapter" id="chapter-7">
+        <div class="content">
+          <h2>Контакты</h2>
+          <p>Запись через Telegram <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">@Olgakoroleva05</a> или по телефону <a href="tel:+79777665815">+7 977 766‑58‑15</a>.</p>
+          <p>Кабинет: Москва, ул. Петровка, 18. Возможен онлайн-формат из любой точки.</p>
+          <p>Если вы едете на очную встречу, планируйте прибытие за 5–10 минут, чтобы настроиться и мягко перейти в терапевтическое пространство.</p>
+        </div>
+        <aside class="sidenote">
+          <p><strong>Как добраться</strong></p>
+          <p><a href="https://yandex.ru/maps/-/CDBYbYIQ" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a></p>
+          <p><strong>Документы</strong></p>
+          <p><a href="#chapter-6">Политика конфиденциальности</a><br><a href="/robots.txt">robots.txt</a><br><a href="/sitemap.xml">Карта сайта</a></p>
+        </aside>
+      </section>
+    </main>
+
+    <section class="footnotes" aria-label="Сноски">
+      <ol></ol>
+    </section>
+  </div>
+
+  <script>
+    (function(){
+      function sendMetrikaGoal(goalName){
+        if(!goalName){ return; }
+        if (typeof ym === 'function') {
+          ym(105124237, 'reachGoal', goalName);
+        } else {
+          (window._pendingYandexGoals = window._pendingYandexGoals || []).push(goalName);
         }
-        if (typeof ym === 'function'){
-          clearInterval(window.__metrikaGoalFlush);
-          window.__metrikaGoalFlush = null;
-        }
-      }, 1000);
-    }
+      }
+      document.querySelectorAll('[data-goal]').forEach(function(element){
+        element.addEventListener('click', function(){
+          sendMetrikaGoal(element.getAttribute('data-goal'));
+        });
+      });
+      if(!window.__metrikaGoalFlush){
+        window.__metrikaGoalFlush = setInterval(function(){
+          if (typeof ym === 'function' && Array.isArray(window._pendingYandexGoals) && window._pendingYandexGoals.length){
+            window._pendingYandexGoals.splice(0).forEach(function(goal){ ym(105124237, 'reachGoal', goal); });
+          }
+          if (typeof ym === 'function'){
+            clearInterval(window.__metrikaGoalFlush);
+            window.__metrikaGoalFlush = null;
+          }
+        }, 1000);
+      }
+    })();
   </script>
+  <script src="/assets/js/book.js" defer></script>
 </body>
 </html>

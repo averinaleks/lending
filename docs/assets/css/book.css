@@ -55,6 +55,14 @@ body {
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; height: auto; }
+.muted { color: var(--muted); }
+blockquote {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid color-mix(in oklab, var(--accent), transparent 40%);
+  font-style: italic;
+  color: var(--muted);
+}
 
 /* Book container */
 .book {
@@ -166,6 +174,8 @@ main { counter-reset: chapter; }
   color: var(--secondary-ink);
 }
 .chapter p { margin: 0 0 1rem; }
+.chapter ul { margin: 0 0 1rem 1.25rem; padding-left: 1.25rem; }
+.chapter ul li { margin: 0 0 .5rem; }
 .chapter p.lead::first-letter {
   initial-letter: 2;
   -webkit-initial-letter: 2;
@@ -224,14 +234,35 @@ html.theme-dark .pager a { background: rgba(255,255,255,.06); }
   border-bottom: 1px solid rgba(0,0,0,.06);
   z-index: 900;
 }
-.topbar-inner { 
-  max-width: var(--page-width); 
-  margin: 0 auto; 
-  display: flex; 
-  align-items: center; 
+.topbar-inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: .6rem 0;
+  gap: 1rem;
 }
+.topbar .toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  border-left: none;
+}
+.topbar .toc li { margin: 0; padding-left: 0; }
+.topbar .toc a {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: inherit;
+  font-size: .9rem;
+  text-decoration: none;
+}
+.topbar .toc a .num { color: var(--muted); font-variant-numeric: oldstyle-nums; }
+.topbar .toc a:hover { text-decoration: underline; }
 .btn {
   appearance: none; border: none; cursor: pointer;
   background: rgba(0,0,0,.06);
