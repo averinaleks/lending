@@ -42,6 +42,44 @@ blockquote {
   color: var(--muted);
 }
 
+.quote-card {
+  position: relative;
+  margin: 1.75rem 0 0;
+  padding: 1.25rem 1.4rem 1.35rem;
+  border-radius: .65rem;
+  background: color-mix(in oklab, #fff 70%, var(--accent) 30%);
+  border: 1px solid rgba(0,0,0,.04);
+  box-shadow: 0 32px 40px -36px rgba(0,0,0,.35);
+  font-style: italic;
+  color: var(--secondary-ink);
+}
+.quote-card::before {
+  content: "«";
+  position: absolute;
+  top: .2rem;
+  left: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+  color: color-mix(in oklab, var(--accent), #fff 35%);
+  opacity: .45;
+  pointer-events: none;
+}
+.quote-card p {
+  margin: 0;
+}
+.quote-card .quote-author {
+  margin-top: .85rem;
+  font-style: normal;
+  font-size: .95rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.quote-card--inline {
+  background: color-mix(in oklab, #fff 85%, var(--page-bg) 15%);
+  box-shadow: 0 20px 30px -34px rgba(0,0,0,.35);
+}
+
 /* Book container */
 .book {
   max-width: calc(var(--page-width) + 40ch);
