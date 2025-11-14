@@ -2,13 +2,7 @@
 (function(){
   const root = document.documentElement;
   const progress = document.querySelector('.progress');
-  const themeBtn = document.querySelector('[data-toggle-theme]');
   const tocLinks = document.querySelectorAll('.toc a');
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.documentElement.classList.add('theme-dark');
-  }
   function updateProgress(){
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -17,15 +11,6 @@
   }
   updateProgress();
   document.addEventListener('scroll', updateProgress, { passive: true });
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function(){
-      document.documentElement.classList.toggle('theme-dark');
-      const isDark = document.documentElement.classList.contains('theme-dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      themeBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-    });
-  }
 
   // Smooth-scroll for TOC (respects reduce-motion)
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

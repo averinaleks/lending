@@ -38,7 +38,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="theme-color" content="#F5F7FA" />
+  <meta name="theme-color" content="#F4EFE6" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://mc.yandex.ru" crossorigin>
@@ -55,41 +55,7 @@
       }
     })();
   </script>
-  <style>
-    :root{
-      --bg:#F5F7FA; --bg-soft:#FFFFFF; --text:#1E2430; --muted:#6B7280;
-      --accent:#D2BFAB; --accent-ink:#1E2430; --border:rgba(30,36,48,.12);
-      --shadow:0 12px 32px rgba(30,36,48,.08); --radius:20px; --maxw:960px;
-    }
-    *{box-sizing:border-box;}
-    html{-webkit-text-size-adjust:100%; text-size-adjust:100%;}
-    body{margin:0; font-family:"Literata",Georgia,serif; background:var(--bg); color:var(--text); line-height:1.7; overflow-wrap:break-word;}
-    a{color:inherit; text-decoration:none;}
-    img{max-width:100%; height:auto; display:block; border-radius:18px;}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px 72px;}
-    header{padding:28px 0 16px;}
-    h1,h2,h3{font-family:"Playfair Display",Georgia,serif; margin:0 0 12px; line-height:1.2;}
-    h1{font-size:clamp(32px,5vw,56px);}
-    h2{font-size:clamp(24px,3.2vw,36px); margin-top:32px;}
-    h3{font-size:clamp(18px,2.4vw,24px); margin-top:24px;}
-    p{margin:0 0 14px;}
-    .lead{font-size:clamp(16px,2.4vw,20px); color:#4B5563;}
-    .breadcrumbs{display:flex; gap:6px; font-size:14px; color:var(--muted); align-items:center; margin-bottom:18px;}
-    .breadcrumbs a{color:var(--muted); text-decoration:underline;}
-    .card{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; margin-top:24px;}
-    ul{padding-left:20px; margin:0 0 16px;}
-    .two-column{display:grid; gap:22px; grid-template-columns:1fr 1fr;}
-    @media (max-width:900px){.two-column{grid-template-columns:1fr;}}
-    .quote{background:#FFFFFF; border-left:4px solid #C9D7E0; padding:18px 24px; color:var(--muted); border-radius:0 16px 16px 0;}
-    footer{margin-top:48px; padding:32px 0; font-size:14px; color:var(--muted); border-top:1px solid var(--border);}
-    footer a{text-decoration:underline;}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:14px 20px; border-radius:16px; border:1px solid var(--border); font-weight:600; background:var(--accent); color:var(--accent-ink); box-shadow:0 10px 24px rgba(210,191,171,.24); min-height:48px; touch-action:manipulation;}
-    .btn-secondary{background:transparent; color:var(--text); box-shadow:none;}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;}
-    @media (max-width:640px){.cta{flex-direction:column; align-items:stretch;} .cta .btn{width:100%; justify-content:center;}}
-    .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;}
-    .skip-link:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; background:var(--accent); color:var(--accent-ink); padding:10px 14px; border-radius:10px; z-index:999;}
-  </style>
+  <link rel="stylesheet" href="/assets/css/site.css" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -149,21 +115,27 @@
   <noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
   <div class="wrap">
-    <header>
+    <header class="page-header">
       <nav class="breadcrumbs" aria-label="Навигация по крошкам">
         <a href="/">Главная</a>
         <span aria-hidden="true">/</span>
         <span>Обо мне</span>
       </nav>
-      <h1>Обо мне</h1>
-      <p class="lead">Меня зовут Ольга Королёва — психолог и психоаналитик. Ниже рассказываю о своём профессиональном пути, подходе к работе и принципах, которые поддерживают терапевтический процесс.</p>
-      <div class="cta">
-        <a class="btn" href="/#contacts" data-goal="about_signup">Записаться на консультацию</a>
-        <a class="btn btn-secondary" href="/">Вернуться на главную</a>
+      <div class="profile-intro">
+        <img src="/img/5199825070732737049.jpg" width="400" height="400" alt="Психолог Ольга Королёва" class="profile-photo" loading="lazy" />
+        <div class="profile-text">
+          <span class="pill">О специалисте</span>
+          <h1>Обо мне</h1>
+          <p class="lead">Меня зовут Ольга Королёва — психолог и психоаналитик. Рассказываю о профессиональном пути, подходе к работе и принципах, которые поддерживают терапевтический процесс.</p>
+          <div class="cta">
+            <a class="btn" href="/#contacts" data-goal="about_signup">Записаться на консультацию</a>
+            <a class="btn btn-secondary" href="/">Вернуться на главную</a>
+          </div>
+        </div>
       </div>
     </header>
     <main id="main">
-      <section class="card" aria-label="Образование и профессиональный путь">
+      <section class="section card" aria-label="Образование и профессиональный путь">
         <h2>Образование и путь в профессии</h2>
         <div class="two-column">
           <div>
@@ -176,7 +148,7 @@
           </div>
         </div>
       </section>
-      <section class="card" aria-label="Подход к терапии">
+      <section class="section card" aria-label="Подход к терапии">
         <h2>Как я работаю</h2>
         <p>Основой моей практики является психоанализ и психодинамическая терапия. Такой подход помогает исследовать бессознательные мотивы, повторяющиеся сценарии и скрытые конфликты, которые влияют на ежедневный выбор и качество отношений.</p>
         <ul>
@@ -185,9 +157,11 @@
           <li><strong>Совместный анализ.</strong> Мы исследуем чувства, фантазии, телесные реакции и мысли, которые появляются в терапии и в жизни между встречами.</li>
           <li><strong>Долгосрочная перспектива.</strong> Изменения требуют времени. Вместо быстрых советов фокусируюсь на глубинных причинах переживаний и формировании устойчивых опор.</li>
         </ul>
-        <p class="quote">«Мне важно, чтобы терапия была пространством уважения, честности и бережного внимания к вашему опыту. Здесь есть место для любых переживаний — без оценки и поспешных выводов».</p>
+        <blockquote>
+          «Мне важно, чтобы терапия была пространством уважения, честности и бережного внимания к вашему опыту. Здесь есть место для любых переживаний — без оценки и поспешных выводов».
+        </blockquote>
       </section>
-      <section class="card" aria-label="Направления работы">
+      <section class="section card" aria-label="Направления работы">
         <h2>С какими запросами я помогаю</h2>
         <div class="two-column">
           <div>
@@ -209,7 +183,7 @@
           </div>
         </div>
       </section>
-      <section class="card" aria-label="Как записаться">
+      <section class="section card" aria-label="Как записаться">
         <h2>Как записаться на встречу</h2>
         <p>Свяжитесь со мной удобным способом — через Telegram, WhatsApp или по телефону. Обычно отвечаю в течение дня и предлагаю несколько вариантов времени. Перед началом терапии мы проводим короткое знакомство онлайн, обсуждаем запрос и организационные моменты.</p>
         <div class="cta">
@@ -223,11 +197,5 @@
       <p>© 2017–2024 Ольга Королёва. <a href="/">Главная</a> · <a href="/services/individual-therapy.html">Услуги</a> · <a href="/sitemap.xml">Карта сайта</a> · <a href="/robots.txt">robots.txt</a></p>
     </footer>
   </div>
-  <script>
-    (function(){
-      var toggle = document.querySelector('[data-goal]');
-      if (!toggle) return;
-    })();
-  </script>
 </body>
 </html>

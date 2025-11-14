@@ -44,7 +44,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="theme-color" content="#F5F7FA" />
+  <meta name="theme-color" content="#F4EFE6" />
   <script>
     (function() {
       if (location.protocol === 'http:' && !/^localhost(?::\d+)?$/.test(location.hostname)) {
@@ -53,45 +53,7 @@
       }
     })();
   </script>
-  <style>
-    :root{
-      --bg:#F5F7FA; --bg-soft:#FFFFFF; --text:#1E2430; --muted:#6B7280;
-      --accent:#D2BFAB; --accent-ink:#1E2430; --border:rgba(30,36,48,.12);
-      --shadow:0 12px 32px rgba(30,36,48,.08); --radius:20px; --maxw:960px;
-    }
-    *{box-sizing:border-box;}
-    html{-webkit-text-size-adjust:100%; text-size-adjust:100%;}
-    body{margin:0; font-family:"Literata",Georgia,serif; background:var(--bg); color:var(--text); line-height:1.7; overflow-wrap:break-word;}
-    a{color:inherit; text-decoration:none;}
-    img,picture,video{max-width:100%; height:auto; display:block;}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px 72px;}
-    header{padding:28px 0 16px;}
-    h1,h2,h3{font-family:"Playfair Display",Georgia,serif; margin:0 0 12px; line-height:1.2;}
-    h1{font-size:clamp(32px,5vw,54px);}
-    h2{font-size:clamp(24px,3.2vw,36px);}
-    h3{font-size:clamp(18px,2.4vw,24px); margin-top:28px;}
-    p{margin:0 0 14px;}
-    .lead{font-size:clamp(16px,2.4vw,20px); color:#4B5563;}
-    .card{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px;}
-    .breadcrumbs{display:flex; gap:6px; font-size:14px; color:var(--muted); align-items:center; margin-bottom:18px;}
-    .breadcrumbs a{color:var(--muted); text-decoration:underline;}
-    .pill{display:inline-block; padding:6px 12px; border-radius:999px; background:#EEF7F2; color:#365B4E; font-size:13px; letter-spacing:.04em; text-transform:uppercase;}
-    ul{padding-left:20px; margin:0 0 16px;}
-    .two-column{display:grid; gap:22px; grid-template-columns:1fr 1fr;}
-    @media (max-width:900px){.two-column{grid-template-columns:1fr;}}
-    .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:24px;}
-    @media (max-width:640px){
-      .cta{flex-direction:column; align-items:stretch;}
-      .cta .btn{width:100%; justify-content:center;}
-    }
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:14px 20px; border-radius:16px; border:1px solid var(--border); font-weight:600; background:var(--accent); color:var(--accent-ink); box-shadow:0 10px 24px rgba(210,191,171,.24); min-height:48px; touch-action:manipulation;}
-    .btn-secondary{background:transparent; color:var(--text); box-shadow:none;}
-    footer{margin-top:48px; padding:32px 0; font-size:14px; color:var(--muted); border-top:1px solid var(--border);}
-    footer a{text-decoration:underline;}
-    blockquote{margin:0; padding:18px 22px; border-left:4px solid #C9D7E0; background:#FFFFFF; border-radius:0 16px 16px 0; color:var(--muted);}
-    .skip-link{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;}
-    .skip-link:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; background:var(--accent); color:var(--accent-ink); padding:10px 14px; border-radius:10px; z-index:999;}
-  </style>
+  <link rel="stylesheet" href="/assets/css/site.css" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -151,7 +113,7 @@
   <noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
   <div class="wrap">
-    <header>
+    <header class="page-header">
       <nav class="breadcrumbs" aria-label="Навигация по крошкам">
         <a href="/">Главная</a>
         <span aria-hidden="true">/</span>
@@ -166,7 +128,7 @@
       </div>
     </header>
     <main id="main">
-      <section class="card" aria-label="Когда стоит обратиться">
+      <section class="section card" aria-label="Когда стоит обратиться">
         <h2>Когда это подходит</h2>
         <ul>
           <li>чувствуете постоянную тревогу, усталость или потерю интереса к жизни;</li>
@@ -176,7 +138,7 @@
           <li>хотите глубже понять себя и свои внутренние мотивы.</li>
         </ul>
       </section>
-      <section class="two-column" aria-label="Как проходит терапия">
+      <section class="section two-column" aria-label="Как проходит терапия">
         <article class="card">
           <h2>Формат работы</h2>
           <p>Первая встреча — 15 минут онлайн, чтобы познакомиться, прояснить запрос и договориться о формате. Далее — регулярные психоаналитические сессии по 60 минут один или несколько раз в неделю. Терапия рассчитана на средне- и долгосрочную перспективу: устойчивые изменения рождаются из последовательной работы, а мы регулярно обсуждаем динамику и при необходимости пересматриваем ритм встреч.</p>
@@ -196,12 +158,12 @@
         <a class="btn" href="/#contacts" data-goal="service_results_cta">Начать психоаналитическую терапию</a>
         <a class="btn btn-secondary" href="mailto:hello@okoroleva.com">Задать вопросы письмом</a>
       </div>
-      <section class="card" aria-label="Стоимость">
+      <section class="section card" aria-label="Стоимость">
         <h2>Стоимость и условия</h2>
         <p><strong>4 000 ₽</strong> за индивидуальную сессию 60 минут. Оплата картой, СБП или наличными. При отмене за 24 часа плата не удерживается.</p>
         <p class="muted">Первая 15‑минутная встреча проходит бесплатно в формате онлайн-знакомства: уточняем запрос, формат и договариваемся о расписании.</p>
       </section>
-      <section class="card" aria-label="FAQ" itemscope itemtype="https://schema.org/FAQPage">
+      <section class="section card" aria-label="FAQ" itemscope itemtype="https://schema.org/FAQPage">
         <h2>Частые вопросы</h2>
         <article itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
           <h3 itemprop="name">Насколько длительная работа нужна?</h3>
@@ -228,17 +190,17 @@
           </div>
         </article>
       </section>
-      <section class="card" aria-label="Отзывы клиентов">
+      <section class="section card" aria-label="Отзывы клиентов">
         <h2>Опыт клиентов</h2>
         <blockquote>
           «После нескольких месяцев терапии стало легче справляться с тревогой. Появилось больше опоры на себя и ясности в отношениях с близкими.»
           <footer>— Анастасия, 34</footer>
         </blockquote>
       </section>
-      <section class="card" aria-label="Контакты">
+      <section class="section card" aria-label="Контакты">
         <h2>Как связаться</h2>
-        <p><strong>Телефон / WhatsApp:</strong> <a href="tel:+79777665815" data-goal="service_phone">+7 977 766‑58‑15</a> (<a href="https://wa.me/79777665815" target="_blank" rel="noopener">WhatsApp</a>)</p>
-        <p><strong>Адрес кабинета:</strong> Москва, ул. Петровка, 18 (по записи).</p>
+        <p><span class="contact-icon" aria-hidden="true">📞</span><strong>Телефон / WhatsApp:</strong> <a href="tel:+79777665815" data-goal="service_phone">+7 977 766‑58‑15</a> · <a href="https://wa.me/79777665815" target="_blank" rel="noopener">WhatsApp</a></p>
+        <p><span class="contact-icon" aria-hidden="true">📍</span><strong>Адрес кабинета:</strong> Москва, ул. Петровка, 18 (по записи).</p>
         <p class="muted">Консультации проходят конфиденциально, в соответствии с этическим кодексом профессионального сообщества психоаналитиков.</p>
       </section>
     </main>
