@@ -95,7 +95,7 @@ blockquote {
   padding: 3rem 0 2rem;
   position: relative;
 }
-.brand { font-family: "Forum", "Garamond", serif; letter-spacing: .03em; }
+.brand { font-family: "Playfair Display", "Garamond", serif; letter-spacing: .03em; }
 .brand a { color: inherit; }
 .header .brand { font-size: clamp(1.2rem, 1.6vw + .8rem, 1.8rem); font-weight: 600; }
 .cover {
@@ -110,10 +110,15 @@ blockquote {
 }
 .cover h1 {
   margin: 0 0 .6rem;
-  font-family: "Forum", "Garamond", serif;
+  font-family: "Playfair Display", "Garamond", serif;
   font-weight: 400;
   font-size: clamp(1.8rem, 4.6vw + .8rem, 3.4rem);
   color: var(--secondary-ink);
+}
+.book h2,
+.book h3,
+.book h4 {
+  font-family: "Playfair Display", "Garamond", serif;
 }
 .cover p.lead {
   margin: 0;
@@ -162,12 +167,12 @@ main { counter-reset: chapter; }
   position: absolute;
   left: calc(50% - var(--page-width)/2);
   top: -1.8rem;
-  font: italic 500 .95rem/1.2 "Forum", "Garamond", serif;
+  font: italic 500 .95rem/1.2 "Playfair Display", "Garamond", serif;
   color: var(--muted);
   opacity: .85;
 }
 .chapter h2 {
-  font-family: "Forum", "Garamond", serif;
+  font-family: "Playfair Display", "Garamond", serif;
   font-weight: 400;
   margin: 0 0 .6rem;
   font-size: clamp(1.25rem, 1.2vw + 1rem, 2rem);
