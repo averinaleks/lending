@@ -38,7 +38,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Forum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -283,14 +283,14 @@
         <div class="content">
           <h2>Отзывы и ответы</h2>
           <p>Клиенты отмечают облегчение, возвращение энергии и способность мягче относиться к себе. Несколько голосов:</p>
-          <blockquote>
-            <p>«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!» — Анна, 32</p>
+          <blockquote itemscope itemtype="https://schema.org/Review">
+            <p><span itemprop="reviewBody">«Стало легче дышать. Научилась замечать тревогу и не ругать себя. Спасибо!»</span> — <span itemprop="author">Анна</span>, 32</p>
           </blockquote>
-          <blockquote>
-            <p>«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по‑человечески.» — Никита, 28</p>
+          <blockquote itemscope itemtype="https://schema.org/Review">
+            <p><span itemprop="reviewBody">«Выгорание отпустило, вернулась энергия. Нравится, что всё по делу и по‑человечески.»</span> — <span itemprop="author">Никита</span>, 28</p>
           </blockquote>
-          <blockquote>
-            <p>«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.» — Ольга, 35</p>
+          <blockquote itemscope itemtype="https://schema.org/Review">
+            <p><span itemprop="reviewBody">«Перестала срываться на близких. Поняла, как говорить о границах без чувства вины.»</span> — <span itemprop="author">Ольга</span>, 35</p>
           </blockquote>
           <h3>Частые вопросы</h3>
           <p><strong>Как проходит первая встреча?</strong> 15 минут онлайн: знакомство, обсуждение запроса, организационные детали. Если чувствуем, что можем работать вместе, назначаем полноценную сессию.</p>
@@ -298,8 +298,8 @@
           <p><strong>Онлайн так же эффективно?</strong> Да, если сохраняется регулярность и доверие. Для многих клиентов дистанционный формат удобен и безопасен.</p>
           <p><strong>Как обрабатываются данные?</strong> Контакты используются только для связи по консультациям и хранятся в защищённых сервисах. По запросу данные могу удалить или скорректировать.</p>
         </div>
-        <aside class="sidenote">
-          <p><strong>Конфиденциальность</strong></p>
+        <aside class="sidenote" id="privacy-policy">
+          <p><strong>Политика конфиденциальности</strong></p>
           <p>Всё, что происходит на сессиях, остаётся между нами. Соблюдаю этический кодекс психоаналитика и законы о персональных данных.</p>
         </aside>
       </section>
@@ -307,15 +307,17 @@
       <section class="chapter" id="chapter-7">
         <div class="content">
           <h2>Контакты</h2>
-          <p>Запись через Telegram <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">@Olgakoroleva05</a> или по телефону <a href="tel:+79777665815">+7 977 766‑58‑15</a>.</p>
+          <p>Запись через Telegram <a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">@Olgakoroleva05</a>, WhatsApp <a href="https://wa.me/79777665815" target="_blank" rel="noopener">+7 977 766‑58‑15</a> или по телефону <a href="tel:+79777665815">+7 977 766‑58‑15</a>.</p>
           <p>Кабинет: Москва, ул. Петровка, 18. Возможен онлайн-формат из любой точки.</p>
           <p>Если вы едете на очную встречу, планируйте прибытие за 5–10 минут, чтобы настроиться и мягко перейти в терапевтическое пространство.</p>
+          <p><em>На карте:</em></p>
+          <iframe src="https://api-maps.yandex.ru/frame/v1/-/CDBYbYIQ" width="100%" height="320" frameborder="0" style="border-radius:.5rem;" title="Кабинет на карте"></iframe>
         </div>
         <aside class="sidenote">
           <p><strong>Как добраться</strong></p>
           <p><a href="https://yandex.ru/maps/-/CDBYbYIQ" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a></p>
           <p><strong>Документы</strong></p>
-          <p><a href="#chapter-6">Политика конфиденциальности</a><br><a href="/robots.txt">robots.txt</a><br><a href="/sitemap.xml">Карта сайта</a></p>
+          <p><a href="#privacy-policy">Политика конфиденциальности</a><br><a href="/robots.txt">robots.txt</a><br><a href="/sitemap.xml">Карта сайта</a></p>
         </aside>
       </section>
     </main>
