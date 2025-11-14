@@ -171,6 +171,140 @@ main { counter-reset: chapter; }
   color: var(--accent);
 }
 
+/* Advantages / trust blocks */
+.advantages-list {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.adv-card {
+  background: color-mix(in oklab, #fff 75%, var(--page-bg) 25%);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: .65rem;
+  padding: 1rem 1.2rem 1.1rem;
+  box-shadow: 0 24px 40px -36px rgba(0,0,0,.25);
+}
+.adv-card h3 {
+  margin: 0 0 .35rem;
+  font-size: 1.05rem;
+}
+.adv-icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  background: color-mix(in oklab, var(--accent), white 15%);
+  color: var(--accent-ink);
+  margin-bottom: .5rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+}
+.badge {
+  padding: .9rem 1rem;
+  border-radius: .8rem;
+  background: rgba(255,255,255,.6);
+  border: 1px dashed rgba(0,0,0,.08);
+  font-size: .95rem;
+  box-shadow: 0 18px 30px -30px rgba(0,0,0,.5);
+}
+.badge span {
+  display: block;
+  font-weight: 600;
+  color: var(--secondary-ink);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin: 1.25rem 0 0;
+}
+.blog-card {
+  background: rgba(255,255,255,.65);
+  border-radius: .75rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(0,0,0,.05);
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  box-shadow: 0 24px 40px -34px rgba(0,0,0,.35);
+}
+.blog-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.blog-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.blog-card a {
+  margin-top: .6rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.contact-form {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: .75rem;
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 24px 40px -34px rgba(0,0,0,.35);
+}
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  font-size: .95rem;
+  margin-bottom: .25rem;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: .5rem;
+  padding: .65rem .75rem;
+  font: inherit;
+  background: rgba(255,255,255,.9);
+  margin-bottom: .9rem;
+}
+.contact-form textarea { min-height: 110px; resize: vertical; }
+.form-hint { font-size: .85rem; color: var(--muted); margin: .4rem 0 0; }
+.form-feedback { font-size: .9rem; color: var(--secondary-ink); margin-top: .75rem; }
+
+.floating-cta {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  padding: .65rem 1rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--link), white 8%);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+  z-index: 950;
+}
+.floating-cta:hover { text-decoration: none; filter: brightness(1.05); }
+
+@media (max-width: 640px) {
+  .floating-cta { bottom: .85rem; right: .85rem; }
+}
+
 /* Footnotes area */
 .footnotes { 
   max-width: var(--page-width); 

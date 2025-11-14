@@ -142,6 +142,47 @@ blockquote footer { margin-top: .5rem; font-size: .95rem; font-style: normal; co
 .btn-secondary:focus-visible { color: var(--link); }
 .details-list { margin-top: 1.5rem; }
 .contact-icon { margin-right: .35rem; }
+.article-list {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.article-card {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.article-card h3 { margin: 0; font-size: 1.2rem; }
+.article-card p { margin: 0; }
+.article-card .btn { align-self: flex-start; margin-top: auto; }
+.article-meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin-top: 1.5rem;
+}
+.badge {
+  background: rgba(255,255,255,.75);
+  border-radius: 18px;
+  border: 1px dashed var(--border);
+  padding: 16px;
+  box-shadow: 0 18px 36px rgba(0,0,0,.07);
+  font-size: .95rem;
+}
+.badge span { display: block; font-weight: 600; margin-bottom: .35rem; color: var(--text); }
+.article-content h2 { margin-top: 1.5rem; }
+.article-content ol { padding-left: 20px; }
 footer {
   margin-top: 52px;
   padding: 32px 0 0;
