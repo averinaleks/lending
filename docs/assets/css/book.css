@@ -298,6 +298,22 @@ main { counter-reset: chapter; }
 .chapter--tint-blue  { --chapter-bg: color-mix(in oklab, var(--accent-blue), transparent 50%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
 .chapter--tint-paper { --chapter-bg: color-mix(in oklab, #fff8ef, transparent 30%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
 
+#chapter-1,
+#chapter-2,
+#chapter-3,
+#chapter-5,
+#chapter-6,
+#chapter-7 {
+  --chapter-bg: color-mix(in oklab, #fff5ef, transparent 25%);
+  --chapter-shadow: 0 30px 60px -50px rgba(0, 0, 0, .45);
+}
+
+#chapter-4,
+#chapter-8 {
+  --chapter-bg: color-mix(in oklab, #edf4fb, transparent 20%);
+  --chapter-shadow: 0 30px 60px -50px rgba(0, 0, 0, .45);
+}
+
 .chapter--tint-peach,
 .chapter--tint-sage,
 .chapter--tint-blue,
