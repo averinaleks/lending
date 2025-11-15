@@ -11,6 +11,9 @@ html {
   --secondary-ink: #2E3245;     /* headings */
   --muted: #5C6270;             /* secondary */
   --accent: #D2BFAB;            /* accent shared with внутренних страниц */
+  --accent-soft: #F6E7D6;       /* pastel peach */
+  --accent-sage: #D7E2D6;       /* sage tint */
+  --accent-blue: #D6E6EE;       /* light blue tint */
   --accent-ink: #1E2430;        /* readable text on accent */
   --link: #4B5BA9;              /* links */
   --cta-green: #6C9775;         /* calm green for buttons */
@@ -22,7 +25,10 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--page-bg) url("../img/paper_texture.png") repeat;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(214,230,218,.45), transparent 55%),
+    radial-gradient(circle at 90% 0%, rgba(228,239,247,.4), transparent 60%),
+    var(--page-bg) url("../img/paper_texture.png") repeat;
   font-family: "Literata", "Merriweather", Georgia, "Times New Roman", serif;
   line-height: var(--line);
   letter-spacing: .01em;
@@ -122,7 +128,7 @@ blockquote {
   border-radius: .5rem;
   box-shadow: 0 40px 60px -40px var(--paper-shadow), 0 1px 0 rgba(255,255,255,.35) inset;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .cover h1 {
   margin: 0 0 .6rem;
@@ -160,6 +166,34 @@ blockquote {
   pointer-events: none;
 }
 
+.portrait-card {
+  margin: 2rem 0 0;
+  padding: 1rem;
+  border-radius: .75rem;
+  background: color-mix(in oklab, #fff 70%, var(--accent-soft) 30%);
+  box-shadow: 0 34px 60px -42px rgba(0,0,0,.45);
+  position: relative;
+  max-width: 520px;
+}
+.portrait-card::after,
+.portrait-card::before {
+  content: "";
+  position: absolute;
+  width: 72px;
+  height: 18px;
+  background: rgba(255,255,255,.85);
+  top: 12px;
+  border-radius: 999px;
+  box-shadow: 0 8px 14px rgba(0,0,0,.15);
+  opacity: .8;
+}
+.portrait-card::before { left: 16%; transform: rotate(-6deg); }
+.portrait-card::after  { right: 16%; transform: rotate(4deg); }
+.portrait-card img {
+  border-radius: .5rem;
+  display: block;
+}
+
 /* TOC / nav */
 .toc {
   max-width: var(--page-width);
@@ -181,6 +215,10 @@ main { counter-reset: chapter; }
   margin: 3.2rem 0;
   position: relative;
   counter-increment: chapter;
+  background: var(--chapter-bg, transparent);
+  border-radius: .85rem;
+  padding: 2rem 0;
+  box-shadow: var(--chapter-shadow, none);
 }
 .chapter > .content { grid-column: 2; }
 .chapter > .sidenote { grid-column: 3; color: var(--muted); font-size: .9rem; }
@@ -189,7 +227,7 @@ main { counter-reset: chapter; }
   content: "Глава " counter(chapter);
   position: absolute;
   left: calc(50% - var(--page-width)/2);
-  top: -1.8rem;
+  top: .4rem;
   font: italic 500 .95rem/1.2 "Playfair Display", "Garamond", serif;
   color: var(--muted);
   opacity: .85;
@@ -209,6 +247,30 @@ main { counter-reset: chapter; }
   -webkit-initial-letter: 2;
   font-weight: 600;
   color: var(--accent);
+}
+
+.chapter--tint-peach { --chapter-bg: color-mix(in oklab, var(--accent-soft), transparent 40%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
+.chapter--tint-sage  { --chapter-bg: color-mix(in oklab, var(--accent-sage), transparent 45%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
+.chapter--tint-blue  { --chapter-bg: color-mix(in oklab, var(--accent-blue), transparent 50%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
+.chapter--tint-paper { --chapter-bg: color-mix(in oklab, #fff8ef, transparent 30%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
+
+.chapter--tint-peach,
+.chapter--tint-sage,
+.chapter--tint-blue,
+.chapter--tint-paper {
+  padding: 2.75rem 0;
+}
+
+.chapter--tint-peach::after,
+.chapter--tint-sage::after,
+.chapter--tint-blue::after,
+.chapter--tint-paper::after {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  border: 1px solid rgba(0,0,0,.04);
+  border-radius: .75rem;
+  pointer-events: none;
 }
 
 /* Advantages / trust blocks */
@@ -332,12 +394,28 @@ main { counter-reset: chapter; }
   border: 1px dashed rgba(0,0,0,.08);
   font-size: .95rem;
   box-shadow: 0 18px 30px -30px rgba(0,0,0,.5);
+  position: relative;
 }
 .badge span {
   display: block;
   font-weight: 600;
   color: var(--secondary-ink);
 }
+.badge::before {
+  content: "";
+  position: absolute;
+  top: .65rem;
+  right: .65rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--accent-sage), #fff 35%);
+  opacity: .45;
+}
+
+.badge-grid .badge:nth-child(2)::before { background: color-mix(in oklab, var(--accent-blue), #fff 25%); }
+.badge-grid .badge:nth-child(3)::before { background: color-mix(in oklab, var(--accent), #fff 30%); }
+.badge-grid .badge:nth-child(4)::before { background: color-mix(in oklab, var(--accent-soft), #fff 10%); }
 
 .blog-grid {
   display: grid;
@@ -398,6 +476,29 @@ main { counter-reset: chapter; }
 }
 .snippet-recommendations li {
   margin-bottom: .4rem;
+}
+
+.callout {
+  margin: 1.75rem 0 0;
+  padding: 1.15rem 1.3rem 1.3rem;
+  border-radius: .95rem;
+  border: 1px solid rgba(0,0,0,.04);
+  background: color-mix(in oklab, var(--accent-sage), white 70%);
+  box-shadow: 0 24px 46px -36px rgba(0,0,0,.35);
+}
+.callout h3 {
+  margin: 0 0 .35rem;
+  font-size: 1.05rem;
+}
+.callout--peach { background: color-mix(in oklab, var(--accent-soft), white 60%); }
+.callout--blue  { background: color-mix(in oklab, var(--accent-blue), white 65%); }
+.callout p { margin: 0; }
+
+.handwritten {
+  font-family: "Caveat", "Bradley Hand", cursive;
+  font-size: 1.15rem;
+  color: color-mix(in oklab, var(--secondary-ink), var(--accent) 25%);
+  margin-top: 1.2rem;
 }
 
 .floating-cta {
@@ -522,6 +623,18 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
   filter: none;
   background: var(--cta-green-dark);
   transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--cta-green);
+  border-color: color-mix(in oklab, var(--cta-green), transparent 45%);
+  box-shadow: none;
+}
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: color-mix(in oklab, var(--cta-green), white 75%);
+  color: var(--cta-green-dark);
 }
 
 /* Responsive adjustments */
