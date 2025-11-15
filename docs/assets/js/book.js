@@ -45,4 +45,42 @@
       fnRoot.appendChild(li);
     });
   }
+
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const feedback = contactForm.querySelector('.form-feedback');
+    let fallbackSubmitted = false;
+    const handleSubmit = function(event) {
+      event.preventDefault();
+      feedback && feedback.classList.remove('is-error', 'is-success');
+      if (feedback) {
+        feedback.textContent = 'Отправляем сообщение...';
+      }
+      const formData = new FormData(contactForm);
+      fetch(contactForm.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      }).then(function(response){
+        if (!response.ok) { throw new Error('Network'); }
+        if (feedback) {
+          feedback.textContent = 'Спасибо! Сообщение отправлено.';
+          feedback.classList.add('is-success');
+        }
+        contactForm.reset();
+      }).catch(function(){
+        if (!fallbackSubmitted) {
+          fallbackSubmitted = true;
+          contactForm.removeEventListener('submit', handleSubmit);
+          contactForm.submit();
+          return;
+        }
+        if (feedback) {
+          feedback.textContent = 'Не удалось отправить. Напишите, пожалуйста, в Telegram или WhatsApp.';
+          feedback.classList.add('is-error');
+        }
+      });
+    };
+    contactForm.addEventListener('submit', handleSubmit);
+  }
 })();
