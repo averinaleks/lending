@@ -269,8 +269,14 @@
       <h1 id="cover-title"><span class="dropcap">П</span>сихоанализ как бережный способ встретиться с собой</h1>
       <p class="subtitle">Помогаю обрести внутреннее равновесие и понимание себя. Бережно сопровождаю на пути к устойчивым изменениям.</p>
       <p class="lead">Создаю безопасное пространство, где можно исследовать чувства и получать поддержку в кризисах, сложных отношениях, выгорании. Очные и онлайн‑встречи, 60 минут внимания к вашей истории.</p>
+      <div class="intro-video" aria-label="Видео-приветствие от Ольги Королёвой">
+        <div class="intro-video__frame">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/kE5yKRj4nEo" title="Видео-приветствие" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="muted">Короткое приветствие: кто я, чем могу помочь и как проходит знакомство.</p>
+      </div>
       <p style="margin-top:1.5rem;">
-        <a class="btn btn--wide" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="hero_signup">Записаться на бесплатную вводную встречу</a>
+        <a class="btn btn--wide highlight" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="hero_signup">Записаться на бесплатную вводную встречу</a>
       </p>
       <figure class="portrait-card">
         <img src="/img/5199825070732737049.jpg" srcset="/img/5199825070732737049.jpg 640w" sizes="(max-width: 640px) 82vw, 420px" width="640" height="640" alt="Психолог Ольга Королёва" />
@@ -567,6 +573,7 @@
             <a class="btn btn--wide" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="contact_telegram">Написать в Telegram</a>
             <a class="btn btn--wide" href="https://wa.me/79777665815" target="_blank" rel="noopener" data-goal="contact_whatsapp">Сообщение в WhatsApp</a>
             <a class="btn btn-secondary btn--wide" href="tel:+79777665815" data-goal="contact_phone">Позвонить</a>
+            <a class="btn btn-secondary btn--wide" id="schedule-link" href="#schedule" data-goal="contact_schedule" aria-expanded="false">Выбрать время в календаре</a>
           </div>
           <p>Запись веду лично: отвечаю в Telegram, WhatsApp и по телефону.</p>
           <p>Кабинет: Москва, ул. Петровка, 18 (м. Чеховская / Тверская / Пушкинская). Возможен онлайн-формат из любой точки мира.</p>
@@ -590,8 +597,16 @@
                 <p class="form-note">Данные используются только для связи по консультациям и удаляются по запросу.</p>
               </div>
               <div class="form-feedback" aria-live="polite"></div>
-              <button class="btn btn--wide" type="submit" data-goal="contact_form_submit">Отправить</button>
-            </form>
+            <button class="btn btn--wide" type="submit" data-goal="contact_form_submit">Отправить</button>
+          </form>
+          </div>
+
+          <div class="schedule-embed" id="schedule" hidden aria-label="Онлайн-запись через календарь">
+            <h3>Онлайн-запись</h3>
+            <p class="muted">Выберите удобный слот — календарь доступен для онлайн и очных встреч. Если времени нет, напишите в мессенджер — найду ближайшее окно.</p>
+            <div class="schedule-embed__frame">
+              <iframe id="schedule-frame" src="https://calendly.com/olgakoroleva05/intro?hide_event_type_details=1&amp;hide_gdpr_banner=1" loading="lazy" title="Календарь записи" allowfullscreen></iframe>
+            </div>
           </div>
 
           <p>Если чувствуете, что готовы начать путь к себе — буду рада встретиться и обсудить, чем могу помочь. Свяжитесь удобным способом.</p>

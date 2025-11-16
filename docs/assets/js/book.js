@@ -83,4 +83,16 @@
     };
     contactForm.addEventListener('submit', handleSubmit);
   }
+
+  const scheduleLink = document.getElementById('schedule-link');
+  const scheduleBlock = document.getElementById('schedule');
+  if (scheduleLink && scheduleBlock) {
+    scheduleLink.addEventListener('click', function(e){
+      e.preventDefault();
+      scheduleBlock.hidden = false;
+      scheduleLink.setAttribute('aria-expanded', 'true');
+      const behavior = prefersReduced ? 'auto' : 'smooth';
+      scheduleBlock.scrollIntoView({ behavior, block: 'start' });
+    });
+  }
 })();
