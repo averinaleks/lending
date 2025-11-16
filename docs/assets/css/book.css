@@ -16,18 +16,18 @@ html {
   --accent-blue: #D6E6EE;       /* light blue tint */
   --accent-ink: #1E2430;        /* readable text on accent */
   --link: #4B5BA9;              /* links */
-  --cta-green: #6C9775;         /* calm green for buttons */
-  --cta-green-dark: #4E6F55;    /* darker hover state */
+  --cta-green: #C58F73;         /* warm accent for buttons */
+  --cta-green-dark: #A87055;    /* darker hover state */
   --paper-shadow: rgba(0,0,0,.06);
   --page-width: 72ch;
-  --line: 1.65;
+  --line: 1.72;
 }
 body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at 10% 20%, rgba(214,230,218,.45), transparent 55%),
-    radial-gradient(circle at 90% 0%, rgba(228,239,247,.4), transparent 60%),
+    radial-gradient(circle at 10% 20%, rgba(214,230,218,.25), transparent 55%),
+    radial-gradient(circle at 90% 0%, rgba(228,239,247,.22), transparent 60%),
     var(--page-bg) url("../img/paper_texture.png") repeat;
   font-family: "Literata", "Merriweather", Georgia, "Times New Roman", serif;
   line-height: var(--line);
@@ -155,6 +155,12 @@ blockquote {
   font-size: clamp(1rem, .6vw + .9rem, 1.25rem);
   color: var(--muted);
 }
+.subtitle {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.05rem, .9vw + 1rem, 1.3rem);
+  color: color-mix(in oklab, var(--secondary-ink), var(--accent) 35%);
+  font-weight: 600;
+}
 .cover .inkblot {
   position: absolute;
   right: -6%;
@@ -276,6 +282,8 @@ main { counter-reset: chapter; }
   color: var(--muted);
   opacity: .85;
 }
+.chapter--no-number { counter-increment: none; }
+.chapter--no-number::before { content: none; }
 .chapter h2 {
   font-family: "Playfair Display", "Garamond", serif;
   font-weight: 400;
@@ -529,6 +537,42 @@ main { counter-reset: chapter; }
   gap: .35rem;
 }
 
+.rating {
+  margin: .6rem 0 1rem;
+  color: #d4a72c;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.testimonial {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-radius: .9rem;
+  background: color-mix(in oklab, #fff 75%, var(--accent-blue) 25%);
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 24px 40px -34px rgba(0,0,0,.35);
+}
+
+.testimonial blockquote {
+  margin: 0 0 .65rem;
+  padding-left: 0;
+  border: none;
+  color: var(--secondary-ink);
+  font-style: normal;
+}
+
+.testimonial figcaption {
+  font-weight: 700;
+  color: var(--muted);
+}
+
 .contact-list p {
   margin: .3rem 0;
 }
@@ -633,7 +677,7 @@ main { counter-reset: chapter; }
   padding: 1.2rem 1.4rem;
   border-radius: 1rem;
   border: 1px solid rgba(0,0,0,.04);
-  background: linear-gradient(120deg, rgba(214,230,218,.35), rgba(255,255,255,.9));
+  background: linear-gradient(120deg, rgba(210,191,171,.32), rgba(255,255,255,.92));
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -793,6 +837,9 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
 }
 .topbar .toc a .num { color: var(--muted); font-variant-numeric: oldstyle-nums; }
 .topbar .toc a:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .topbar { display: none; }
+}
 .btn {
   appearance: none;
   border: 1px solid color-mix(in oklab, var(--cta-green-dark), transparent 50%);
