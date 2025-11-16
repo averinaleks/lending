@@ -16,8 +16,8 @@ html {
   --accent-blue: #D6E6EE;       /* light blue tint */
   --accent-ink: #1E2430;        /* readable text on accent */
   --link: #4B5BA9;              /* links */
-  --cta-green: #C58F73;         /* warm accent for buttons */
-  --cta-green-dark: #A87055;    /* darker hover state */
+  --cta-green: #88BE9C;         /* soft green for buttons */
+  --cta-green-dark: #6EA782;    /* darker hover state */
   --paper-shadow: rgba(0,0,0,.06);
   --page-width: 72ch;
   --line: 1.72;
@@ -921,7 +921,7 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
   position: fixed;
   left: 0; top: 0; right: 0;
   height: 4px;
-  background: var(--accent);
+  background: var(--cta-green);
   transform: scaleX(var(--p, 0));
   transform-origin: 0 50%;
   z-index: 1000;
