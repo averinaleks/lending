@@ -361,21 +361,6 @@ main { counter-reset: chapter; }
 .chapter p { margin: 0 0 1rem; }
 .chapter ul { margin: 0 0 1rem 1.25rem; padding-left: 1.25rem; }
 .chapter ul li { margin: 0 0 .5rem; }
-.chapter p.lead::first-letter {
-  initial-letter: 2;
-  -webkit-initial-letter: 2;
-  font-weight: 600;
-  color: var(--accent);
-}
-.chapter .content p:first-of-type:not(.lead)::first-letter {
-  font-family: "Playfair Display", "Garamond", serif;
-  font-size: 3rem;
-  float: left;
-  line-height: 1;
-  margin: .05em .1em 0 0;
-  color: var(--secondary-ink);
-}
-
 .chapter--tint-peach { --chapter-bg: color-mix(in oklab, var(--accent-soft), transparent 40%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
 .chapter--tint-sage  { --chapter-bg: color-mix(in oklab, var(--accent-sage), transparent 45%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
 .chapter--tint-blue  { --chapter-bg: color-mix(in oklab, var(--accent-blue), transparent 50%); --chapter-shadow: 0 30px 60px -50px rgba(0,0,0,.45); }
@@ -386,13 +371,13 @@ main { counter-reset: chapter; }
 #chapter-3,
 #chapter-5,
 #chapter-6,
-#chapter-7 {
+#chapter-8 {
   --chapter-bg: color-mix(in oklab, #fff5ef, transparent 25%);
   --chapter-shadow: 0 30px 60px -50px rgba(0, 0, 0, .45);
 }
 
 #chapter-4,
-#chapter-8 {
+#chapter-7 {
   --chapter-bg: color-mix(in oklab, #edf4fb, transparent 20%);
   --chapter-shadow: 0 30px 60px -50px rgba(0, 0, 0, .45);
 }
@@ -500,6 +485,23 @@ main { counter-reset: chapter; }
   outline-offset: 3px;
   box-shadow: 0 32px 44px -28px rgba(0,0,0,.45);
   animation: sticker-bob .9s ease-in-out infinite;
+}
+
+#chapter-5 .sticker {
+  background: color-mix(in oklab, #fff 75%, var(--page-bg) 25%);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: .65rem;
+  padding: 1rem 1.2rem 1.1rem;
+  box-shadow: 0 24px 40px -36px rgba(0,0,0,.25);
+  transform: none;
+}
+
+#chapter-5 .sticker::after { display: none; }
+
+#chapter-5 .sticker:hover,
+#chapter-5 .sticker:focus-visible {
+  animation: none;
+  transform: none;
 }
 
 .cred-badges {
@@ -677,11 +679,45 @@ main { counter-reset: chapter; }
 
 .testimonial {
   margin: 0;
-  padding: 1rem 1.1rem;
-  border-radius: .9rem;
-  background: color-mix(in oklab, #fff 75%, var(--accent-blue) 25%);
-  border: 1px solid rgba(0,0,0,.05);
-  box-shadow: 0 24px 40px -34px rgba(0,0,0,.35);
+  padding: 1rem 1.1rem 1.2rem;
+  border-radius: .85rem;
+  background: #fffef7;
+  border: 1px solid rgba(0,0,0,.04);
+  box-shadow: 0 26px 38px -32px rgba(0,0,0,.5);
+  position: relative;
+  color: var(--secondary-ink);
+  font-weight: 500;
+  line-height: 1.5;
+  transform: rotate(var(--sticker-tilt, -.8deg));
+  transition: box-shadow .3s ease, transform .3s ease;
+  isolation: isolate;
+}
+
+.testimonial::after {
+  content: "";
+  position: absolute;
+  top: -.45rem;
+  left: 50%;
+  width: 48%;
+  height: .45rem;
+  background: rgba(255, 231, 171, .8);
+  border-radius: 999px;
+  transform: translateX(-50%) rotate(-2deg);
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  opacity: .9;
+  z-index: -1;
+}
+
+.testimonial-grid .testimonial:nth-child(2n) { --sticker-tilt: .6deg; }
+.testimonial-grid .testimonial:nth-child(3n) { --sticker-tilt: -.2deg; }
+.testimonial-grid .testimonial:nth-child(4n) { --sticker-tilt: 1deg; }
+
+.testimonial:hover,
+.testimonial:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--cta-green), white 35%);
+  outline-offset: 3px;
+  box-shadow: 0 32px 44px -28px rgba(0,0,0,.45);
+  animation: sticker-bob .9s ease-in-out infinite;
 }
 
 .testimonial blockquote {
