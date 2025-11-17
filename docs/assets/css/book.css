@@ -278,6 +278,8 @@ blockquote {
   gap: .65rem;
   align-items: center;
 }
+.trust-badge strong { display: block; margin: 0 0 .15rem; color: var(--secondary-ink); }
+.trust-badge p { margin: 0; }
 .trust-badges--compact .trust-badge {
   padding: .7rem .85rem;
   font-size: .95rem;
