@@ -928,6 +928,52 @@ main { counter-reset: chapter; }
   margin: 0;
 }
 
+.self-check {
+  margin: 1.75rem 0 0;
+  padding: 1.1rem 1.2rem 1.25rem;
+  border-radius: 1rem;
+  background: color-mix(in oklab, #fff 75%, var(--accent-sage) 25%);
+  border: 1px solid rgba(0,0,0,.04);
+  box-shadow: 0 30px 48px -42px rgba(0,0,0,.4);
+}
+.self-check__header h3 {
+  margin: 0 0 .2rem;
+}
+.self-check__header p {
+  margin: 0 0 .75rem;
+}
+.checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .55rem;
+}
+.checklist label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: .55rem;
+  padding: .65rem .75rem;
+  border-radius: .75rem;
+  background: color-mix(in oklab, #fff 85%, var(--accent-soft) 15%);
+  border: 1px solid rgba(0,0,0,.04);
+  box-shadow: 0 18px 32px -30px rgba(0,0,0,.35);
+  cursor: pointer;
+}
+.checklist input[type="checkbox"] {
+  accent-color: color-mix(in oklab, var(--cta-green), var(--secondary-ink) 15%);
+  inline-size: 1rem;
+  block-size: 1rem;
+}
+.self-check__cta {
+  margin-top: .9rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
 .faq-list {
   margin: 1.25rem 0 0;
   display: flex;
