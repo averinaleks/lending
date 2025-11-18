@@ -22,5 +22,5 @@ Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
 Clean-param: utm_referrer&ref&yclid&yclid_ref&gclid&fbclid&from&openstat&roistat /
 Clean-param: utm_id&utm_keyword&utm_group&utm_creative /
 
-Host: okoroleva.com
+Host: https://okoroleva.com
 Sitemap: https://okoroleva.com/sitemap.xml
