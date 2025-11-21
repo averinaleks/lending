@@ -42,7 +42,11 @@
     body{
       margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
       font-family:"Literata", Georgia, serif;
-      background:var(--bg) url('/assets/img/paper_texture.png') repeat; color:var(--text);
+      background:
+        radial-gradient(circle at 12% 26%, rgba(214,230,218,.22), transparent 55%),
+        radial-gradient(circle at 88% 0%, rgba(228,239,247,.2), transparent 60%),
+        var(--bg);
+      color:var(--text);
     }
     main{
       width:min(560px, 92vw); background:var(--card); border:1px solid var(--border);

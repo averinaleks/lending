@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Портрет психолога Ольги Королёвой</title>
+  <desc id="desc">Минималистичная иллюстрация с силуэтом человека на мягком градиентном фоне.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4efe6" />
+      <stop offset="50%" stop-color="#e5efe6" />
+      <stop offset="100%" stop-color="#e6eef6" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="640" fill="url(#bg)" rx="48" ry="48" />
+  <circle cx="320" cy="230" r="120" fill="#f7f1ea" stroke="#d6c9bd" stroke-width="8" />
+  <path d="M242 430c22-44 64-73 116-73s94 29 116 73c10 20 16 43 18 67a12 12 0 0 1-12 13H236a12 12 0 0 1-12-13c2-24 8-47 18-67Z" fill="#d7e2d6" stroke="#9bb29f" stroke-width="8" />
+  <path d="M287 226c0-37 30-67 67-67s67 30 67 67-30 67-67 67-67-30-67-67Z" fill="#1e2430" opacity=".78" />
+  <path d="M310 246c6 16 21 27 38 27s32-11 38-27" fill="none" stroke="#f4efe6" stroke-width="12" stroke-linecap="round" />
+  <path d="M270 308c28 30 74 39 111 24" fill="none" stroke="#c4b4a7" stroke-width="10" stroke-linecap="round" />
+</svg>

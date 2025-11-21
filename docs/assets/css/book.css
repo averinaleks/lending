@@ -28,7 +28,7 @@ body {
   background:
     radial-gradient(circle at 10% 20%, rgba(214,230,218,.25), transparent 55%),
     radial-gradient(circle at 90% 0%, rgba(228,239,247,.22), transparent 60%),
-    var(--page-bg) url("../img/paper_texture.png") repeat;
+    var(--page-bg);
   font-family: "Literata", "Merriweather", Georgia, "Times New Roman", serif;
   line-height: var(--line);
   letter-spacing: .01em;
