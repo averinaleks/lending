@@ -1,0 +1,979 @@
+name: dependency-submission
+
+on:
+  push:
+    branches:
+      - main
+      - work
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      # Custom type used by auto-submission hooks. GitHub restricts repository
+      # dispatch event names to alphanumeric characters plus '-' and '_', so we
+      # cannot include a '/' separator here.
+      - "dependency-graph-auto-submission"
+      # Backwards compatibility with older hooks that still emit the original
+      # "auto-submission" event type directly.
+      - "auto-submission"
+      # Some integrations use underscores instead of hyphens.
+      - "dependency_graph_auto_submission"
+# NOTE: GitHub does not yet accept the experimental ``dependency_graph`` event
+# key in workflow files for public repositories. Adding it here currently causes
+# the run to be rejected before any jobs start. Auto-submission payloads should
+# therefore be forwarded via the repository dispatch hook declared above.
+
+permissions:
+  # Only the supported scopes for dependency snapshot submission; GitHub rejects
+  # the legacy "dependency-graph" permission.
+  contents: write
+  security-events: write
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    env:
+      BOT_AUTO_INSTALL_DISABLED: "1"
+    steps:
+      - name: Determine execution guard
+        id: execution-guard
+        env:
+          EXPECTED_REPOSITORY: averinaleks/lending
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          run_workflow="true"
+          reason=""
+
+          if [ "${GITHUB_REPOSITORY}" != "${EXPECTED_REPOSITORY}" ]; then
+              run_workflow="false"
+              reason="repository '${GITHUB_REPOSITORY}' does not match '${EXPECTED_REPOSITORY}'"
+          elif [ "${GITHUB_EVENT_NAME}" = "push" ] && [ "${GITHUB_REF}" != "refs/heads/main" ] \
+            && [ "${GITHUB_REF}" != "refs/heads/work" ]; then
+              run_workflow="false"
+              reason="push to '${GITHUB_REF}'"
+          fi
+
+          if [ "${run_workflow}" != "true" ]; then
+              echo "Dependency snapshot submission skipped: ${reason}."
+          fi
+
+          {
+              echo "run-workflow=${run_workflow}"
+          } >> "${GITHUB_OUTPUT}"
+      - name: Resolve event metadata
+        id: event-metadata
+        if: steps.execution-guard.outputs.run-workflow == 'true'
+        run: |
+          python3 <<'PY'
+          from __future__ import annotations
+
+          import json
+          import os
+          from typing import Any, Iterable, Tuple
+
+          _NULL_STRINGS = {"", "null", "none", "undefined", '""', "''"}
+
+
+          def _normalise(value: Any) -> str:
+              if value is None:
+                  return ""
+              if isinstance(value, str):
+                  candidate = value.strip()
+                  if not candidate or candidate.lower() in _NULL_STRINGS:
+                      return ""
+                  return candidate
+              if isinstance(value, (int, float)):
+                  candidate = str(value).strip()
+                  if not candidate or candidate.lower() in _NULL_STRINGS:
+                      return ""
+                  return candidate
+              return ""
+
+
+          def _load_payload() -> dict[str, Any]:
+              path = os.getenv("GITHUB_EVENT_PATH")
+              if not path:
+                  return {}
+              try:
+                  with open(path, "r", encoding="utf-8") as stream:
+                      data = json.load(stream)
+              except Exception:
+                  return {}
+              return data if isinstance(data, dict) else {}
+
+
+          PAYLOAD = _load_payload()
+
+
+          def _lookup(path: str) -> str:
+              if not path:
+                  return ""
+              if path.startswith("env."):
+                  return _normalise(os.getenv(path.split(".", 1)[1]))
+
+              segments = path.split(".")
+              current: Any = PAYLOAD
+
+              if segments and segments[0] == "github":
+                  segments = segments[1:]
+                  if segments and segments[0] == "event":
+                      segments = segments[1:]
+              elif segments and segments[0] == "payload":
+                  segments = segments[1:]
+
+              for segment in segments:
+                  if not segment:
+                      continue
+                  if isinstance(current, dict):
+                      current = current.get(segment)
+                  else:
+                      return ""
+              return _normalise(current)
+
+
+          def _expand_aliases(candidate: str) -> Iterable[str]:
+              yield candidate
+              if candidate.startswith("payload."):
+                  suffix = candidate.split(".", 1)[1]
+                  if suffix:
+                      yield f"github.event.{suffix}"
+
+
+          def _lines(block: str) -> Tuple[str, ...]:
+              seen: set[str] = set()
+              expanded: list[str] = []
+              for raw in block.splitlines():
+                  candidate = raw.strip()
+                  if not candidate:
+                      continue
+                  for alias in _expand_aliases(candidate):
+                      if alias and alias not in seen:
+                          seen.add(alias)
+                          expanded.append(alias)
+              return tuple(expanded)
+
+
+          def _choose(candidates: Iterable[str]) -> str:
+              for candidate in candidates:
+                  value = _lookup(candidate)
+                  if value:
+                      return value
+              return ""
+
+
+          REF_CANDIDATES = _lines(
+              """
+              payload.ref
+              payload.ref_name
+              payload.refName
+              payload.branch
+              payload.branch_name
+              payload.branchName
+              payload.head_branch
+              payload.headBranch
+              payload.head_branch_name
+              payload.headBranchName
+              payload.head_ref
+              payload.headRef
+              payload.head_ref_name
+              payload.headRefName
+              env.GITHUB_HEAD_REF
+              payload.base_ref
+              payload.dependency_graph.sha
+              payload.dependency_graph.commit_oid
+              payload.dependency_graph.commitOid
+              payload.dependency_graph.ref
+              payload.dependency_graph.ref_name
+              payload.dependency_graph.refName
+              payload.dependency_graph.branch
+              payload.dependency_graph.branch_name
+              payload.dependency_graph.branchName
+              payload.client_payload.sha
+              payload.client_payload.commit_sha
+              payload.client_payload.commitSha
+              payload.client_payload.commit_oid
+              payload.client_payload.commitOid
+              payload.client_payload.head_sha
+              payload.client_payload.headSha
+              payload.client_payload.after
+              payload.client_payload.after_sha
+              payload.client_payload.afterSha
+              payload.client_payload.after_oid
+              payload.client_payload.afterOid
+              payload.client_payload.ref
+              payload.client_payload.ref_name
+              payload.client_payload.refName
+              payload.client_payload.head_ref
+              payload.client_payload.headRef
+              payload.client_payload.head_ref_name
+              payload.client_payload.headRefName
+              payload.client_payload.branch
+              payload.client_payload.branch_name
+              payload.client_payload.branchName
+              payload.workflow_run.head_sha
+              payload.workflow_run.head_commit.id
+              payload.workflow_run.head_commit.sha
+              payload.workflow_run.head_commit.before
+              payload.workflow_run.head_commit.beforeSha
+              payload.workflow_run.head_ref
+              payload.workflow_run.headRef
+              payload.workflow_run.head_ref_name
+              payload.workflow_run.headRefName
+              payload.workflow_run.head_branch
+              payload.workflow_run.head_branch_name
+              payload.workflow_run.headBranch
+              payload.workflow_run.headBranchName
+              github.event.ref
+              github.event.ref_name
+              github.event.refName
+              github.event.branch
+              github.event.branch_name
+              github.event.branchName
+              github.event.head_branch
+              github.event.headBranch
+              github.event.head_branch_name
+              github.event.headBranchName
+              github.event.head_ref
+              github.event.headRef
+              github.event.head_ref_name
+              github.event.headRefName
+              github.head_ref
+              github.event.base_ref
+              github.event.dependency_graph.sha
+              github.event.dependency_graph.commit_oid
+              github.event.dependency_graph.commitOid
+              github.event.dependency_graph.ref
+              github.event.dependency_graph.ref_name
+              github.event.dependency_graph.refName
+              github.event.dependency_graph.branch
+              github.event.dependency_graph.branch_name
+              github.event.dependency_graph.branchName
+              github.event.client_payload.sha
+              github.event.client_payload.commit_sha
+              github.event.client_payload.commitSha
+              github.event.client_payload.commit_oid
+              github.event.client_payload.commitOid
+              github.event.client_payload.head_sha
+              github.event.client_payload.headSha
+              github.event.client_payload.after
+              github.event.client_payload.after_sha
+              github.event.client_payload.afterSha
+              github.event.client_payload.after_oid
+              github.event.client_payload.afterOid
+              github.event.client_payload.ref
+              github.event.client_payload.ref_name
+              github.event.client_payload.refName
+              github.event.client_payload.head_ref
+              github.event.client_payload.headRef
+              github.event.client_payload.head_ref_name
+              github.event.client_payload.headRefName
+              github.event.client_payload.branch
+              github.event.client_payload.branch_name
+              github.event.client_payload.branchName
+              github.event.workflow_run.head_sha
+              github.event.workflow_run.head_commit.id
+              github.event.workflow_run.head_commit.sha
+              github.event.workflow_run.head_commit.before
+              github.event.workflow_run.head_commit.beforeSha
+              github.event.workflow_run.head_ref
+              github.event.workflow_run.headRef
+              github.event.workflow_run.head_ref_name
+              github.event.workflow_run.headRefName
+              github.event.workflow_run.head_branch
+              github.event.workflow_run.head_branch_name
+              github.event.workflow_run.headBranch
+              github.event.workflow_run.headBranchName
+              env.GITHUB_REF
+              """
+          )
+
+          checkout_ref = _choose(REF_CANDIDATES)
+          if not checkout_ref:
+              # Repository dispatch events may provide the default branch reference via
+              # ``format('refs/heads/{0}', github.event.repository.default_branch)``.
+              default_branch = _lookup("payload.repository.default_branch")
+              if not default_branch:
+                  default_branch = _lookup("github.event.repository.default_branch")
+              if default_branch:
+                  checkout_ref = f"refs/heads/{default_branch}"
+          if not checkout_ref:
+              checkout_ref = "refs/heads/main"
+
+          BEFORE_CANDIDATES = _lines(
+              """
+              payload.before
+              payload.base_sha
+              payload.base_ref
+              payload.dependency_graph.before_sha
+              payload.dependency_graph.beforeSha
+              payload.dependency_graph.before_oid
+              payload.dependency_graph.beforeOid
+              payload.dependency_graph.before_commit_oid
+              payload.dependency_graph.beforeCommitOid
+              payload.dependency_graph.base_ref
+              payload.dependency_graph.base_sha
+              payload.dependency_graph.baseRef
+              payload.dependency_graph.baseRefName
+              payload.dependency_graph.baseSha
+              payload.client_payload.before
+              payload.client_payload.base_sha
+              payload.client_payload.before_sha
+              payload.client_payload.baseSha
+              payload.client_payload.beforeSha
+              payload.client_payload.before_oid
+              payload.client_payload.beforeOid
+              payload.client_payload.before_commit_oid
+              payload.client_payload.beforeCommitOid
+              payload.client_payload.previous_sha
+              payload.client_payload.previous_oid
+              payload.client_payload.previousSha
+              payload.client_payload.previousOid
+              payload.client_payload.previous_commit_oid
+              payload.client_payload.previousCommitOid
+              payload.previous_sha
+              payload.previousSha
+              payload.previous_oid
+              payload.previousOid
+              payload.previous_commit_oid
+              payload.previousCommitOid
+              payload.head_commit.before
+              payload.head_commit.beforeSha
+              payload.head_commit.beforeOid
+              payload.head_commit.beforeCommitOid
+              payload.head_commit.previousSha
+              payload.head_commit.previousOid
+              payload.head_commit.previousCommitOid
+              payload.workflow_run.before
+              payload.workflow_run.previous_sha
+              payload.workflow_run.head_commit.before
+              payload.workflow_run.head_commit.beforeSha
+              payload.workflow_run.head_commit.beforeOid
+              payload.workflow_run.head_commit.beforeCommitOid
+              payload.workflow_run.head_commit.previousSha
+              payload.workflow_run.head_commit.previousOid
+              payload.workflow_run.head_commit.previousCommitOid
+              github.event.before
+              github.event.base_sha
+              github.event.base_ref
+              github.event.dependency_graph.before_sha
+              github.event.dependency_graph.beforeSha
+              github.event.dependency_graph.before_oid
+              github.event.dependency_graph.beforeOid
+              github.event.dependency_graph.before_commit_oid
+              github.event.dependency_graph.beforeCommitOid
+              github.event.dependency_graph.base_ref
+              github.event.dependency_graph.base_sha
+              github.event.dependency_graph.baseRef
+              github.event.dependency_graph.baseRefName
+              github.event.dependency_graph.baseSha
+              github.event.client_payload.before
+              github.event.client_payload.base_sha
+              github.event.client_payload.before_sha
+              github.event.client_payload.baseSha
+              github.event.client_payload.beforeSha
+              github.event.client_payload.before_oid
+              github.event.client_payload.beforeOid
+              github.event.client_payload.before_commit_oid
+              github.event.client_payload.beforeCommitOid
+              github.event.client_payload.previous_sha
+              github.event.client_payload.previous_oid
+              github.event.client_payload.previousSha
+              github.event.client_payload.previousOid
+              github.event.client_payload.previous_commit_oid
+              github.event.client_payload.previousCommitOid
+              github.event.previous_sha
+              github.event.previousSha
+              github.event.previous_oid
+              github.event.previousOid
+              github.event.previous_commit_oid
+              github.event.previousCommitOid
+              github.event.head_commit.before
+              github.event.head_commit.beforeSha
+              github.event.head_commit.beforeOid
+              github.event.head_commit.beforeCommitOid
+              github.event.head_commit.previousSha
+              github.event.head_commit.previousOid
+              github.event.head_commit.previousCommitOid
+              github.event.workflow_run.before
+              github.event.workflow_run.previous_sha
+              github.event.workflow_run.head_commit.before
+              github.event.workflow_run.head_commit.beforeSha
+              github.event.workflow_run.head_commit.beforeOid
+              github.event.workflow_run.head_commit.beforeCommitOid
+              github.event.workflow_run.head_commit.previousSha
+              github.event.workflow_run.head_commit.previousOid
+              github.event.workflow_run.head_commit.previousCommitOid
+              """
+          )
+
+          AFTER_CANDIDATES = _lines(
+              """
+              env.GITHUB_SHA
+              payload.commit_oid
+              payload.commitOid
+              payload.commit_sha
+              payload.sha
+              payload.dependency_graph.sha
+              payload.dependency_graph.commit_oid
+              payload.dependency_graph.commitOid
+              payload.dependency_graph.after_sha
+              payload.dependency_graph.afterSha
+              payload.dependency_graph.after_oid
+              payload.dependency_graph.afterOid
+              payload.dependency_graph.after_commit_oid
+              payload.dependency_graph.afterCommitOid
+              payload.dependency_graph.after
+              payload.head_sha
+              payload.headSha
+              payload.after
+              payload.after_sha
+              payload.afterSha
+              payload.after_oid
+              payload.afterOid
+              payload.after_commit_oid
+              payload.afterCommitOid
+              payload.head_commit.id
+              payload.head_commit.sha
+              payload.head_commit.after
+              payload.head_commit.afterSha
+              payload.head_commit.afterOid
+              payload.head_commit.afterCommitOid
+              payload.dependency_graph.ref
+              payload.ref
+              payload.client_payload.after
+              payload.client_payload.head_sha
+              payload.client_payload.headSha
+              payload.client_payload.commit_oid
+              payload.client_payload.commitOid
+              payload.client_payload.commit_sha
+              payload.client_payload.after_sha
+              payload.client_payload.afterSha
+              payload.client_payload.after_oid
+              payload.client_payload.afterOid
+              payload.client_payload.after_commit_oid
+              payload.client_payload.afterCommitOid
+              payload.client_payload.sha
+              payload.workflow_run.head_sha
+              payload.workflow_run.head_commit.id
+              payload.workflow_run.head_commit.sha
+              payload.workflow_run.head_commit.after
+              payload.workflow_run.head_commit.afterSha
+              payload.workflow_run.head_commit.afterOid
+              payload.workflow_run.head_commit.afterCommitOid
+              github.event.commit_oid
+              github.event.commitOid
+              github.event.commit_sha
+              github.event.sha
+              github.event.dependency_graph.sha
+              github.event.dependency_graph.commit_oid
+              github.event.dependency_graph.commitOid
+              github.event.dependency_graph.after_sha
+              github.event.dependency_graph.afterSha
+              github.event.dependency_graph.after_oid
+              github.event.dependency_graph.afterOid
+              github.event.dependency_graph.after_commit_oid
+              github.event.dependency_graph.afterCommitOid
+              github.event.dependency_graph.after
+              github.event.head_sha
+              github.event.headSha
+              github.event.after
+              github.event.after_sha
+              github.event.afterSha
+              github.event.after_oid
+              github.event.afterOid
+              github.event.after_commit_oid
+              github.event.afterCommitOid
+              github.event.head_commit.id
+              github.event.head_commit.sha
+              github.event.head_commit.after
+              github.event.head_commit.afterSha
+              github.event.head_commit.afterOid
+              github.event.head_commit.afterCommitOid
+              github.event.dependency_graph.ref
+              github.event.ref
+              github.event.client_payload.after
+              github.event.client_payload.head_sha
+              github.event.client_payload.headSha
+              github.event.client_payload.commit_oid
+              github.event.client_payload.commitOid
+              github.event.client_payload.commit_sha
+              github.event.client_payload.after_sha
+              github.event.client_payload.afterSha
+              github.event.client_payload.after_oid
+              github.event.client_payload.afterOid
+              github.event.client_payload.after_commit_oid
+              github.event.client_payload.afterCommitOid
+              github.event.client_payload.sha
+              github.event.workflow_run.head_sha
+              github.event.workflow_run.head_commit.id
+              github.event.workflow_run.head_commit.sha
+              github.event.workflow_run.head_commit.after
+              github.event.workflow_run.head_commit.afterSha
+              github.event.workflow_run.head_commit.afterOid
+              github.event.workflow_run.head_commit.afterCommitOid
+              """
+          )
+
+          before = _choose(BEFORE_CANDIDATES)
+          after = _choose(AFTER_CANDIDATES)
+
+          output_path = os.getenv("GITHUB_OUTPUT")
+          if output_path:
+              with open(output_path, "a", encoding="utf-8") as stream:
+                  stream.write(f"checkout_ref={checkout_ref}\n")
+                  stream.write(f"before={before}\n")
+                  stream.write(f"after={after}\n")
+
+          print(f"Checkout reference resolved to: {checkout_ref}")
+          if before:
+              print(f"Resolved 'before' commit: {before}")
+          if after:
+              print(f"Resolved 'after' commit: {after}")
+          PY
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v4
+        id: checkout
+        if: steps.execution-guard.outputs.run-workflow == 'true'
+        continue-on-error: true
+        with:
+          fetch-depth: 0
+          ref: ${{ steps.event-metadata.outputs.checkout_ref }}
+      - name: Recover checkout when branch references are stale
+        id: recover
+        if: >-
+          steps.execution-guard.outputs.run-workflow == 'true' &&
+          steps.checkout.outcome == 'failure'
+        env:
+          CHECKOUT_REF: ${{ steps.event-metadata.outputs.checkout_ref }}
+          CHECKOUT_AFTER: ${{ steps.event-metadata.outputs.after }}
+          CHECKOUT_BEFORE: ${{ steps.event-metadata.outputs.before }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+
+          output_path="${GITHUB_OUTPUT:-}"
+
+          mark_recovery() {
+              if [ -n "${output_path}" ]; then
+                  echo "recovered=$1" >>"${output_path}"
+              fi
+          }
+
+          mark_recovery "false"
+
+          if [ -z "${GITHUB_REPOSITORY:-}" ]; then
+              echo "::warning::GITHUB_REPOSITORY is not set; skipping repository recovery." >&2
+              if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+                  {
+                      echo "## Dependency snapshot skipped"
+                      echo "Не удалось восстановить репозиторий: переменная \\`GITHUB_REPOSITORY\\` отсутствует."
+                  } >> "${GITHUB_STEP_SUMMARY}" || true
+              fi
+              exit 0
+          fi
+
+          if [ -n "${GITHUB_TOKEN:-}" ]; then
+              echo "::add-mask::${GITHUB_TOKEN}"
+              REPO="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          else
+              REPO="https://github.com/${GITHUB_REPOSITORY}.git"
+          fi
+
+          AUTH_FALLBACK_ATTEMPTED=0
+
+          fetch_target() {
+              local target="$1"
+              if [ -z "$target" ]; then
+                  return 1
+              fi
+              if git fetch --no-tags --depth=1 origin "$target"; then
+                  git checkout --force --detach FETCH_HEAD
+                  mark_recovery "true"
+                  return 0
+              fi
+              if git fetch --no-tags origin "$target"; then
+                  git checkout --force --detach FETCH_HEAD
+                  mark_recovery "true"
+                  return 0
+              fi
+              if [ -n "${GITHUB_TOKEN:-}" ] && [ "${AUTH_FALLBACK_ATTEMPTED:-0}" = "0" ]; then
+                  echo "::warning::Authenticated fetch for ${target} failed; retrying without GITHUB_TOKEN." >&2
+                  AUTH_FALLBACK_ATTEMPTED=1
+                  git remote set-url origin "https://github.com/${GITHUB_REPOSITORY}.git"
+                  if git fetch --no-tags --depth=1 origin "$target"; then
+                      git checkout --force --detach FETCH_HEAD
+                      mark_recovery "true"
+                      return 0
+                  fi
+                  if git fetch --no-tags origin "$target"; then
+                      git checkout --force --detach FETCH_HEAD
+                      mark_recovery "true"
+                      return 0
+                  fi
+              fi
+              return 1
+          }
+
+          rm -rf .git
+          git init .
+          git config --global --add safe.directory "$(pwd)"
+          git remote add origin "$REPO"
+
+          if [ -n "${CHECKOUT_BEFORE}" ]; then
+              git fetch --no-tags --depth=1 origin "${CHECKOUT_BEFORE}" || true
+          fi
+
+          if [ -n "${CHECKOUT_AFTER}" ] && fetch_target "${CHECKOUT_AFTER}"; then
+              exit 0
+          fi
+
+          if [ -n "${CHECKOUT_REF}" ] && fetch_target "${CHECKOUT_REF}"; then
+              exit 0
+          fi
+
+          DEFAULT_REF="${DEFAULT_BRANCH:-main}"
+          if fetch_target "refs/heads/${DEFAULT_REF}"; then
+              exit 0
+          fi
+
+          echo "::warning::Unable to recover repository checkout for dependency submission. Skipping snapshot run." >&2
+          if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+              {
+                  echo "## Dependency snapshot skipped"
+                  echo "Не удалось восстановить репозиторий из origin; пропускаем отправку snapshot."
+              } >> "${GITHUB_STEP_SUMMARY}" || true
+          fi
+          exit 0
+      - name: Determine repository availability
+        id: repository-ready
+        if: steps.execution-guard.outputs.run-workflow == 'true'
+        env:
+          CHECKOUT_OUTCOME: ${{ steps.checkout.outcome }}
+          RECOVER_OUTCOME: ${{ steps.recover.outcome }}
+          RECOVERED: ${{ steps.recover.outputs.recovered }}
+        run: |
+          set -euo pipefail
+
+          ready="false"
+          if [ "${CHECKOUT_OUTCOME:-}" = "success" ]; then
+              ready="true"
+          elif [ "${RECOVER_OUTCOME:-}" = "success" ] && [ "${RECOVERED:-}" = "true" ]; then
+              ready="true"
+          elif git rev-parse HEAD >/dev/null 2>&1; then
+              ready="true"
+          fi
+
+          if [ -n "${GITHUB_OUTPUT:-}" ]; then
+              echo "ready=${ready}" >>"${GITHUB_OUTPUT}"
+          fi
+
+          if [ "${ready}" != "true" ]; then
+              echo "::notice::Skipping dependency submission because the repository checkout is unavailable." >&2
+              if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+                  {
+                      echo "## Dependency snapshot skipped"
+                      echo "Репозиторий недоступен для отправки dependency snapshot."
+                  } >> "${GITHUB_STEP_SUMMARY}" || true
+              fi
+          fi
+      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        if: >-
+          steps.execution-guard.outputs.run-workflow == 'true' &&
+          steps.repository-ready.outputs.ready == 'true'
+        with:
+          python-version: '3.11'
+      - name: Detect dependency manifest changes
+        id: detect
+        if: >-
+          steps.execution-guard.outputs.run-workflow == 'true' &&
+          steps.repository-ready.outputs.ready == 'true'
+        env:
+          BEFORE: ${{ steps.event-metadata.outputs.before }}
+          AFTER: ${{ steps.event-metadata.outputs.after }}
+        run: |
+          python <<'PY'
+          from __future__ import annotations
+
+          import fnmatch
+          import os
+          import subprocess
+          from pathlib import Path
+          from typing import Sequence
+
+          _NULL_STRINGS = {"null", "none", "undefined", '""', "''"}
+
+          def _normalise_value(raw: str | None) -> str:
+              if not raw:
+                  return ""
+              candidate = raw.strip()
+              if candidate.lower() in _NULL_STRINGS:
+                  return ""
+              return candidate
+
+
+          def _resolve_commit(reference: str) -> str:
+              if not reference:
+                  return ""
+              try:
+                  result = subprocess.run(
+                      ["git", "rev-parse", reference],
+                      check=True,
+                      stdout=subprocess.PIPE,
+                      text=True,
+                  )
+              except subprocess.CalledProcessError as exc:
+                  print(
+                      f"::warning::Unable to resolve commit {reference!r}: {exc}",
+                      flush=True,
+                  )
+                  return ""
+              except Exception as exc:  # pragma: no cover - defensive guard for CI
+                  print(
+                      f"::warning::Unexpected error while resolving commit {reference!r}:",
+                      exc,
+                      flush=True,
+                  )
+                  return ""
+              return result.stdout.strip()
+
+          patterns: Sequence[str] = (
+              "requirements*.txt",
+              "requirements*.in",
+              "requirements*.out",
+          )
+          before = _normalise_value(os.environ.get("BEFORE"))
+          after = _normalise_value(os.environ.get("AFTER"))
+
+          diff_failed = False
+          changed: list[str]
+
+          if not after:
+              after = _resolve_commit("HEAD")
+
+          if not after:
+              print(
+                  "::warning::Missing GITHUB_SHA value; assuming dependency manifests changed.",
+                  flush=True,
+              )
+              diff_failed = True
+              changed = []
+          else:
+              use_diff_tree = False
+              if not before or set(before) == {"0"}:
+                  parent = _resolve_commit(f"{after}^")
+                  if parent:
+                      before = parent
+                  else:
+                      use_diff_tree = True
+
+              try:
+                  if use_diff_tree:
+                      completed = subprocess.run(
+                          [
+                              "git",
+                              "diff-tree",
+                              "--no-commit-id",
+                              "--name-only",
+                              "-r",
+                              after,
+                          ],
+                          check=True,
+                          stdout=subprocess.PIPE,
+                          text=True,
+                      )
+                  else:
+                      completed = subprocess.run(
+                          ["git", "diff", "--name-only", before, after],
+                          check=True,
+                          stdout=subprocess.PIPE,
+                          text=True,
+                      )
+              except subprocess.CalledProcessError as exc:
+                  print(f"::warning::Unable to determine diff: {exc}", flush=True)
+                  diff_failed = True
+                  changed = []
+              except Exception as exc:  # pragma: no cover - defensive guard for CI
+                  print(
+                      "::warning::Unexpected error while detecting manifest changes:",
+                      exc,
+                      flush=True,
+                  )
+                  diff_failed = True
+                  changed = []
+              else:
+                  files = [
+                      line.strip()
+                      for line in completed.stdout.splitlines()
+                      if line.strip()
+                  ]
+                  changed = []
+                  for file in files:
+                      if not file:
+                          continue
+                      try:
+                          filename = Path(file).name
+                      except Exception:
+                          filename = file
+                      file_lower = file.lower()
+                      filename_lower = filename.lower()
+                      if any(
+                          fnmatch.fnmatch(file, pattern)
+                          or fnmatch.fnmatch(filename, pattern)
+                          or fnmatch.fnmatch(file_lower, pattern)
+                          or fnmatch.fnmatch(filename_lower, pattern)
+                          for pattern in patterns
+                      ):
+                          changed.append(file)
+
+          changed_flag = "true" if diff_failed or bool(changed) else "false"
+          output_path = os.environ.get("GITHUB_OUTPUT")
+          if not output_path:
+              print(
+                  "::warning::GITHUB_OUTPUT is not available; downstream steps will be skipped.",
+                  flush=True,
+              )
+          else:
+              try:
+                  with open(output_path, "a", encoding="utf-8") as stream:
+                      stream.write(f"changed={changed_flag}\n")
+                      if changed:
+                          stream.write("files<<EOF\n")
+                          stream.write("\n".join(changed))
+                          stream.write("\nEOF\n")
+              except OSError as exc:  # pragma: no cover - filesystem guard for CI
+                  print(
+                      "::warning::Unable to write change detection outputs:",
+                      exc,
+                      flush=True,
+                  )
+
+          if changed_flag == "true" and not changed and diff_failed:
+              print(
+                  "Diff calculation failed; proceeding with dependency snapshot submission.",
+                  flush=True,
+              )
+          elif changed:
+              print("Dependency manifest changes detected:", flush=True)
+              for path in changed:
+                  print(f"  - {path}", flush=True)
+          else:
+              print("No dependency manifest changes detected.", flush=True)
+          PY
+      - name: Install dependency snapshot dependencies
+        if: >-
+          steps.execution-guard.outputs.run-workflow == 'true' &&
+          steps.repository-ready.outputs.ready == 'true' && (
+            steps.detect.outputs.changed == 'true' ||
+            github.event_name == 'workflow_dispatch' ||
+            github.event_name == 'repository_dispatch'
+          )
+        run: |
+          python -m pip install --upgrade pip \
+            || python -m pip install --upgrade pip --break-system-packages \
+            || echo '::warning::Unable to upgrade pip; proceeding with the preinstalled version.'
+          python -m pip install requests \
+            || python -m pip install requests --break-system-packages \
+            || echo '::warning::Unable to install requests; dependency snapshot submission may fail.'
+      - name: Prepare requirements
+        if: >-
+          steps.execution-guard.outputs.run-workflow == 'true' &&
+          steps.repository-ready.outputs.ready == 'true' && (
+            steps.detect.outputs.changed == 'true' ||
+            github.event_name == 'workflow_dispatch' ||
+            github.event_name == 'repository_dispatch'
+          )
+        run: |
+          python <<'PY'
+          from __future__ import annotations
+
+          import fnmatch
+          import os
+          from pathlib import Path
+          from typing import Iterable
+
+          patterns = ("requirements*.txt", "requirements*.in", "requirements*.out")
+          excluded = {
+              ".git",
+              ".hg",
+              ".nox",
+              ".tox",
+              ".venv",
+              "__pycache__",
+              "env",
+              "node_modules",
+              "site-packages",
+              "venv",
+          }
+
+          def is_excluded(target: Path) -> bool:
+              return any(part in excluded for part in target.parts)
+
+          def iter_requirement_files(root: Path) -> Iterable[Path]:
+              for current_root, dirnames, filenames in os.walk(root):
+                  current_path = Path(current_root)
+                  if is_excluded(current_path):
+                      dirnames[:] = []
+                      continue
+                  dirnames[:] = sorted(
+                      dirname
+                      for dirname in dirnames
+                      if not is_excluded(current_path / dirname)
+                  )
+                  for filename in filenames:
+                      name_lower = filename.lower()
+                      if not any(
+                          fnmatch.fnmatch(filename, pattern)
+                          or fnmatch.fnmatch(name_lower, pattern)
+                          for pattern in patterns
+                      ):
+                          continue
+                      yield current_path / filename
+
+          for path in iter_requirement_files(Path(".")):
+              try:
+                  original = path.read_text(encoding="utf-8")
+              except UnicodeDecodeError as exc:
+                  print(
+                      f"Skipping {path} due to encoding error: {exc}",
+                      flush=True,
+                  )
+                  continue
+              except OSError as exc:
+                  print(
+                      f"Skipping {path} due to filesystem error: {exc}",
+                      flush=True,
+                  )
+                  continue
+              lines = original.splitlines(keepends=True)
+              filtered: list[str] = []
+              for line in lines:
+                  stripped = line.lstrip()
+                  stripped_lower = stripped.lower()
+                  if stripped_lower.startswith("ccxtpro"):
+                      continue
+                  if stripped_lower.startswith("#") and "ccxtpro" in stripped_lower:
+                      continue
+                  filtered.append(line)
+              if filtered != lines:
+                  updated = "".join(filtered)
+                  try:
+                      path.write_text(updated, encoding="utf-8")
+                  except OSError as exc:
+                      print(
+                          f"::warning::Unable to update {path}: {exc}",
+                          flush=True,
+                      )
+          PY
+      - name: Submit dependency snapshot
+        if: >-
+          steps.execution-guard.outputs.run-workflow == 'true' &&
+          steps.repository-ready.outputs.ready == 'true' && (
+            steps.detect.outputs.changed == 'true' ||
+            github.event_name == 'workflow_dispatch' ||
+            github.event_name == 'repository_dispatch'
+          )
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/submit_dependency_snapshot.py
