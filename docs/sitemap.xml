@@ -5,61 +5,61 @@
         https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://okoroleva.com/</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/about.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/services/individual-therapy.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/blog/</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/blog/kak-perezhit-trevogu.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/blog/kak-proyti-cherez-vygoranie.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/blog/kak-podderzhivat-samoocenku.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/microdata-validator.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/yandex-webmaster-advanced.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://okoroleva.com/yandex-popular-queries-monitoring.html</loc>
-    <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+    <lastmod>2025-11-29T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
