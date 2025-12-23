@@ -35,6 +35,26 @@
   <meta name="twitter:title" content="Руководство по SEO в Яндекс.Вебмастере — продвинутые разделы" />
   <meta name="twitter:description" content="Как использовать продвинутые разделы руководства по SEO в Яндекс.Вебмастере, чтобы улучшить видимость сайта." />
   <meta name="twitter:image" content="https://okoroleva.com/img/olga-koroleva-psychologist.svg" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://okoroleva.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Яндекс.Вебмастер — продвинутое руководство",
+          "item": "https://okoroleva.com/yandex-webmaster-advanced.html"
+        }
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -66,6 +86,12 @@
     .card h3{margin-top:0;}
     .pill{display:inline-block; margin-bottom:12px; padding:6px 12px; border-radius:999px; background:#EEF7F2; color:#365B4E; font-size:13px; font-weight:600; letter-spacing:.3px;}
     .cta{margin-top:36px;}
+    .breadcrumbs{display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:14px; color:var(--muted); margin:12px 0 8px;}
+    .breadcrumbs a{color:inherit; text-decoration:none;}
+    .breadcrumbs svg{width:16px; height:16px; color:var(--border);}
+    .quick-links{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 8px; padding:0;}
+    .quick-links a{display:inline-flex; align-items:center; gap:6px; padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:#fff; color:var(--text); font-weight:600; text-decoration:none; box-shadow:0 8px 16px rgba(30,36,48,.06);} 
+    .quick-links a:hover{border-color:rgba(30,36,48,.2);}
     footer{margin:80px 0 48px; font-size:14px; color:var(--muted); text-align:center;}
     @media (max-width:680px){
       h1{font-size:32px;}
@@ -79,12 +105,24 @@
   <header>
     <div class="container">
       <p class="muted"><a href="/">← На главную</a></p>
+      <nav class="breadcrumbs" aria-label="Навигационная цепочка">
+        <a href="/">Главная</a>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path fill="currentColor" d="M10.59 7.41L15.18 12l-4.59 4.59L9 15.99 12.99 12 9 8.01z" /></svg>
+        <span aria-current="page">Яндекс.Вебмастер — продвинутое руководство</span>
+      </nav>
       <h1>Продвинутое руководство по SEO в Яндекс.Вебмастере</h1>
       <p class="lead">Короткий путеводитель по разделам справки Яндекса, которые помогают выстроить системную поисковую оптимизацию: от индексации до улучшения сниппета.</p>
+      <div class="quick-links" aria-label="Быстрые ссылки по разделам страницы">
+        <a href="#start">С чего начать</a>
+        <a href="#tech">Техническая база</a>
+        <a href="#appearance">Внешний вид и сниппеты</a>
+        <a href="#queries">Запросы и рынок</a>
+        <a href="#promotion">Продвижение</a>
+      </div>
     </div>
   </header>
   <main id="content" class="container">
-    <section>
+    <section id="start">
       <h2>С чего начать</h2>
       <div class="card">
         <span class="pill">Быстрый старт</span>
@@ -98,7 +136,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="tech">
       <h2>Техническая база</h2>
       <div class="card">
         <span class="pill">Индексация</span>
@@ -122,7 +160,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="appearance">
       <h2>Как сайт выглядит в поиске</h2>
       <div class="card">
         <span class="pill">Позиции</span>
@@ -146,9 +184,20 @@
         <h3><a href="https://webmaster.yandex.ru/site/https:okoroleva.com:443/optimization/seo-guide/?section=APPEARANCE&amp;menu=ADVANCED" rel="noreferrer noopener">Управление сниппетом</a></h3>
         <p>Раздел подсказывает, какие расширенные элементы (лого, breadcrumbs, FAQ) доступны для сайта. Здесь же проверяются метатеги, микроразметка и наличие адаптивной версии страниц.</p>
       </div>
+
+      <div class="card">
+        <span class="pill">Сниппеты</span>
+        <h3><a href="https://webmaster.yandex.ru/site/https:okoroleva.com:443/serp-snippets/serp-snippets/" rel="noreferrer noopener">Навигационные цепочки и быстрые ссылки</a></h3>
+        <p>В блоке «Сниппеты в выдаче» можно включить показ breadcrumbs и настроить быстрые ссылки, чтобы сниппет занимал больше места и вёл в ключевые разделы.</p>
+        <ul>
+          <li>Проверьте, что разделы сайта размечены структурированными данными <code>BreadcrumbList</code> (JSON-LD или микроразметка) и проходят <a href="/microdata-validator.html">валидатор Яндекса</a> — так навигационная цепочка появится в выдаче.</li>
+          <li>Добавьте 4–8 быстрых ссылок в интерфейсе: укажите понятные названия («Услуги», «Цены», «Отзывы», «Контакты») и ссылки на разделы первого уровня. Система покажет шаблон сниппета и сообщит, если URL недоступен.</li>
+          <li>После сохранения мониторьте отчёт «Показы быстрых ссылок» и при необходимости обновляйте список: Яндекс может исключать слабопосещаемые или дублирующие переходы.</li>
+        </ul>
+      </div>
   </section>
 
-  <section>
+  <section id="queries">
     <h2>Подбор запросов и анализ рынка</h2>
     <div class="card">
       <span class="pill">Keyword Research β</span>
@@ -173,7 +222,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="promotion">
     <h2>Продвижение и внешние факторы</h2>
       <div class="card">
         <span class="pill">Продвижение</span>
