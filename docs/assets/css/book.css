@@ -390,15 +390,15 @@ main { counter-reset: chapter; }
 #chapter-1,
 #chapter-2,
 #chapter-3,
-#chapter-5,
+#chapter-4,
 #chapter-6,
-#chapter-8 {
+#chapter-7 {
   --chapter-bg: color-mix(in oklab, #fff5ef, transparent 25%);
   --chapter-shadow: 0 30px 60px -50px rgba(0, 0, 0, .45);
 }
 
-#chapter-4,
-#chapter-7 {
+#chapter-5,
+#chapter-8 {
   --chapter-bg: color-mix(in oklab, #edf4fb, transparent 20%);
   --chapter-shadow: 0 30px 60px -50px rgba(0, 0, 0, .45);
 }
@@ -522,20 +522,20 @@ main { counter-reset: chapter; }
     min-width: 78%;
     scroll-snap-align: start;
   }
-  #chapter-5 .sticker-list {
+  #chapter-3 .sticker-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     overflow: visible;
     scroll-snap-type: none;
     padding-bottom: 0;
   }
-  #chapter-5 .sticker-list .sticker {
+  #chapter-3 .sticker-list .sticker {
     min-width: auto;
     scroll-snap-align: unset;
   }
 }
 
-#chapter-5 .sticker {
+#chapter-3 .sticker {
   background: color-mix(in oklab, #fff 75%, var(--page-bg) 25%);
   border: 1px solid rgba(0,0,0,.05);
   border-radius: .65rem;
@@ -544,10 +544,10 @@ main { counter-reset: chapter; }
   transform: none;
 }
 
-#chapter-5 .sticker::after { display: none; }
+#chapter-3 .sticker::after { display: none; }
 
-#chapter-5 .sticker:hover,
-#chapter-5 .sticker:focus-visible {
+#chapter-3 .sticker:hover,
+#chapter-3 .sticker:focus-visible {
   animation: none;
   transform: none;
 }
