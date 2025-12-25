@@ -1,0 +1,91 @@
+---
+version: 2
+
+registries:
+  pytorch-cpu:
+    type: python-index
+    url: https://download.pytorch.org/whl/cpu
+    replaces-base: false
+
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    insecure-external-code-execution: allow
+    registries:
+      - pytorch-cpu
+    # The Dependabot workflow at
+    # https://github.com/averinaleks/bot/actions/workflows/dependabot/dependabot-updates
+    # has recently been failing with resolver timeouts on heavy ML/GPU stacks.
+    # Exclude those packages so scheduled runs complete successfully; we will
+    # refresh them manually alongside the GPU images.
+    ignore:
+      - dependency-name: "openai"
+      - dependency-name: "numba"
+      - dependency-name: "shap"
+      - dependency-name: "mlflow"
+      - dependency-name: "mlflow-skinny"
+      - dependency-name: "mlflow-tracing"
+      - dependency-name: "torch"
+      - dependency-name: "torchvision"
+      - dependency-name: "torchaudio"
+      - dependency-name: "triton"
+      - dependency-name: "vllm"
+      - dependency-name: "pytorch-lightning"
+      - dependency-name: "torchmetrics"
+      - dependency-name: "huggingface-hub"
+      - dependency-name: "transformers"
+      - dependency-name: "cupy-cuda12x"
+      - dependency-name: "tensorflow"
+      - dependency-name: "keras"
+      - dependency-name: "tensorboard"
+      - dependency-name: "tensorboard-data-server"
+      - dependency-name: "ml-dtypes"
+      - dependency-name: "opt-einsum"
+      - dependency-name: "optree"
+      - dependency-name: "sympy"
+      - dependency-name: "stable-baselines3"
+      - dependency-name: "gymnasium"
+      - dependency-name: "lightning-utilities"
+      - dependency-name: "ray"
+      - dependency-name: "pyarrow"
+      - dependency-name: "polars"
+      - dependency-name: "grpcio"
+      - dependency-name: "ccxt"
+      - dependency-name: "polars-runtime-32"
+      - dependency-name: "psutil"
+      - dependency-name: "scipy"
+      - dependency-name: "numpy"
+        versions:
+          - ">=2.4"
+      - dependency-name: "ccxtpro"
+      - dependency-name: "langchain"
+      - dependency-name: "llama-index"
+      - dependency-name: "chromadb"
+      - dependency-name: "sentence-transformers"
+      - dependency-name: "onnxruntime"
+      - dependency-name: "onnxruntime-gpu"
+      - dependency-name: "faiss-cpu"
+      - dependency-name: "faiss-gpu"
+      - dependency-name: "xgboost"
+      - dependency-name: "lightgbm"
+      - dependency-name: "nvidia-cublas-cu12"
+      - dependency-name: "nvidia-cuda-cupti-cu12"
+      - dependency-name: "nvidia-cuda-nvrtc-cu12"
+      - dependency-name: "nvidia-cuda-runtime-cu12"
+      - dependency-name: "nvidia-cudnn-cu12"
+      - dependency-name: "nvidia-cufft-cu12"
+      - dependency-name: "nvidia-curand-cu12"
+      - dependency-name: "nvidia-cusolver-cu12"
+      - dependency-name: "nvidia-cusparse-cu12"
+      - dependency-name: "nvidia-cusparselt-cu12"
+      - dependency-name: "nvidia-nccl-cu12"
+      - dependency-name: "nvidia-nvshmem-cu12"
+      - dependency-name: "nvidia-nvtx-cu12"
+      - dependency-name: "nvidia-nvjitlink-cu12"
+      - dependency-name: "nvidia-cufile-cu12"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
