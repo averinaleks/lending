@@ -127,6 +127,28 @@ blockquote {
   gap: .75rem;
   flex-wrap: wrap;
 }
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.btn-whatsapp {
+  background: #25D366;
+  border-color: color-mix(in oklab, #1faa54, transparent 40%);
+}
+.btn-whatsapp:hover,
+.btn-whatsapp:focus-visible {
+  background: #1faa54;
+}
+.btn-telegram {
+  background: #229ED9;
+  border-color: color-mix(in oklab, #1b86b8, transparent 40%);
+}
+.btn-telegram:hover,
+.btn-telegram:focus-visible {
+  background: #1b86b8;
+}
 .contact-phone {
   font-weight: 700;
   color: var(--secondary-ink);
@@ -1204,6 +1226,24 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
 .btn--wide {
   min-width: 220px;
   text-align: center;
+}
+
+.social-link,
+.btn-submit,
+.nav-menu-item {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credentials {
+  margin-bottom: 1rem;
+  font-size: .95rem;
+}
+.credentials p {
+  margin: .2rem 0;
 }
 
 @keyframes cta-pulse {
