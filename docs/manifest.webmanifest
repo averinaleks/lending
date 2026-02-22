@@ -1,11 +1,1 @@
-{
-  "name": "Психолог Ольга Королёва",
-  "short_name": "Ольга Королёва",
-  "start_url": "https://okoroleva.com/",
-  "display": "standalone",
-  "background_color": "#F8F6F3",
-  "theme_color": "#F8F6F3",
-  "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
-  ]
-}
+{"name":"Психолог Ольга Королёва","short_name":"Ольга Королёва","start_url":"https://okoroleva.com/","display":"standalone","background_color":"#F4EFE6","theme_color":"#F4EFE6","icons":[{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
