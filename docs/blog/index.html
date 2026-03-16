@@ -33,6 +33,33 @@
     }
   }
   </script>
+  <style>
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .trust-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: #F4EFE6; /* Мягкий бежевый фон */
+      border-radius: 12px;
+    }
+    .trust-number, .trust-icon {
+      display: block;
+      font-size: 2.5rem;
+      color: #4A5D4E; /* Спокойный зеленый/шалфей */
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+    .trust-text {
+      font-size: 0.95rem;
+      color: #2C3531;
+      margin: 0;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к материалам</a>
@@ -57,6 +84,24 @@
       </div>
     </header>
     <main id="main">
+    <section class="trust-indicators section card" aria-label="Квалификация и опыт">
+      <h2>О моем подходе</h2>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-number">10+</span>
+          <p class="trust-text">лет частной практики и помощи клиентам</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🎓</span>
+          <p class="trust-text">Высшее профильное образование (МГУ)</p>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🤝</span>
+          <p class="trust-text">Личная терапия и регулярная супервизия</p>
+        </div>
+      </div>
+    </section>
+
       <section class="section card" aria-label="Подборка статей">
         <h2>Актуальные темы</h2>
         <div class="article-list">
