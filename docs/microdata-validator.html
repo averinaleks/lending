@@ -191,21 +191,25 @@
       const banner = document.getElementById('cookie-consent-banner');
       const acceptBtn = document.getElementById('cookie-consent-accept');
 
-      if (!banner || !acceptBtn || localStorage.getItem(CONSENT_KEY) === 'true') {
-        return;
-      }
-
-      banner.classList.add('show');
-
-      acceptBtn.addEventListener('click', function() {
+      function grantConsent() {
         gtag('consent', 'update', {
           'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
           'analytics_storage': 'granted'
         });
+      }
 
-        localStorage.setItem(CONSENT_KEY, 'true');
-        banner.classList.remove('show');
-      });
+      if (localStorage.getItem(CONSENT_KEY) === 'true') {
+        grantConsent();
+      } else if (banner && acceptBtn) {
+        banner.classList.add('show');
+        acceptBtn.addEventListener('click', function() {
+          grantConsent();
+          localStorage.setItem(CONSENT_KEY, 'true');
+          banner.classList.remove('show');
+        });
+      }
     })();
   </script>
 </body>
