@@ -6,10 +6,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied'
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
     });
   </script>
   <script async src="https://analytics.okoroleva.com/gtag/js?id=G-GFDP01YTL9"></script>
@@ -364,38 +364,6 @@
     }
     .cta-wrapper-soft h3 { margin-top: 0; margin-bottom: 1rem; color: #2C3531; }
     .cta-wrapper-soft p { margin-bottom: 1.5rem; color: #5A665D; }
-  </style>
-  <style>
-    /* Cookie Consent Banner */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #2C3531;
-      color: #F4EFE6;
-      padding: 1rem 1.5rem;
-      display: none;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      z-index: 1000;
-      font-size: 0.9rem;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-    }
-    .cookie-banner.show {
-      display: flex;
-    }
-    .cookie-banner p { margin: 0; }
-    .cookie-banner a { color: #D2BFAB; text-decoration: underline; }
-    .cookie-banner .btn {
-      flex-shrink: 0; background: #F4EFE6; color: #2C3531; border: none;
-      padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;
-    }
-    @media (max-width: 680px) {
-      .cookie-banner { flex-direction: column; text-align: center; }
-      .cookie-banner p { margin-bottom: 0.75rem; }
-    }
   </style>
 </head>
 <body>
@@ -815,37 +783,5 @@
   </script>
   <script src="/assets/js/book.js" defer></script>
 
-  <div id="cookie-consent-banner" class="cookie-banner">
-    <p>Мы используем файлы cookie для улучшения аналитики. Нажимая «Принять», вы соглашаетесь на их использование. <a href="#privacy-policy">Подробнее</a>.</p>
-    <button id="cookie-consent-accept" class="btn">Принять</button>
-  </div>
-
-  <script>
-    (function() {
-      const CONSENT_KEY = 'cookie_consent_given';
-      const banner = document.getElementById('cookie-consent-banner');
-      const acceptBtn = document.getElementById('cookie-consent-accept');
-
-      function grantConsent() {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      }
-
-      if (localStorage.getItem(CONSENT_KEY) === 'true') {
-        grantConsent();
-      } else if (banner && acceptBtn) {
-        banner.classList.add('show');
-        acceptBtn.addEventListener('click', function() {
-          grantConsent();
-          localStorage.setItem(CONSENT_KEY, 'true');
-          banner.classList.remove('show');
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
