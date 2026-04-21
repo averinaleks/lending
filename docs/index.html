@@ -25,6 +25,18 @@
   <meta name="geo.position" content="51.1282;71.4304" />
   <meta name="ICBM" content="51.1282, 71.4304" />
 
+  <script>
+    (function() {
+      if (!/^localhost(?::\d+)?$/.test(location.hostname)) {
+        if (location.protocol === 'http:') {
+          location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+        } else if (location.pathname === '/index.html') {
+          location.replace('https://' + location.host + '/' + location.search + location.hash);
+        }
+      }
+    })();
+  </script>
+
   <title>Психоаналитик Ольга Королёва | Психотерапия в Астане и онлайн</title>
   <meta name="description" content="Глубинная психоаналитическая психотерапия в Астане и онлайн. Психоаналитик Ольга Королёва помогает справиться с тревогой, выгоранием и кризисами. 50 минут — 20 000 ₸. Запишитесь на консультацию." />
   <link rel="canonical" href="https://okoroleva.com/" />
