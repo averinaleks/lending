@@ -28,10 +28,10 @@
   <script>
     (function() {
       if (!/^localhost(?::\d+)?$/.test(location.hostname)) {
-        if (location.protocol === 'http:') {
-          location.replace('https://' + location.host + location.pathname + location.search + location.hash);
-        } else if (location.pathname === '/index.html') {
-          location.replace('https://' + location.host + '/' + location.search + location.hash);
+        var host = location.hostname === 'www.okoroleva.com' ? 'okoroleva.com' : location.host;
+        var path = location.pathname === '/index.html' ? '/' : location.pathname;
+        if (location.protocol === 'http:' || location.hostname === 'www.okoroleva.com' || location.pathname === '/index.html') {
+          location.replace('https://' + host + path + location.search + location.hash);
         }
       }
     })();

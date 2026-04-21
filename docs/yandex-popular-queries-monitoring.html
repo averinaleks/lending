@@ -21,9 +21,11 @@
   <link rel="canonical" href="https://okoroleva.com/yandex-popular-queries-monitoring.html" />
   <script>
     (function() {
-      if (location.protocol === 'http:' && !/^localhost(?::\d+)?$/.test(location.hostname)) {
-        var destination = 'https://' + location.host + location.pathname + location.search + location.hash;
-        location.replace(destination);
+      if (!/^localhost(?::\d+)?$/.test(location.hostname)) {
+        var host = location.hostname === 'www.okoroleva.com' ? 'okoroleva.com' : location.host;
+        if (location.protocol === 'http:' || location.hostname === 'www.okoroleva.com') {
+          location.replace('https://' + host + location.pathname + location.search + location.hash);
+        }
       }
     })();
   </script>
