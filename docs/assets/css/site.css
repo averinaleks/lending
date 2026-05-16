@@ -214,3 +214,38 @@ footer a { color: inherit; text-decoration: underline; }
   border-radius: 12px;
   z-index: 999;
 }
+
+.mt-0 { margin-top: 0; }
+
+/* Trust grid — shared across blog and inner pages */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.trust-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #F4EFE6;
+  border-radius: 12px;
+}
+.trust-number, .trust-icon {
+  display: block;
+  font-size: 2.5rem;
+  color: #4A5D4E;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+}
+.trust-text { font-size: 0.95rem; color: #2C3531; margin: 0; line-height: 1.4; }
+
+/* Inline CTA wrapper used in blog articles */
+.cta-wrapper {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: #F4EFE6;
+  border-radius: 12px;
+  text-align: center;
+}
+.cta-wrapper h3 { margin-top: 0; margin-bottom: 1rem; }
+.cta-wrapper p { margin-bottom: 1.5rem; color: #5A665D; }
