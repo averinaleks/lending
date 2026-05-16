@@ -1330,6 +1330,8 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
   padding: 1.5rem;
   background: #F4EFE6;
   border-radius: 12px;
+  border-top: 3px solid transparent;
+  transition: transform .2s ease;
 }
 .trust-number, .trust-icon {
   display: block;
@@ -1420,3 +1422,61 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
 .breadcrumbs-list li+li::before { content: "—"; margin-right: 0.5rem; color: #999; }
 .breadcrumbs-list a { color: #5A665D; text-decoration: none; border-bottom: 1px solid transparent; }
 .breadcrumbs-list a:hover { border-bottom-color: #5A665D; }
+
+/* ── Warm & cozy design enhancements ─────────────────────────── */
+
+/* Hero handwritten accent */
+.cover-tagline {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: #7A8F6A;
+  display: block;
+  margin: -.5rem 0 1.2rem;
+  letter-spacing: .02em;
+}
+
+/* Testimonial cards — warm per-card colors */
+.testimonial-grid .testimonial:nth-child(1) { background: #fdf5f0; }
+.testimonial-grid .testimonial:nth-child(2) { background: #edf4ec; }
+.testimonial-grid .testimonial:nth-child(3) { background: #f0edf7; }
+.testimonial-grid .testimonial:nth-child(4) { background: #fdf5f0; }
+.testimonial-grid .testimonial:nth-child(5) { background: #edf4ec; }
+
+/* Decorative opening quote */
+.testimonial blockquote::before {
+  content: '\201C';
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 4rem;
+  line-height: .6;
+  color: #C8BBA8;
+  display: block;
+  margin-bottom: .4rem;
+}
+
+/* Process steps — dotted connecting line */
+.process-steps {
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 48px;
+  bottom: 48px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #C8BBA8 0,
+    #C8BBA8 6px,
+    transparent 6px,
+    transparent 14px
+  );
+}
+
+/* Trust grid — colored top accent per item */
+.trust-grid .trust-item:nth-child(1) { border-top-color: #88BE9C; }
+.trust-grid .trust-item:nth-child(2) { border-top-color: #B5A8D5; }
+.trust-grid .trust-item:nth-child(3) { border-top-color: #D2BFAB; }
+@media (prefers-reduced-motion: no-preference) {
+  .trust-item:hover { transform: translateY(-3px); }
+}
