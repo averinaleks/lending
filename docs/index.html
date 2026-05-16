@@ -71,7 +71,7 @@
     "@id":"https://okoroleva.com/#business",
     "name":"Психоаналитик Ольга Королёва",
     "description":"Кабинет психоаналитической психотерапии в Астане. Индивидуальные консультации очно и онлайн.",
-    "image":"https://okoroleva.com/img/psychoanalyst-olga-koroleva.png",
+    "image":"https://okoroleva.com/img/og-image.png",
     "url":"https://okoroleva.com/",
     "sameAs":[
       "https://okoroleva.com/",
@@ -269,104 +269,7 @@
     ]
   }
   </script>
-  <style>
-    /* Новые стили для блоков доверия, сценариев и шагов (по рекомендациям аудита) */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .trust-item {
-      text-align: center;
-      padding: 1.5rem;
-      background: #F4EFE6;
-      border-radius: 12px;
-    }
-    .trust-number, .trust-icon {
-      display: block;
-      font-size: 2.5rem;
-      color: #4A5D4E;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 0.5rem;
-    }
-    .trust-text {
-      font-size: 0.95rem;
-      color: #2C3531;
-      margin: 0;
-      line-height: 1.4;
-    }
-    .scenarios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .scenario-card {
-      background: #FFFFFF;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      .scenario-card:hover { transform: translateY(-5px); }
-    }
-    .scenario-card h3 { margin-top: 0; color: #4A5D4E; font-size: 1.25rem; }
-    .scenario-card p { flex-grow: 1; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.5; }
-    .btn-soft {
-      display: inline-block;
-      padding: 0.5rem 0;
-      color: #4A5D4E;
-      text-decoration: none;
-      border-bottom: 1px solid #4A5D4E;
-      font-weight: 600;
-      align-self: flex-start;
-      transition: opacity 0.2s;
-    }
-    .btn-soft:hover { opacity: 0.7; }
-    .process-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .step {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      background: #FFFFFF;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
-    .step-number {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: #4A5D4E;
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-    .step-content h4 { margin-top: 0; margin-bottom: 0.5rem; color: #2C3531; font-size: 1.1rem; }
-    .step-content p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
-    .cta-wrapper-soft {
-      margin-top: 3rem;
-      padding: 2.5rem 2rem;
-      background: #F4EFE6;
-      border-radius: 12px;
-      text-align: center;
-    }
-    .cta-wrapper-soft h3 { margin-top: 0; margin-bottom: 1rem; color: #2C3531; }
-    .cta-wrapper-soft p { margin-bottom: 1.5rem; color: #5A665D; }
-  </style>
+  <link rel="preload" as="image" href="/img/og-image.png" />
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержанию</a>
@@ -386,11 +289,11 @@
       <h1 id="cover-title">Психоаналитик Ольга Королёва</h1>
       <h2 class="subtitle">Психоаналитическая психотерапия в Астане и онлайн</h2>
       <p class="lead">Глубинный психоаналитический подход для устойчивых изменений. Помогаю распутать клубок тревоги, выгорания и сложных отношений. 50 минут безопасного диалога: очно в Астане или онлайн.</p>
-      <p style="margin-top:1.5rem;">
+      <p class="cover-btn-wrap">
         <a class="btn btn--wide highlight" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" data-goal="hero_signup">Записаться на консультацию</a>
       </p>
       <figure class="portrait-card">
-        <img src="/img/psychoanalyst-olga-koroleva.png" width="640" height="640" alt="Психоаналитик Ольга Королева" title="Психоаналитик Ольга Королева" />
+        <img src="/img/og-image.png" width="640" height="640" alt="Психоаналитик Ольга Королева" title="Психоаналитик Ольга Королева" fetchpriority="high" loading="eager" />
       </figure>
       <img src="/assets/img/rorschach.svg" class="inkblot" alt="" aria-hidden="true" />
     </section>
@@ -478,7 +381,7 @@
           </div>
           <p>Ко мне обращаются, когда внутри копится тревога, выгорание, тяжесть от сложных отношений или повторяющихся кризисов, и мы разбираем эти запросы в безопасном темпе.</p>
 
-          <h3 style="margin-top: 2.5rem;">Как строится работа</h3>
+          <h3 class="process-title">Как строится работа</h3>
           <div class="process-steps">
             <div class="step">
               <div class="step-number">1</div>
@@ -688,7 +591,7 @@
               <a href="/blog/kak-podderzhivat-samoocenku.html">Читать →</a>
             </article>
           </div>
-          <p style="margin-top:1rem;"><a class="btn" href="/blog/">Все материалы блога</a></p>
+          <p class="blog-all-link"><a class="btn" href="/blog/">Все материалы блога</a></p>
         </div>
         <aside class="sidenote">
           <p><strong>Обновления</strong></p>
@@ -714,10 +617,6 @@
         </aside>
       </section>
     </main>
-
-    <section class="footnotes" aria-label="Сноски">
-      <ol></ol>
-    </section>
 
     <footer class="page-footer" aria-label="Нижняя информация">
       <div class="credentials">
