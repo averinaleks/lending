@@ -1316,6 +1316,8 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
   a { color: #000; text-decoration: none; }
 }
 
+.mt-0 { margin-top: 0; }
+
 /* Component styles */
 .trust-grid {
   display: grid;
@@ -1402,6 +1404,7 @@ sup.fn-ref { font-size: .75em; vertical-align: super; }
 }
 .cta-wrapper-soft h3 { margin-top: 0; margin-bottom: 1rem; color: #2C3531; }
 .cta-wrapper-soft p { margin-bottom: 1.5rem; color: #5A665D; }
+.cta-wrapper-soft--outlined { background: transparent; border: 2px dashed #E2DCD0; padding: 1.5rem; margin-top: 2rem; }
 .cover-btn-wrap { margin-top: 1.5rem; }
 .process-title { margin-top: 2.5rem; }
 .blog-all-link { margin-top: 1rem; }
