@@ -2,13 +2,15 @@
 <html lang="ru" dir="ltr">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GFDP01YTL9"></script>
+<script async src="https://server-side-tagging-pgvgivawqq-uc.a.run.app/gtag/js?id=G-GFDP01YTL9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-GFDP01YTL9');
+  gtag('config', 'G-GFDP01YTL9', {
+    'transport_url': 'https://server-side-tagging-pgvgivawqq-uc.a.run.app'
+  });
 </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
@@ -27,27 +29,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Literata:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/book.css" />
   
-  <!-- Новые стили с главной страницы для блоков -->
-  <style>
-    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .trust-item { text-align: center; padding: 1.5rem; background: #F4EFE6; border-radius: 12px; }
-    .trust-number, .trust-icon { display: block; font-size: 2.5rem; color: #4A5D4E; font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
-    .scenarios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .scenario-card { background: #FFFFFF; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-    .scenario-card h3 { margin-top: 0; color: #4A5D4E; font-size: 1.15rem; }
-    .process-steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem; }
-    .step { display: flex; gap: 1.5rem; align-items: flex-start; background: #FFFFFF; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-    .step-number { flex-shrink: 0; width: 48px; height: 48px; background: #4A5D4E; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: bold; }
-    .step-content h4 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .step-content p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
-    .cta-wrapper-soft { margin-top: 3rem; padding: 2.5rem 2rem; background: #F4EFE6; border-radius: 12px; text-align: center; }
-    .cta-wrapper-soft h3 { margin-top: 0; margin-bottom: 1rem; color: #2C3531; }
-    .breadcrumbs { list-style: none; padding: 0; display: flex; gap: 0.5rem; font-size: 0.9rem; color: #5A665D; margin-bottom: 2rem; }
-    .breadcrumbs li+li::before { content: "—"; margin-right: 0.5rem; color: #999; }
-    .breadcrumbs a { color: #5A665D; text-decoration: none; border-bottom: 1px solid transparent; }
-    .breadcrumbs a:hover { border-bottom-color: #5A665D; }
-  </style>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
