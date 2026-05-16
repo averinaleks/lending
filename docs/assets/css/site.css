@@ -7,6 +7,7 @@
   --accent-ink: #1E2430;
   --link: #4B5BA9;
   --border: rgba(30,36,48,.14);
+  --soft-card: #fdfcfb;
   --soft-card: color-mix(in oklab, #fff 80%, var(--page-bg) 20%);
   --shadow: 0 20px 46px rgba(108, 93, 80, .15);
   --radius: 22px;
@@ -51,7 +52,7 @@ strong { font-weight: 600; }
   margin: 0 0 10px;
   line-height: 1.1;
 }
-.lead { font-size: clamp(18px, 2.4vw, 22px); color: color-mix(in oklab, var(--text), white 25%); margin: 0 0 18px; }
+.lead { font-size: clamp(18px, 2.4vw, 22px); color: #565a63; color: color-mix(in oklab, var(--text), white 25%); margin: 0 0 18px; }
 .section-title,
 .section h2,
 .section h3,
@@ -71,6 +72,7 @@ ul li { margin-bottom: .5rem; }
 blockquote {
   margin: 0;
   padding: 18px 26px;
+  border-left: 4px solid rgba(75, 91, 169, 0.65);
   border-left: 4px solid color-mix(in oklab, var(--link), transparent 35%);
   border-radius: 0 16px 16px 0;
   background: #fff;
@@ -83,7 +85,9 @@ blockquote footer { margin-top: .5rem; font-size: .95rem; font-style: normal; co
   display: inline-flex;
   padding: 6px 14px;
   border-radius: 999px;
+  background: #dacfc0;
   background: color-mix(in oklab, var(--accent), white 25%);
+  color: rgba(30, 36, 48, 0.8);
   color: color-mix(in oklab, var(--accent-ink), transparent 20%);
   font-size: 13px;
   letter-spacing: .08em;
