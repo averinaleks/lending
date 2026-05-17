@@ -188,21 +188,6 @@ blockquote {
   overflow: visible;
   isolation: isolate;
 }
-.cover::before {
-  content: "";
-  position: absolute;
-  inset: -8% -6% auto auto;
-  width: clamp(220px, 42vw, 460px);
-  height: clamp(180px, 30vw, 340px);
-  background:
-    radial-gradient(circle at 10% 20%, rgba(246,231,214,.55), transparent 60%),
-    radial-gradient(circle at 80% 60%, rgba(215,226,214,.4), transparent 62%),
-    radial-gradient(circle at 50% 0%, rgba(214,230,238,.35), transparent 60%);
-  filter: blur(2px);
-  opacity: .75;
-  pointer-events: none;
-  z-index: -1;
-}
 .cover h1 {
   margin: 0 0 .6rem;
   font-family: "Playfair Display", "Garamond", serif;
