@@ -4,12 +4,18 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 Disallow: /*.md$
+Disallow: /yandex-popular-queries-monitoring.html
+Disallow: /yandex-webmaster-advanced.html
+Disallow: /microdata-validator.html
 
 # Yandex-specific settings, including URL parameter normalization.
 User-agent: Yandex
 Allow: /
 Disallow: /404.html
 Disallow: /*.md$
+Disallow: /yandex-popular-queries-monitoring.html
+Disallow: /yandex-webmaster-advanced.html
+Disallow: /microdata-validator.html
 Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content /
 Clean-param: utm_referrer&ref&yclid&yclid_ref&gclid&fbclid&from&openstat&roistat /
 Clean-param: utm_id&utm_keyword&utm_group&utm_creative /
