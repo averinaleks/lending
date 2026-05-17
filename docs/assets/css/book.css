@@ -179,11 +179,8 @@ blockquote {
 .contact-phone:hover { text-decoration: underline; }
 .cover {
   max-width: var(--page-width);
-  margin: 2.5rem auto 4rem;
-  padding: 2.5rem 2rem;
-  background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
-  border-radius: .5rem;
-  box-shadow: 0 40px 60px -40px var(--paper-shadow), 0 1px 0 rgba(255,255,255,.35) inset;
+  margin: 1rem auto 4rem;
+  padding: 1rem 2rem 2.5rem;
   position: relative;
   overflow: visible;
   isolation: isolate;
