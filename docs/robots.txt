@@ -3,7 +3,6 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
-Disallow: /*.md$
 Disallow: /yandex-popular-queries-monitoring.html
 Disallow: /yandex-webmaster-advanced.html
 Disallow: /microdata-validator.html
@@ -12,7 +11,6 @@ Disallow: /microdata-validator.html
 User-agent: Yandex
 Allow: /
 Disallow: /404.html
-Disallow: /*.md$
 Disallow: /yandex-popular-queries-monitoring.html
 Disallow: /yandex-webmaster-advanced.html
 Disallow: /microdata-validator.html
