@@ -1,14 +1,14 @@
 /* Shared calm-book styles for внутренние страницы */
 :root {
-  --page-bg: #F4EFE6;
-  --text: #1E2430;
-  --muted: #6B7280;
-  --accent: #D2BFAB;
-  --accent-ink: #1E2430;
-  --link: #4B5BA9;
-  --border: rgba(30,36,48,.14);
+  --page-bg: #f0eee9;
+  --text: #171717;
+  --muted: #6b6763;
+  --accent: #7c3038;
+  --accent-ink: #f7f2ec;
+  --link: #7c3038;
+  --border: rgba(23,23,23,.16);
   --soft-card: color-mix(in oklab, #fff 80%, var(--page-bg) 20%);
-  --shadow: 0 20px 46px rgba(108, 93, 80, .15);
+  --shadow: 0 20px 46px rgba(23, 23, 23, .12);
   --radius: 22px;
   --maxw: 960px;
 }
@@ -122,7 +122,7 @@ blockquote footer { margin-top: .5rem; font-size: .95rem; font-style: normal; co
   background: var(--accent);
   color: var(--accent-ink);
   padding: 14px 22px;
-  border-radius: 18px;
+  border-radius: 99px;
   font-weight: 600;
   letter-spacing: .01em;
   font-family: inherit;
@@ -139,6 +139,7 @@ blockquote footer { margin-top: .5rem; font-size: .95rem; font-style: normal; co
 .btn-secondary {
   background: transparent;
   color: var(--text);
+  border-color: color-mix(in oklab, var(--text), transparent 70%);
   box-shadow: none;
 }
 .btn-secondary:hover,
@@ -227,25 +228,25 @@ footer a { color: inherit; text-decoration: underline; }
 .trust-item {
   text-align: center;
   padding: 1.5rem;
-  background: #F4EFE6;
+  background: var(--soft-card);
   border-radius: 12px;
 }
 .trust-number, .trust-icon {
   display: block;
   font-size: 2.5rem;
-  color: #4A5D4E;
+  color: var(--accent);
   font-family: 'Playfair Display', serif;
   margin-bottom: 0.5rem;
 }
-.trust-text { font-size: 0.95rem; color: #2C3531; margin: 0; line-height: 1.4; }
+.trust-text { font-size: 0.95rem; color: var(--text); margin: 0; line-height: 1.4; }
 
 /* Inline CTA wrapper used in blog articles */
 .cta-wrapper {
   margin-top: 2.5rem;
   padding: 2rem;
-  background: #F4EFE6;
+  background: var(--soft-card);
   border-radius: 12px;
   text-align: center;
 }
 .cta-wrapper h3 { margin-top: 0; margin-bottom: 1rem; }
-.cta-wrapper p { margin-bottom: 1.5rem; color: #5A665D; }
+.cta-wrapper p { margin-bottom: 1.5rem; color: var(--muted); }
