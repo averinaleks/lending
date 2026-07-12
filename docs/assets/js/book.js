@@ -11,3 +11,5 @@
   items.forEach(x=>observer.observe(x));
 })();
 
+
+(function(){const button=document.createElement('button');button.type='button';button.className='back-to-top';button.setAttribute('aria-label','Наверх');button.textContent='↑';document.body.appendChild(button);const sync=()=>button.classList.toggle('is-visible',window.scrollY>600);sync();window.addEventListener('scroll',sync,{passive:true});button.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));})();
