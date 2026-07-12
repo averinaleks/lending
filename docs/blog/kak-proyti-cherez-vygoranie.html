@@ -59,8 +59,31 @@
   </script>
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#F4EFE6" />
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      function load(){
+        if (document.getElementById('ymTag')) { return; }
+        k=e.createElement(t); k.id='ymTag'; k.async=1; k.src=r;
+        a=e.getElementsByTagName(t)[0]; a.parentNode.insertBefore(k,a);
+      }
+      if ('requestIdleCallback' in m){
+        requestIdleCallback(load, {timeout:4000});
+      } else {
+        m.addEventListener('load', load, {once:true});
+      }
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(105124237, 'init', {
+      accurateTrackBounce:true,
+      trackLinks:true,
+      clickmap:true,
+      webvisor:true
+    });
+  </script>
 </head>
-<body><header class="site-header"><a class="brand" href="/">ОК<span>Психоаналитик</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Меню</button><nav id="menu"><a href="/#approach">Подход</a><a href="/#about">Обо мне</a><a href="/#format">Формат</a><a href="/#faq">Вопросы</a><a href="/blog/">Материалы</a></nav><a class="header-contact" href="https://t.me/+79777665814">Связаться ↗</a></header>
+<body><noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript><header class="site-header"><a class="brand" href="/">ОК<span>Психоаналитик</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Меню</button><nav id="menu"><a href="/#approach">Подход</a><a href="/#about">Обо мне</a><a href="/#format">Формат</a><a href="/#faq">Вопросы</a><a href="/blog/">Материалы</a></nav><a class="header-contact" href="https://t.me/Olgakoroleva05">Связаться ↗</a></header>
   <a class="skip-link" href="#main">Перейти к статье</a>
   <div class="wrap">
     <header class="page-header">
@@ -101,7 +124,7 @@
         <div class="cta-wrapper">
           <h3 class="mt-0">Нужна поддержка?</h3>
           <p>Если чувствуете, что самостоятельно выйти из цикла не получается, давайте обсудим вашу ситуацию на первой встрече.</p>
-          <a class="btn" href="https://t.me/+79777665814" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Написать в Telegram</a>
         </div>
       </article>
     </main>
