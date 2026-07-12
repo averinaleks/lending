@@ -21,9 +21,15 @@
   <meta name="geo.region" content="KZ-AST"><meta name="geo.placename" content="Астана"><meta name="geo.position" content="51.1282;71.4304">
   <meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Психоаналитик Ольга Королёва — Астана и онлайн в Москве"><meta property="og:description" content="Психоаналитическая психотерапия очно в Астане и онлайн для клиентов из Москвы."><meta property="og:url" content="https://okoroleva.com/"><meta property="og:image" content="https://okoroleva.com/img/og-image.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
+  </noscript>
   <link rel="stylesheet" href="/assets/css/book.css">
   <style>
-    :root { --sans: Arial, "Helvetica Neue", sans-serif; --serif: Georgia, "Times New Roman", serif; }
     body { line-height: 1.6; text-rendering: optimizeLegibility; }
     .site-header { position:sticky; top:0; background:rgba(240,238,233,.95); backdrop-filter:blur(12px); }
     .hero { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(280px,.72fr); grid-template-rows:auto 1fr auto; gap:2rem 4vw; }
@@ -35,7 +41,8 @@
     .hero-intro { max-width:590px; }
     .hero-role { display:block; margin-bottom:.55rem; font-size:.76rem; text-transform:uppercase; letter-spacing:.13em; }
     .hero-actions { display:flex; align-items:center; gap:1.2rem; }
-    .secondary-link { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; border-bottom:1px solid currentColor; padding:.7rem 0; }
+    .secondary-link { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--wine); border-radius:99px; padding:.9rem 1.6rem; color:var(--wine); transition:.25s; }
+    .secondary-link:hover { background:var(--wine); color:#fff; }
     .trust-strip { display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
     .trust-strip div { padding:1.5rem 3vw; border-right:1px solid var(--line); }
     .trust-strip div:last-child { border:0; }
@@ -100,10 +107,6 @@
     <nav id="menu" aria-label="Основная навигация">
       <a href="#approach">Подход</a><a href="#about">Обо мне</a><a href="#format">Формат</a><a href="#faq">Вопросы</a><a href="/blog/">Материалы</a>
     </nav>
-    <div class="header-contact-group">
-      <a class="header-contact" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Записаться в Telegram ↗</a>
-      <a class="header-contact" href="https://wa.me/77711384381" target="_blank" rel="noopener">Записаться в WhatsApp ↗</a>
-    </div>
   </header>
 
   <main id="main">
@@ -113,7 +116,7 @@
       <figure class="hero-portrait"><img src="/img/og-image.png" alt="Ольга Королёва, психоаналитик" fetchpriority="high"></figure>
       <div class="hero-bottom">
         <p class="hero-intro"><span class="hero-role">Очно в Астане и онлайн</span>Помогаю справляться с тревогой, выгоранием и повторяющимися сложностями в отношениях — не только облегчить симптом, но и понять его причины.</p>
-        <div class="hero-actions"><a class="circle-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" aria-label="Записаться на консультацию"><span>Записаться<br>на встречу</span><b>↗</b></a><a class="secondary-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Задать вопрос</a></div>
+        <div class="hero-actions"><a class="circle-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" aria-label="Записаться на консультацию"><span>Записаться<br>в Telegram</span><b>↗</b></a><a class="secondary-link" href="https://wa.me/77711384381" target="_blank" rel="noopener">Записаться в WhatsApp</a></div>
       </div>
       <div class="hero-mark" aria-hidden="true">ОК</div>
     </section>
