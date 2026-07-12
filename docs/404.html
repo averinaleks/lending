@@ -75,18 +75,41 @@
   </style>
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#F4EFE6" />
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      function load(){
+        if (document.getElementById('ymTag')) { return; }
+        k=e.createElement(t); k.id='ymTag'; k.async=1; k.src=r;
+        a=e.getElementsByTagName(t)[0]; a.parentNode.insertBefore(k,a);
+      }
+      if ('requestIdleCallback' in m){
+        requestIdleCallback(load, {timeout:4000});
+      } else {
+        m.addEventListener('load', load, {once:true});
+      }
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(105124237, 'init', {
+      accurateTrackBounce:true,
+      trackLinks:true,
+      clickmap:true,
+      webvisor:true
+    });
+  </script>
 </head>
-<body>
+<body><noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <main role="main">
     <h1>404 — страница не найдена</h1>
     <p>Похоже, ссылка устарела или была введена с опечаткой. Вот несколько путей, которые помогут вернуться к нужной информации.</p>
     <p class="muted">Выберите раздел, чтобы продолжить:</p>
     <ul class="links">
       <li><a href="/" aria-label="Главная страница"><strong>Главная</strong><span>Услуги, отзывы и контакты</span></a></li>
-      <li><a href="/#services" aria-label="Услуги психолога"><strong>Услуги</strong><span>Индивидуальные консультации и терапия</span></a></li>
+      <li><a href="/#approach" aria-label="Услуги психолога"><strong>Услуги</strong><span>Индивидуальные консультации и терапия</span></a></li>
       <li><a href="/#faq" aria-label="Часто задаваемые вопросы"><strong>FAQ</strong><span>Ответы на популярные вопросы</span></a></li>
-      <li><a href="/#contacts" aria-label="Контакты"><strong>Контакты</strong><span>Телефон, Telegram и адрес кабинета</span></a></li>
-      <li><a href="/yandex-webmaster-advanced.html" aria-label="Продвинутое руководство по Яндекс.Вебмастеру"><strong>SEO-гайд</strong><span>Рекомендации для владельцев сайта</span></a></li>
+      <li><a href="/#contact" aria-label="Контакты"><strong>Контакты</strong><span>Телефон, Telegram и адрес кабинета</span></a></li>
+      <li><a href="/blog/" aria-label="Материалы"><strong>Материалы</strong><span>Статьи о тревоге, выгорании и самооценке</span></a></li>
     </ul>
     <a class="cta" href="/">Вернуться на главную</a>
     <footer>
