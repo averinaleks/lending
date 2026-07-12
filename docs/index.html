@@ -12,6 +12,42 @@
   <style>
     :root { --sans: Arial, "Helvetica Neue", sans-serif; --serif: Georgia, "Times New Roman", serif; }
     body { line-height: 1.6; text-rendering: optimizeLegibility; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(280px,.72fr); grid-template-rows:auto 1fr auto; gap:2rem 4vw; }
+    .hero-kicker { grid-column:1; }
+    .hero h1 { grid-column:1; font-size:clamp(3.8rem,7.7vw,8.3rem); line-height:.96; margin:auto 0 1rem; }
+    .hero-portrait { grid-column:2; grid-row:1/4; min-height:calc(100vh - 150px); overflow:hidden; background:#d5d0c8; position:relative; z-index:2; }
+    .hero-portrait img { filter:grayscale(100%); mix-blend-mode:multiply; }
+    .hero-bottom { grid-column:1; }
+    .hero-intro { max-width:590px; }
+    .hero-role { display:block; margin-bottom:.55rem; font-size:.76rem; text-transform:uppercase; letter-spacing:.13em; }
+    .hero-actions { display:flex; align-items:center; gap:1.2rem; }
+    .secondary-link { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; border-bottom:1px solid currentColor; padding:.7rem 0; }
+    .trust-strip { display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+    .trust-strip div { padding:1.5rem 3vw; border-right:1px solid var(--line); }
+    .trust-strip div:last-child { border:0; }
+    .trust-strip strong,.trust-strip span { display:block; }
+    .trust-strip strong { font:400 1.05rem/1.25 var(--serif); }
+    .trust-strip span { margin-top:.45rem; font-size:.62rem; text-transform:uppercase; letter-spacing:.1em; color:#555; }
+    .quote .principle-label { display:block; margin-bottom:3rem; font-size:.68rem; text-transform:uppercase; letter-spacing:.15em; }
+    .quote blockquote { max-width:1080px; font-size:clamp(2.3rem,5vw,5.4rem); }
+    .ethics-note { max-width:720px; margin:2.5rem 0 0; padding-top:1.5rem; border-top:1px solid rgba(240,238,233,.35); color:#bbb; font-size:.84rem; }
+    footer .legal { text-transform:none; letter-spacing:0; line-height:1.6; }
+    footer .legal a { text-decoration:underline; text-underline-offset:3px; }
+    @media(max-width:800px){
+      .hero { display:flex; gap:0; }
+      .hero-portrait { order:3; min-height:42svh; margin:2rem -3vw 0; }
+      .hero h1 { order:1; font-size:clamp(3.1rem,14.5vw,5.4rem); line-height:.98; margin:9svh 0 0; }
+      .hero-kicker { order:0; }
+      .hero-bottom { order:2; align-items:flex-start; flex-direction:column; margin-top:2rem; }
+      .hero-bottom>p { max-width:100%; }
+      .hero-actions { width:100%; justify-content:space-between; }
+      .trust-strip { grid-template-columns:1fr 1fr; }
+      .trust-strip div { min-height:110px; border-bottom:1px solid var(--line); }
+      .trust-strip div:nth-child(2n) { border-right:0; }
+      .trust-strip div:last-child { grid-column:1/-1; }
+      footer { grid-template-columns:1fr; }
+      footer p:last-child,footer .legal { grid-column:1; }
+    }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ольга Королёва","jobTitle":"Психоаналитик","url":"https://okoroleva.com/","telephone":"+7-977-766-58-15","sameAs":["https://t.me/Olgakoroleva05"]}</script>
 </head>
@@ -30,13 +66,22 @@
 
   <main id="main">
     <section class="hero">
-      <div class="hero-kicker">Астана · онлайн по всему миру</div>
+      <div class="hero-kicker">Ольга Королёва · психоаналитик · 7+ лет практики</div>
       <h1>Пространство,<br>где можно<br><em>услышать себя</em></h1>
+      <figure class="hero-portrait"><img src="/img/og-image.png" alt="Ольга Королёва, психоаналитик" fetchpriority="high"></figure>
       <div class="hero-bottom">
-        <p>Психоаналитическая терапия для тех, кто хочет не просто справиться с симптомом, а понять его смысл и изменить повторяющийся сценарий.</p>
-        <a class="circle-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" aria-label="Записаться на первую встречу"><span>Первая<br>встреча</span><b>↗</b></a>
+        <p class="hero-intro"><span class="hero-role">Очно в Астане и онлайн</span>Помогаю справляться с тревогой, выгоранием и повторяющимися сложностями в отношениях — не только облегчить симптом, но и понять его причины.</p>
+        <div class="hero-actions"><a class="circle-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" aria-label="Записаться на консультацию"><span>Записаться<br>на встречу</span><b>↗</b></a><a class="secondary-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Задать вопрос</a></div>
       </div>
       <div class="hero-mark" aria-hidden="true">ОК</div>
+    </section>
+
+    <section class="trust-strip" aria-label="Ключевая информация о практике">
+      <div><strong>7+ лет</strong><span>частной практики</span></div>
+      <div><strong>НИУ ВШЭ · МИП</strong><span>профессиональное образование</span></div>
+      <div><strong>50 минут</strong><span>продолжительность сессии</span></div>
+      <div><strong>20 000 ₸</strong><span>стоимость встречи</span></div>
+      <div><strong>Очно · онлайн</strong><span>Астана и весь мир</span></div>
     </section>
 
     <section class="statement reveal" aria-label="О терапии">
@@ -76,7 +121,7 @@
       <div class="price reveal"><div><span>Индивидуальная сессия</span><strong>20 000 ₸</strong></div><div><span>Продолжительность</span><strong>50 минут</strong></div><div><span>Формат</span><strong>Очно / онлайн</strong></div></div>
     </section>
 
-    <section class="quote reveal"><blockquote>«То, что мы не осознаём, проявляется в нашей жизни как судьба».</blockquote><cite>Карл Густав Юнг</cite></section>
+    <section class="quote reveal"><span class="principle-label">Мой принцип работы</span><blockquote>Я не предлагаю готовых решений. Мы вместе исследуем, почему определённые чувства и ситуации возвращаются — и что может измениться.</blockquote><cite>Ольга Королёва</cite></section>
 
     <section class="faq" id="faq">
       <div class="section-heading reveal"><span class="eyebrow">05 / Частые вопросы</span><h2>До первой встречи</h2></div>
@@ -94,10 +139,11 @@
       <p>Напишите мне в удобном мессенджере. Я отвечу лично и предложу свободное время.</p>
       <div class="contact-links"><a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Telegram ↗</a><a href="https://wa.me/79777665815" target="_blank" rel="noopener">WhatsApp ↗</a><a href="tel:+79777665815">+7 977 766-58-15</a></div>
       <address>Астана, район Сарайшык<br>ул. Ахмет Байтурсынулы, 14</address>
+      <p class="ethics-note">Если вы находитесь в непосредственной опасности или переживаете острый кризис, обратитесь в местную экстренную службу. Сообщения через сайт не являются каналом экстренной психологической помощи.</p>
     </section>
   </main>
 
-  <footer><a class="brand" href="#home">ОК</a><p>© 2026 Ольга Королёва<br>Психоаналитическая психотерапия</p><p><a href="/about.html">О специалисте</a><br><a href="/blog/">Материалы</a><br><a href="/contacts/">Контакты</a></p></footer>
+  <footer><a class="brand" href="#home">ОК</a><p>© 2026 Ольга Королёва<br>Психоаналитическая психотерапия</p><p><a href="/about.html">О специалисте</a><br><a href="/blog/">Материалы</a><br><a href="/contacts/">Контакты</a></p><p class="legal"><a href="/contacts/">Политика обработки персональных данных</a><br>Конфиденциальность и профессиональная этика</p></footer>
   <script src="/assets/js/book.js" defer></script>
 </body>
 </html>
