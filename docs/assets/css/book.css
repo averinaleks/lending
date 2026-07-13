@@ -31,18 +31,18 @@ footer{font-size:.8rem;line-height:1.7}
 
 /* Final editorial rhythm and shared contact footer */
 @media(min-width:801px){
-  .statement{padding:10vw 7vw}
-  .topics,.process,.faq{padding:7vw 3vw}
+  .statement{padding:9vw 7vw}
+  .topics,.process,.faq{padding:6.2vw 3vw}
   .section-heading{margin-bottom:5vw}
   .section-heading h2{font-size:clamp(2.8rem,5.5vw,5.8rem)}
-  .about{min-height:760px}
+  .about{min-height:700px}
   .about-title{padding:6vw 4vw}
   .about-title h2{font-size:clamp(4rem,6.3vw,6.8rem);margin-top:5vw}
   .about-copy{padding:5vw}
   .facts{margin-top:4vw}
-  .quote{padding:9vw 8vw}
+  .quote{padding:8vw 8vw}
   .quote blockquote{font-size:clamp(2.6rem,4.8vw,5rem)}
-  .contact{padding:7vw 3vw}
+  .contact{padding:6vw 3vw}
   .contact h2{font-size:clamp(3.6rem,7.2vw,7.5rem);margin:4vw 0}
 }
 .site-footer-contact{grid-template-columns:1fr 1fr 1fr 1.2fr;align-items:start}
@@ -58,4 +58,10 @@ footer{font-size:.8rem;line-height:1.7}
   .contact{padding:18vw 5vw}
   .site-footer-contact{grid-template-columns:1fr;gap:22px}
   .site-footer-contact p,.site-footer-contact p:last-child,.site-footer-contact address{grid-column:1;text-align:left}
+}
+
+/* Persistent booking action */
+.nav-cta{display:none!important}
+@media(max-width:800px){
+  .site-header nav .nav-cta{display:inline-flex!important;justify-content:center;margin-top:.5rem;border:1px solid var(--wine);border-radius:999px;color:var(--wine)}
 }
