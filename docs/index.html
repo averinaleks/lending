@@ -52,9 +52,9 @@
       .hero-portrait { order:3; min-height:42svh; margin:2rem -3vw 0; }
       .hero h1 { order:1; font-size:clamp(3.1rem,14.5vw,5.4rem); line-height:.98; margin:9svh 0 0; }
       .hero-kicker { order:0; }
-      .hero-bottom { order:2; align-items:flex-start; flex-direction:column; margin-top:2rem; }
+      .hero-bottom { order:2; align-items:stretch; flex-direction:column; margin-top:2rem; }
       .hero-bottom>p { max-width:100%; }
-      .hero-actions { width:100%; justify-content:space-between; }
+      .hero-actions { display:grid; grid-template-columns:1fr; gap:.75rem; align-items:stretch; width:100%; margin-top:1.25rem; }
       .trust-strip { grid-template-columns:1fr 1fr; }
       .trust-strip div { min-height:110px; border-bottom:1px solid var(--line); }
       .trust-strip div:nth-child(2n) { border-right:0; }
