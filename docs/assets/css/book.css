@@ -16,6 +16,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .topic-more{display:inline-block;margin-top:.8rem;color:var(--wine);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:underline;text-underline-offset:4px}
 .contact-links a{min-height:52px;display:inline-flex;align-items:center;justify-content:center}
 footer{font-size:.8rem;line-height:1.7}
+.hero-actions{display:flex;align-items:center;gap:1.2rem}
 @media(max-width:800px){
   body{font-size:16px}
   .menu-toggle{font-size:.8rem;min-width:48px;min-height:48px}
