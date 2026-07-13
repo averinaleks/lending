@@ -75,9 +75,31 @@
   </style>
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="theme-color" content="#f0eee9" />
-  
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      function load(){
+        if (document.getElementById('ymTag')) { return; }
+        k=e.createElement(t); k.id='ymTag'; k.async=1; k.src=r;
+        a=e.getElementsByTagName(t)[0]; a.parentNode.insertBefore(k,a);
+      }
+      if ('requestIdleCallback' in m){
+        requestIdleCallback(load, {timeout:4000});
+      } else {
+        m.addEventListener('load', load, {once:true});
+      }
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(105124237, 'init', {
+      accurateTrackBounce:true,
+      trackLinks:true,
+      clickmap:true,
+      webvisor:true
+    });
+  </script>
 </head>
-<body><main role="main">
+<body><noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript><main role="main">
     <h1>404 — страница не найдена</h1>
     <p>Похоже, ссылка устарела или была введена с опечаткой. Вот несколько путей, которые помогут вернуться к нужной информации.</p>
     <p class="muted">Выберите раздел, чтобы продолжить:</p>
