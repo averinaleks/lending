@@ -50,7 +50,7 @@ footer{font-size:.8rem;line-height:1.7}
 .site-footer-contact address{margin:0;color:inherit;text-align:right;font-size:inherit;line-height:1.7}
 @media(max-width:800px){
   .statement{padding:20vw 5vw}
-  .topics,.process,.faq{padding:18vw 5vw}
+  .topics,.process,.faq{padding:8vw 5vw}
   .about-title{padding:15vw 5vw}
   .about-copy{padding:14vw 5vw}
   .portrait{min-height:460px}
