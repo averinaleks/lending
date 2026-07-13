@@ -20,8 +20,9 @@ footer{font-size:.8rem;line-height:1.7}
   body{font-size:16px}
   .menu-toggle{font-size:.8rem;min-width:48px;min-height:48px}
   .site-header nav{font-size:.9rem;gap:24px}
-  .hero-bottom>p{font-size:1rem}
-  .hero-actions{gap:.75rem;align-items:stretch}
+  .hero-bottom{align-items:stretch;flex-direction:column}
+  .hero-bottom>p{max-width:100%;font-size:1rem}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:.75rem;align-items:stretch;width:100%;margin-top:1.25rem}
   .circle-link,.secondary-link{width:100%;min-height:52px;padding:.9rem 1rem}
   .circle-link{border-radius:999px;font-size:.72rem}
   .hero-kicker,.eyebrow,.topic>span,.facts span,.price span,.quote cite{font-size:.72rem}
