@@ -33,6 +33,7 @@ img, picture, video {
 }
 a { color: var(--link); text-decoration: none; }
 a:hover, a:focus-visible { text-decoration: underline; }
+a:focus-visible, button:focus-visible, .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 strong { font-weight: 600; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px 80px; }
 .page-header { padding: 32px 0 12px; }
