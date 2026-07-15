@@ -41,6 +41,15 @@
     .trust-strip strong,.trust-strip span { display:block; }
     .trust-strip strong { font:400 1.05rem/1.25 var(--serif); }
     .trust-strip span { margin-top:.45rem; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:#555; }
+    .about-story .about-copy { grid-column:1/-1; padding:clamp(48px,6vw,90px) 4vw 8vw; }
+    .about-story .about-intro { max-width:1050px; margin:0 0 clamp(40px,5vw,72px); }
+    .career-timeline { list-style:none; padding:0; margin:0; border-top:1px solid var(--line); }
+    .career-timeline li { display:grid; grid-template-columns:minmax(150px,.42fr) 1.58fr; gap:clamp(24px,4vw,72px); padding:clamp(24px,3vw,42px) 0; border-bottom:1px solid var(--line); }
+    .career-timeline time { font:400 clamp(1.25rem,2vw,2rem)/1.1 var(--serif); color:var(--wine); }
+    .career-timeline p { max-width:900px; margin:0; font-size:clamp(1rem,1.35vw,1.25rem); line-height:1.65; }
+    .career-timeline .career-now { border-bottom:0; }
+    .career-timeline .career-now p { font:400 clamp(1.35rem,2.2vw,2.2rem)/1.35 var(--serif); }
+
     .quote .principle-label { display:block; margin-bottom:3rem; font-size:.68rem; text-transform:uppercase; letter-spacing:.15em; }
     .quote blockquote { max-width:1080px; font-size:clamp(2.3rem,5vw,5.4rem); }
     .ethics-note { max-width:720px; margin:2.5rem 0 0; padding-top:1.5rem; border-top:1px solid rgba(240,238,233,.35); color:#bbb; font-size:.84rem; }
@@ -57,6 +66,12 @@
       .trust-strip div { min-height:110px; border-bottom:1px solid var(--line); }
       .trust-strip div:nth-child(2n) { border-right:0; }
       .trust-strip div:nth-last-child(-n+2) { border-bottom:0; }
+      .about-story .about-copy { padding:14vw 5vw; }
+      .about-story .about-intro { margin-bottom:12vw; }
+      .career-timeline li { grid-template-columns:1fr; gap:.75rem; padding:8vw 0; }
+      .career-timeline time { font-size:1.35rem; }
+      .career-timeline p { font-size:1rem; }
+
       footer { grid-template-columns:1fr; }
       footer p:last-child,footer .legal { grid-column:1; }
     }
@@ -135,14 +150,49 @@
       </div>
     </section>
 
-    <section class="about reveal" id="about">
+    <section class="about reveal about-story" id="about">
       <div class="about-title"><span class="eyebrow">03 / Обо мне</span><h2>Ольга<br>Королёва</h2></div>
       <div class="portrait"><img src="/img/og-image.png" alt="Ольга Королёва, психоаналитик" width="2048" height="2048" loading="lazy" decoding="async"></div>
       <div class="about-copy">
-        <p class="lead">Психоаналитик и психоаналитически ориентированный психотерапевт.</p>
-        <p>Получила психологическое образование в НИУ ВШЭ, продолжила обучение в Московском институте психоанализа. Более семи лет веду практику, регулярно прохожу супервизии и личную терапию.</p>
-        <p>Мне важно создать пространство без оценки и готовых рецептов — место, где можно быть честным и постепенно находить свой способ жить.</p>
-        
+        <p class="lead about-intro">Вот уже более 17 лет я целенаправленно иду к тому, чтобы быть практикующим психологом. Мой путь выглядел так:</p>
+        <ol class="career-timeline">
+          <li>
+            <time datetime="2009/2014">2009–2014</time>
+            <p>Учусь на инженера, чтобы понять, что я не инженер — да, так тоже можно и бывает. Тверской государственный технический университет.</p>
+          </li>
+          <li>
+            <time datetime="2014/2018">2014–2018</time>
+            <p>Учусь на психолога, чтобы спасти мир — поверьте, стандартный заход для начала. Тверской государственный университет.</p>
+          </li>
+          <li>
+            <time datetime="2014/2024">2014–2024</time>
+            <p>Параллельно работаю в разных сферах: страхование, радио, подбор персонала. Много учусь: рекрутинг, карьерное консультирование, арт-терапия.</p>
+          </li>
+          <li>
+            <time datetime="2024/2026">2024–2026</time>
+            <p>Делаю крутые образовательные проекты в Лемана ПРО (Леруа Мерлен).</p>
+          </li>
+          <li>
+            <time datetime="2023/2026">2023–2026</time>
+            <p>Основательно изучаю психоанализ в Институте психологии и психоанализа на Чистых Прудах.</p>
+          </li>
+          <li>
+            <time datetime="2024/2025">2024–2025</time>
+            <p>Психолог-волонтёр в «Ночлежке».</p>
+          </li>
+          <li>
+            <time datetime="2023">С 2023 года</time>
+            <p>Участвую в групповых супервизиях и разборах клинических случаев у ведущих психоаналитиков: Ларисы Ивановны Фусу, Вассилиса Капсамбелиса, Дирана Донабедяна и Жан-Клода Эльбеза.</p>
+          </li>
+          <li>
+            <time datetime="2023">С 2023 года</time>
+            <p>Прохожу личную терапию.</p>
+          </li>
+          <li class="career-now">
+            <time>Сейчас</time>
+            <p>Занимаюсь частной психологической практикой. Метод работы — психоанализ. Продолжаю обучение в Институте психологии и психоанализа на Чистых Прудах.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
