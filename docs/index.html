@@ -35,7 +35,7 @@
     .hero-role { display:block; margin-bottom:.55rem; font-size:.76rem; text-transform:uppercase; letter-spacing:.13em; }
     .secondary-link { font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--wine); border-radius:99px; padding:.9rem 1.6rem; color:var(--wine); transition:.25s; }
     .secondary-link:hover { background:var(--wine); color:#fff; }
-    .trust-strip { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+    .trust-strip { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
     .trust-strip div { padding:1.5rem 3vw; border-right:1px solid var(--line); }
     .trust-strip div:last-child { border:0; }
     .trust-strip strong,.trust-strip span { display:block; }
@@ -86,7 +86,7 @@
       .trust-strip { grid-template-columns:1fr 1fr; }
       .trust-strip div { min-height:110px; border-bottom:1px solid var(--line); }
       .trust-strip div:nth-child(2n) { border-right:0; }
-      .trust-strip div:nth-last-child(-n+2) { border-bottom:0; }
+      .trust-strip div:last-child { grid-column:1/-1; }
       .about-story .about-title { min-height:72svh; padding-bottom:10vw; }
       .about-story .about-title h2 { margin:18vw 0 12vw; font-size:clamp(3.35rem,15vw,5.8rem); }
       .about-name { margin-top:auto; }
@@ -161,7 +161,6 @@
 
     <section class="trust-strip" aria-label="Ключевая информация о практике">
       <div><strong>Институт психологии и психоанализа</strong><span>Профессиональное образование</span></div>
-      <div><strong>Личная терапия + супервизия</strong></div>
       <div><strong>45 минут</strong><span>Продолжительность сессии</span></div>
       <div><strong>3500 р</strong><span>Стоимость встречи</span></div>
     </section>
