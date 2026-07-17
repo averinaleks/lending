@@ -33,6 +33,8 @@
     .hero-portrait img { filter:grayscale(100%); mix-blend-mode:multiply; }
     .hero-bottom { grid-column:1; }
     .hero-intro { max-width:590px; }
+    .hero-intro-line { display:block; }
+    .hero-intro-line + .hero-intro-line { margin-top:1.25em; }
     .hero-role { display:block; margin-bottom:.55rem; font-size:.76rem; text-transform:uppercase; letter-spacing:.13em; }
     .secondary-link { font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--wine); border-radius:99px; padding:.9rem 1.6rem; color:var(--wine); transition:.25s; }
     .secondary-link:hover { background:var(--wine); color:#fff; }
@@ -170,7 +172,7 @@
       <h1>Пространство,<br>где можно<br><em>услышать себя</em></h1>
       <figure class="hero-portrait"><img src="/img/og-image.png" alt="Ольга Королёва, психоаналитик" width="2048" height="2048" decoding="async" fetchpriority="high"></figure>
       <div class="hero-bottom">
-        <p class="hero-intro"><span class="hero-role">Онлайн</span>Помогаю справляться с тревогой, выгоранием и повторяющимися сложностями в отношениях — не только облегчить симптом, но и понять его причины.</p>
+        <p class="hero-intro"><span class="hero-role">Онлайн</span><span class="hero-intro-line">Вы попали на этот сайт, и я задумываюсь: почему?</span><span class="hero-intro-line">Вы пишете мне, и я начинаю думать о вас, а вы — обо мне. Так начинается наша работа.</span></p>
         <div class="hero-actions"><a class="circle-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" aria-label="Записаться на консультацию"><span>Написать в Telegram</span><b>↗</b></a><a class="secondary-link" href="https://wa.me/77711384381" target="_blank" rel="noopener">Написать в WhatsApp</a><span class="secondary-link max-badge" aria-label="MAX: 8 977 766-58-15">MAX · 8 977 766-58-15</span></div>
       </div>
       <div class="hero-mark" aria-hidden="true">ОК</div>
