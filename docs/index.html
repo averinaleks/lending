@@ -75,6 +75,14 @@
     .story-now p { font:400 clamp(1.35rem,2.2vw,2.2rem)/1.4 var(--serif); }
     .story-now .story-marker { margin-top:-26px; background:var(--wine); color:#fff; border-color:#fff; }
 
+    .topics-text .section-heading { margin-bottom:clamp(48px,7vw,110px); }
+    .topics-text .section-heading .eyebrow { grid-column:1/-1; }
+    .topics-copy { max-width:1280px; margin-left:auto; }
+    .topics-copy p { max-width:none; margin:0; }
+    .topics-copy .topics-lead { max-width:1100px; color:var(--ink); font:400 clamp(2.4rem,5vw,6rem)/1.08 var(--serif); letter-spacing:-.035em; }
+    .topics-copy .topics-body { max-width:960px; margin:clamp(52px,7vw,105px) 0 0 auto; font-size:clamp(1.08rem,1.65vw,1.45rem); line-height:1.72; color:#4a4946; }
+    .topics-copy .topics-closing { max-width:900px; margin:clamp(48px,6vw,90px) 0 0 auto; padding:clamp(25px,3vw,42px) 0 clamp(25px,3vw,42px) clamp(24px,4vw,60px); border-left:2px solid var(--wine); color:var(--wine); font:400 clamp(1.7rem,3vw,3.2rem)/1.28 var(--serif); }
+
     .quote .principle-label { display:block; margin-bottom:3rem; font-size:.68rem; text-transform:uppercase; letter-spacing:.15em; }
     .quote blockquote { max-width:1080px; font-size:clamp(2.3rem,5vw,5.4rem); }
     .ethics-note { max-width:720px; margin:2.5rem 0 0; padding-top:1.5rem; border-top:1px solid rgba(240,238,233,.35); color:#bbb; font-size:.84rem; }
@@ -91,6 +99,11 @@
       .trust-strip div { min-height:110px; border-bottom:1px solid var(--line); }
       .trust-strip div:nth-child(2n) { border-right:0; }
       .trust-strip div:last-child { grid-column:1/-1; }
+      .topics-text .section-heading { margin-bottom:14vw; }
+      .topics-copy .topics-lead { font-size:clamp(2.3rem,11vw,4rem); }
+      .topics-copy .topics-body { margin-top:14vw; font-size:1.05rem; }
+      .topics-copy .topics-closing { margin-top:14vw; padding-left:7vw; font-size:clamp(1.65rem,7.5vw,2.5rem); }
+
       .about-story .about-title { min-height:72svh; padding-bottom:10vw; }
       .about-story .about-title h2 { margin:18vw 0 12vw; font-size:clamp(3.35rem,15vw,5.8rem); }
       .about-name { margin-top:auto; }
@@ -175,13 +188,12 @@
       <p class="statement-accent">Наша мысль свободно скользит, и мы просто говорим о себе. Это наша история: мы не пытаемся кого-то поразить или удивить — мы просто позволяем другому себя узнать и увидеть.</p>
     </section>
 
-    <section class="topics" id="approach">
-      <div class="section-heading reveal"><span class="eyebrow">02 / С чем работаю</span><h2>Ваш запрос может звучать по-разному</h2></div>
-      <div class="topic-list">
-        <article class="topic reveal"><span>01</span><h3>Тревога и панические атаки</h3><p>Постоянное напряжение, навязчивые мысли, страх будущего и ощущение потери контроля.<br><a class="topic-more" href="/services/anxiety.html">Подробнее →</a></p></article>
-        <article class="topic reveal"><span>02</span><h3>Выгорание и потеря смысла</h3><p>Усталость, апатия, раздражение и чувство, что привычная жизнь больше не подходит.<br><a class="topic-more" href="/blog/kak-proyti-cherez-vygoranie.html">Читать материал →</a></p></article>
-        <article class="topic reveal"><span>03</span><h3>Отношения и близость</h3><p>Повторяющиеся конфликты, одиночество, болезненные расставания или страх быть собой рядом с другим.<br><a class="topic-more" href="/services/individual-therapy.html">О формате терапии →</a></p></article>
-        <article class="topic reveal"><span>04</span><h3>Самооценка и перемены</h3><p>Внутренний критик, чувство вины, кризис идентичности и поиск собственной опоры.<br><a class="topic-more" href="/blog/kak-podderzhivat-samoocenku.html">Читать материал →</a></p></article>
+    <section class="topics topics-text" id="approach">
+      <div class="section-heading reveal"><span class="eyebrow">02 / С чем работаю</span></div>
+      <div class="topics-copy">
+        <p class="topics-lead reveal">Я работаю не с отдельным запросом, а с вами — как с целостной и неповторимой личностью.</p>
+        <p class="topics-body reveal">В психоаналитической терапии важно всё, из чего складывается ваша жизнь: прошлое и личная история, мечты, фантазии и сны, врождённые особенности, отношения с близкими, друзьями и коллегами, страхи и тревоги, представления о себе и других, интересы и увлечения.</p>
+        <p class="topics-closing reveal">Если что-то из этого перестало приносить удовольствие или стало источником сложных переживаний, это может стать поводом для нашей встречи.</p>
       </div>
     </section>
 
