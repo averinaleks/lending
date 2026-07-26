@@ -170,6 +170,45 @@
       .conditions .trust-strip { margin-top:14vw; }
       .conditions-note { margin-top:12vw; }
     }
+
+    /* Desktop reading system: text measure, alignment and hierarchy */
+    @media(min-width:801px){
+      .hero-intro{max-width:48ch;line-height:1.7}
+      .statement{grid-template-columns:minmax(150px,.7fr) minmax(0,2.3fr);column-gap:clamp(48px,7vw,112px)}
+      .statement p{max-width:19ch}
+      .statement .statement-accent{max-width:18ch;margin-left:clamp(28px,5vw,80px)}
+
+      .section-heading{grid-template-columns:minmax(150px,.7fr) minmax(0,2.3fr);gap:clamp(48px,7vw,112px);align-items:start}
+      .section-heading h2{max-width:14ch}
+      .topics-copy{max-width:1180px}
+      .topics-copy .topics-lead{max-width:18ch}
+      .topics-copy .topics-body{max-width:52ch}
+      .topics-copy .topics-closing{max-width:29ch}
+
+      .prompt{grid-template-columns:72px minmax(0,1fr);gap:clamp(28px,4vw,64px)}
+      .prompt p{max-width:18ch}
+      .reflection-note{max-width:48ch}
+      .dream-note{max-width:52ch}
+
+      .about-opening{grid-template-columns:minmax(170px,.32fr) minmax(0,1.68fr)}
+      .about-story .about-intro{max-width:24ch;font-size:clamp(2rem,3.15vw,3.65rem);line-height:1.16}
+      .story-route li:nth-child(odd) .story-card{text-align:left}
+      .story-route p{max-width:43ch}
+      .story-route li:nth-child(odd) .story-card p{margin-left:auto}
+
+      .mutual-grid{grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);gap:clamp(64px,8vw,130px)}
+      .mutual-copy{max-width:44ch}
+      .process-intro{max-width:48ch}
+
+      .steps li{grid-template-columns:64px minmax(0,1fr);gap:clamp(28px,4vw,64px);padding:clamp(34px,3.4vw,54px) 0}
+      .steps li>div{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(340px,1.2fr);gap:clamp(48px,7vw,112px);align-items:start}
+      .steps h3{max-width:15ch;margin:0}
+      .steps p{max-width:50ch;line-height:1.72}
+
+      .conditions-note{max-width:50ch}
+      details p{max-width:56ch;margin-left:25%;line-height:1.72}
+      .contact>p:not(.ethics-note){max-width:52ch;line-height:1.72}
+    }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://okoroleva.com/#website","url":"https://okoroleva.com/","name":"Психоаналитически-ориентированный психолог Ольга Королёва","inLanguage":"ru"},{"@type":"Person","@id":"https://okoroleva.com/#olga","name":"Ольга Королёва","jobTitle":"Психоаналитически-ориентированный психолог","url":"https://okoroleva.com/","sameAs":["https://t.me/Olgakoroleva05"]},{"@type":"ProfessionalService","@id":"https://okoroleva.com/#practice","name":"Психоаналитически-ориентированная терапия с Ольгой Королёвой","description":"Психоаналитически-ориентированная терапия онлайн с Ольгой Королёвой. Пространство для личной истории, воспоминаний, снов, отношений и свободного разговора.","url":"https://okoroleva.com/","image":"https://okoroleva.com/img/og-image.png","priceRange":"3500 ₽","founder":{"@id":"https://okoroleva.com/#olga"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Психоаналитически-ориентированная терапия","itemListElement":[{"@type":"Offer","price":"3500","priceCurrency":"RUB","itemOffered":{"@type":"Service","name":"Индивидуальная психоаналитически-ориентированная терапия","serviceType":"Онлайн","duration":"PT45M"}}]}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"Мы знакомимся и обсуждаем, что привело вас в терапию. Это полноценная сессия длительностью 45 минут."}},{"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Психоаналитическая терапия может занимать несколько месяцев или дольше; динамику мы обсуждаем вместе."}},{"@type":"Question","name":"Онлайн так же эффективно?","acceptedAnswer":{"@type":"Answer","text":"Да. Важны приватное пространство, устойчивый интернет, регулярность встреч и доверительный контакт."}}]}</script>
