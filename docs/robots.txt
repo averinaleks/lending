@@ -2,7 +2,6 @@
 # General rules: keep key content and static assets crawlable while blocking service duplicates.
 User-agent: *
 Allow: /
-Disallow: /404.html
 Disallow: /yandex-popular-queries-monitoring.html
 Disallow: /yandex-webmaster-advanced.html
 Disallow: /microdata-validator.html
@@ -10,7 +9,6 @@ Disallow: /microdata-validator.html
 # Yandex-specific settings, including URL parameter normalization.
 User-agent: Yandex
 Allow: /
-Disallow: /404.html
 Disallow: /yandex-popular-queries-monitoring.html
 Disallow: /yandex-webmaster-advanced.html
 Disallow: /microdata-validator.html
