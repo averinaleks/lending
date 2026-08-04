@@ -209,6 +209,35 @@
       details p{max-width:56ch;margin-left:25%;line-height:1.72}
       .contact>p:not(.ethics-note){max-width:52ch;line-height:1.72}
     }
+
+    /* Editorial portrait series */
+    .hero-portrait img,.about-portrait img,.editorial-photos img,.portrait-bridge img,.contact-photo img{display:block;width:100%;height:100%;object-fit:cover;filter:none;mix-blend-mode:normal}
+    .hero-portrait img{object-position:50% 54%}
+    .about-portrait img{object-position:50% 34%}
+    .editorial-photos{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2vw;padding:8vw 4vw;background:var(--ink)}
+    .editorial-photos figure{margin:0;overflow:hidden;aspect-ratio:2/3}
+    .editorial-photos figure:nth-child(1){grid-column:1/5}
+    .editorial-photos figure:nth-child(2){grid-column:5/9;margin-top:10vw}
+    .editorial-photos figure:nth-child(3){grid-column:9/13;margin-top:3vw}
+    .portrait-bridge{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));margin:0;padding:8vw 4vw;background:var(--paper)}
+    .portrait-bridge img{grid-column:4/10;height:auto}
+    .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,42vw);column-gap:6vw;align-items:start}
+    .contact>.eyebrow,.contact>h2,.contact>p,.contact>.contact-links{grid-column:1}
+    .contact-photo{grid-column:2;grid-row:1/7;margin:0;height:min(82vh,900px);overflow:hidden}
+    .contact-photo img{object-position:50% 42%}
+    @media(max-width:800px){
+      .hero-portrait img{object-position:50% 58%}
+      .about-portrait img{object-position:50% 30%}
+      .editorial-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:3vw;padding:14vw 4vw}
+      .editorial-photos figure:nth-child(n){grid-column:auto;margin:0}
+      .editorial-photos figure:first-child{grid-column:1/3;width:72%;justify-self:start}
+      .editorial-photos figure:nth-child(2){margin-top:14vw}
+      .editorial-photos figure:nth-child(3){margin-top:3vw}
+      .portrait-bridge{padding:14vw 4vw}
+      .portrait-bridge img{grid-column:2/12}
+      .contact{display:block}
+      .contact-photo{height:68svh;margin:0 0 12vw}
+    }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://okoroleva.com/#website","url":"https://okoroleva.com/","name":"Психоаналитически-ориентированный психолог Ольга Королёва","inLanguage":"ru","hasPart":[{"@type":"WebPage","@id":"https://okoroleva.com/services/individual-therapy.html#webpage","url":"https://okoroleva.com/services/individual-therapy.html","name":"Индивидуальная психоаналитическая терапия"},{"@type":"WebPage","@id":"https://okoroleva.com/services/anxiety.html#webpage","url":"https://okoroleva.com/services/anxiety.html","name":"Психологическая помощь при тревоге"}]},{"@type":"Person","@id":"https://okoroleva.com/#olga","name":"Ольга Королёва","jobTitle":"Психоаналитически-ориентированный психолог","url":"https://okoroleva.com/","sameAs":["https://t.me/Olgakoroleva05"]},{"@type":"ProfessionalService","@id":"https://okoroleva.com/#practice","name":"Психоаналитически-ориентированная терапия с Ольгой Королёвой","description":"Психоаналитически-ориентированная терапия с Ольгой Королёвой — очно в Астане и Москве, а также онлайн. Работа с тревогой, отношениями и кризисами.","url":"https://okoroleva.com/","image":"https://okoroleva.com/img/og-image.png","priceRange":"3500 ₽","founder":{"@id":"https://okoroleva.com/#olga"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Психоаналитически-ориентированная терапия","itemListElement":[{"@type":"Offer","price":"3500","priceCurrency":"RUB","itemOffered":{"@type":"Service","@id":"https://okoroleva.com/services/individual-therapy.html#service","url":"https://okoroleva.com/services/individual-therapy.html","name":"Индивидуальная психоаналитически-ориентированная терапия","serviceType":"Очно и онлайн","areaServed":[{"@type":"City","name":"Астана"},{"@type":"City","name":"Москва"}],"duration":"PT45M"}}]}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"Мы знакомимся и обсуждаем, что привело вас в терапию. Это полноценная сессия длительностью 45 минут."}},{"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Психоаналитическая терапия может занимать несколько месяцев или дольше; динамику мы обсуждаем вместе."}},{"@type":"Question","name":"Онлайн так же эффективно?","acceptedAnswer":{"@type":"Answer","text":"Да. Важны приватное пространство, устойчивый интернет, регулярность встреч и доверительный контакт."}}]}</script>
@@ -253,7 +282,7 @@
     <section class="hero">
       <div class="hero-kicker">Ольга Королёва · психоаналитически-ориентированный психолог</div>
       <h1>Пространство,<br>где можно<br><em>услышать себя</em></h1>
-      <figure class="hero-portrait"><img src="/img/og-image.png" alt="Ольга Королёва, психоаналитически-ориентированный психолог" width="2048" height="2048" decoding="async" fetchpriority="high"></figure>
+      <figure class="hero-portrait"><img src="/img/olga-hero.webp" alt="Ольга Королёва, психоаналитически-ориентированный психолог" width="1200" height="1800" decoding="async" fetchpriority="high"></figure>
       <div class="hero-bottom">
         <p class="hero-intro"><span class="hero-role">Очно · онлайн — Астана и Москва</span><span class="hero-intro-line">Вы попали на этот сайт, и я задумываюсь: почему?</span><span class="hero-intro-line">Вы пишете мне, и я начинаю думать о вас, а вы — обо мне. Так начинается наша работа.</span></p>
         <div class="hero-actions"><a class="circle-link" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener" aria-label="Записаться в Telegram"><span>Записаться в Telegram</span><b>↗</b></a><a class="secondary-link" href="https://wa.me/77711384381" target="_blank" rel="noopener">Записаться в WhatsApp</a><a class="secondary-link max-badge" href="https://max.ru/u/f9LHodD0cOJ2DdXB1vbGdiPbf6K9msdwLauxy3DZAYTGaAmXcBvku1ddNqo" target="_blank" rel="noopener" aria-label="Записаться в MAX">Записаться в MAX</a></div>
@@ -295,6 +324,12 @@
       <p class="dream-note reveal">В терапии важно не только то, что вы собирались сказать, но и то, что неожиданно приходит на ум.</p>
     </section>
 
+    <section class="editorial-photos" aria-label="Фотографии Ольги Королёвой">
+      <figure class="reveal"><img src="/img/olga-story-seated.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async"></figure>
+      <figure class="reveal"><img src="/img/olga-story-profile.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async"></figure>
+      <figure class="reveal"><img src="/img/olga-story-close.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async"></figure>
+    </section>
+
     <section class="about reveal about-story" id="about">
       <div class="about-title">
         <span class="eyebrow">05 / Обо мне</span>
@@ -302,7 +337,7 @@
         <p class="about-name">Ольга Королёва · психоаналитически-ориентированный психолог</p>
       </div>
       <div class="portrait about-portrait">
-        <img src="/img/og-image.png" alt="Ольга Королёва, психолог" width="2048" height="2048" loading="lazy" decoding="async">
+        <img src="/img/olga-portrait.webp" alt="Ольга Королёва, психолог" width="1200" height="1800" loading="lazy" decoding="async">
       </div>
       <div class="about-copy">
         <div class="about-opening">
@@ -329,6 +364,11 @@
         </ol>
       </div>
     </section>
+
+
+    <figure class="portrait-bridge reveal">
+      <img src="/img/olga-story-motion.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async">
+    </figure>
 
     <section class="mutual" id="encounter">
       <div class="mutual-grid">
@@ -369,6 +409,7 @@
 
     <section class="contact reveal" id="contact">
       <span class="eyebrow">10 / Контакт</span>
+      <figure class="contact-photo"><img src="/img/olga-contact.webp" alt="Ольга Королёва с воздушным шаром в форме сердца" width="1200" height="1800" loading="lazy" decoding="async"></figure>
       <h2>Как всё прошло<br><em>для вас?</em></h2>
       <p>Если после знакомства с этим сайтом вам хочется продолжить разговор, вы можете написать мне. Я отвечу лично и предложу время для встречи.</p>
       <div class="contact-links"><a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Записаться в Telegram ↗</a><a href="https://wa.me/77711384381" target="_blank" rel="noopener">Записаться в WhatsApp ↗</a><a class="max-badge" href="https://max.ru/u/f9LHodD0cOJ2DdXB1vbGdiPbf6K9msdwLauxy3DZAYTGaAmXcBvku1ddNqo" target="_blank" rel="noopener" aria-label="Записаться в MAX">Записаться в MAX ↗</a></div>
