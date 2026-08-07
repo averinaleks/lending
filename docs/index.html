@@ -221,10 +221,10 @@
     .editorial-photos figure:nth-child(3){grid-column:9/13;margin-top:3vw}
     .portrait-bridge{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));margin:0;padding:8vw 4vw;background:var(--paper)}
     .portrait-bridge img{grid-column:4/10;height:auto}
-    .contact{display:block}
+    .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.82fr);column-gap:clamp(48px,6vw,110px);align-items:start}
     .contact>.eyebrow,.contact>h2,.contact>p,.contact>.contact-links{grid-column:1}
     .contact-photo{grid-column:2;grid-row:1/7;margin:0;height:min(82vh,900px);overflow:hidden}
-    .contact-photo img{object-position:50% 42%}
+    .contact-photo img{object-position:50% 65%}
     @media(max-width:800px){
       .hero-portrait img{object-position:50% 58%}
       .about-portrait img{object-position:50% 30%}
@@ -236,7 +236,8 @@
       .portrait-bridge{padding:14vw 4vw}
       .portrait-bridge img{grid-column:2/12}
       .contact{display:block}
-      .contact-photo{height:68svh;margin:0 0 12vw}
+      .contact-photo{height:68svh;margin:12vw 0 0}
+      .contact-photo img{object-position:50% 68%}
     }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://okoroleva.com/#website","url":"https://okoroleva.com/","name":"Психоаналитически-ориентированный психолог Ольга Королёва","inLanguage":"ru","hasPart":[{"@type":"WebPage","@id":"https://okoroleva.com/services/individual-therapy.html#webpage","url":"https://okoroleva.com/services/individual-therapy.html","name":"Индивидуальная психоаналитическая терапия"},{"@type":"WebPage","@id":"https://okoroleva.com/services/anxiety.html#webpage","url":"https://okoroleva.com/services/anxiety.html","name":"Психологическая помощь при тревоге"}]},{"@type":"Person","@id":"https://okoroleva.com/#olga","name":"Ольга Королёва","jobTitle":"Психоаналитически-ориентированный психолог","url":"https://okoroleva.com/","sameAs":["https://t.me/Olgakoroleva05"]},{"@type":"ProfessionalService","@id":"https://okoroleva.com/#practice","name":"Психоаналитически-ориентированная терапия с Ольгой Королёвой","description":"Психоаналитически-ориентированная терапия с Ольгой Королёвой — очно в Астане и Москве, а также онлайн. Работа с тревогой, отношениями и кризисами.","url":"https://okoroleva.com/","image":"https://okoroleva.com/img/og-image.png","priceRange":"3500 ₽","founder":{"@id":"https://okoroleva.com/#olga"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Психоаналитически-ориентированная терапия","itemListElement":[{"@type":"Offer","price":"3500","priceCurrency":"RUB","itemOffered":{"@type":"Service","@id":"https://okoroleva.com/services/individual-therapy.html#service","url":"https://okoroleva.com/services/individual-therapy.html","name":"Индивидуальная психоаналитически-ориентированная терапия","serviceType":"Очно и онлайн","areaServed":[{"@type":"City","name":"Астана"},{"@type":"City","name":"Москва"}],"duration":"PT45M"}}]}}]}</script>
@@ -401,6 +402,7 @@
       <p>Если после знакомства с этим сайтом вам хочется продолжить разговор, вы можете написать мне. Я отвечу лично и предложу время для встречи.</p>
       <div class="contact-links"><a href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Записаться в Telegram ↗</a><a href="https://wa.me/77711384381" target="_blank" rel="noopener">Записаться в WhatsApp ↗</a><a class="max-badge" href="https://max.ru/u/f9LHodD0cOJ2DdXB1vbGdiPbf6K9msdwLauxy3DZAYTGaAmXcBvku1ddNqo" target="_blank" rel="noopener" aria-label="Записаться в MAX">Записаться в MAX ↗</a></div>
       <p class="ethics-note">Если вы находитесь в непосредственной опасности или переживаете острый кризис, обратитесь в местную экстренную службу. Сообщения через сайт не являются каналом экстренной психологической помощи.</p>
+      <figure class="contact-photo"><img src="/img/olga-contact-7286.webp" alt="Ольга Королёва" width="1024" height="1536" loading="lazy" decoding="async"></figure>
     </section>
   </main>
 
