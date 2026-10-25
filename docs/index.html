@@ -63,7 +63,7 @@
     .story-card:hover { transform:translateY(-4px); background:var(--paper); }
     .story-route li:nth-child(odd) .story-card { grid-column:1; text-align:right; margin-right:var(--route-gap); }
     .story-route li:nth-child(even) .story-card { grid-column:3; margin-left:var(--route-gap); }
-    .story-route time { display:block; margin-bottom:1rem; color:var(--wine); font:400 clamp(1.7rem,2.7vw,3rem)/1 var(--serif); }
+    .story-route .story-date { display:block; margin-bottom:1rem; color:var(--wine); font:400 clamp(1.7rem,2.7vw,3rem)/1 var(--serif); }
     .story-route p { max-width:none; margin:0; font-size:clamp(.98rem,1.2vw,1.13rem); line-height:1.65; }
     .story-institution { display:block; margin-top:1.2rem; font-weight:500; }
     .diploma-link { display:block; margin-top:.8rem; color:var(--wine); font-size:.72rem; font-weight:500; text-transform:uppercase; letter-spacing:.08em; text-decoration:underline; text-underline-offset:4px; }
@@ -72,7 +72,7 @@
     .story-now { padding-bottom:0!important; }
     .story-now .story-card { grid-column:1/-1!important; justify-self:center; width:min(900px,calc(100% - 144px)); margin:0!important; padding:clamp(38px,5vw,72px); text-align:center!important; background:var(--wine); color:#fff; border:0; }
     .story-now .story-card:hover { background:var(--wine); }
-    .story-now time { color:#fff; }
+    .story-now .story-date { color:#fff; }
     .story-now p { font:400 clamp(1.35rem,2.2vw,2.2rem)/1.4 var(--serif); }
     .story-now .story-marker { margin-top:-26px; background:var(--wine); color:#fff; border-color:#fff; }
 
@@ -109,14 +109,14 @@
       .about-story .about-title h2 { margin:18vw 0 12vw; font-size:clamp(3.35rem,15vw,5.8rem); }
       .about-name { margin-top:auto; }
       .about-story .about-copy { padding:18vw 5vw; }
-      .about-opening { grid-template-columns:1fr; gap:1.2rem; margin-bottom:20vw; }
-      .about-story .about-intro { font-size:clamp(2rem,9vw,3.5rem); }
+      .about-opening { grid-template-columns:minmax(0,1fr); gap:1.2rem; margin-bottom:20vw; }
+      .about-story .about-intro { min-width:0; overflow-wrap:anywhere; font-size:clamp(2rem,9vw,3.5rem); }
       .story-route::before { left:25px; top:0; bottom:0; }
       .story-route li { grid-template-columns:52px minmax(0,1fr); min-height:0; padding-bottom:12vw; }
       .story-route li:nth-child(n) .story-card { grid-column:2; grid-row:1; margin:0 0 0 20px; text-align:left; }
       .story-marker { grid-column:1; grid-row:1; width:50px; height:50px; }
       .story-card { padding:7vw 6vw; }
-      .story-route time { font-size:1.8rem; }
+      .story-route .story-date { font-size:1.8rem; }
       .story-route p { font-size:1rem; }
       .story-now .story-card { grid-column:2!important; width:auto; margin-left:20px!important; padding:10vw 7vw; text-align:left!important; }
       .story-now .story-marker { margin-top:0; }
@@ -233,6 +233,14 @@
       .portrait-bridge{padding:14vw 4vw}
       .portrait-bridge img{grid-column:2/12}
     }
+    @media(max-width:360px){
+      .hero h1 { font-size:clamp(2.5rem,14vw,3.1rem); }
+      .dream-question { font-size:clamp(2.25rem,12vw,2.7rem); overflow-wrap:anywhere; }
+      .section-heading h2 { font-size:2.6rem; }
+      .trust-strip { grid-template-columns:minmax(0,1fr); }
+      .trust-strip div { border-right:0; }
+      .trust-strip div:last-child { border-bottom:0; }
+    }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://okoroleva.com/#website","url":"https://okoroleva.com/","name":"Психоаналитически-ориентированный психолог Ольга Королёва","inLanguage":"ru","publisher":{"@id":"https://okoroleva.com/#olga"}},{"@type":"WebPage","@id":"https://okoroleva.com/#webpage","url":"https://okoroleva.com/","name":"Психолог онлайн в Москве и очно в Астане — Ольга Королёва","description":"Психоаналитически-ориентированный психолог Ольга Королёва. Онлайн-консультации для Москвы и других городов, очные встречи в Астане. 45 минут — 3500 ₽.","inLanguage":"ru","isPartOf":{"@id":"https://okoroleva.com/#website"},"about":{"@id":"https://okoroleva.com/#olga"},"mainEntity":{"@id":"https://okoroleva.com/#practice"}},{"@type":"Person","@id":"https://okoroleva.com/#olga","name":"Ольга Королёва","jobTitle":"Психоаналитически-ориентированный психолог","url":"https://okoroleva.com/","sameAs":["https://t.me/Olgakoroleva05"]},{"@type":"ProfessionalService","@id":"https://okoroleva.com/#practice","name":"Психоаналитически-ориентированная терапия с Ольгой Королёвой","description":"Психоаналитически-ориентированный психолог Ольга Королёва. Онлайн-консультации для Москвы и других городов, очные встречи в Астане. 45 минут — 3500 ₽.","url":"https://okoroleva.com/","image":"https://okoroleva.com/img/og-image.png","priceRange":"3500 ₽","founder":{"@id":"https://okoroleva.com/#olga"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Психоаналитически-ориентированная терапия","itemListElement":[{"@type":"Offer","price":"3500","priceCurrency":"RUB","itemOffered":{"@type":"Service","@id":"https://okoroleva.com/#service","url":"https://okoroleva.com/#format","name":"Индивидуальная психоаналитически-ориентированная терапия","serviceType":"Очно в Астане и онлайн для Москвы и других городов","areaServed":[{"@type":"City","name":"Астана"},{"@type":"City","name":"Москва"}],"description":"Психоаналитически-ориентированная терапия: очно в Астане, онлайн для Москвы и других городов. Продолжительность сессии — 45 минут."},"url":"https://okoroleva.com/#conditions"}]},"areaServed":[{"@type":"City","name":"Астана"},{"@type":"City","name":"Москва"}]}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"Мы знакомимся и обсуждаем, что привело вас в терапию. Это полноценная сессия длительностью 45 минут."}},{"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Психоаналитическая терапия может занимать несколько месяцев или дольше; динамику мы обсуждаем вместе."}},{"@type":"Question","name":"Онлайн так же эффективно?","acceptedAnswer":{"@type":"Answer","text":"Да. Важны приватное пространство, устойчивый интернет, регулярность встреч и доверительный контакт."}}]}</script>
@@ -302,7 +310,7 @@
 
     <section class="reflection" id="story">
       <div class="section-heading reveal"><span class="eyebrow">03 / Личная история</span><h2>У каждого из нас<br>своя история</h2></div>
-      <div class="prompt-list" aria-label="Вопросы для размышления">
+      <div class="prompt-list" role="group" aria-label="Вопросы для размышления">
         <article class="prompt reveal"><span>01</span><p>Что в вашей жизни повторяется?</p></article>
         <article class="prompt reveal"><span>02</span><p>Что изменилось в последнее время?</p></article>
         <article class="prompt reveal"><span>03</span><p>О чём трудно рассказать даже самому себе?</p></article>
@@ -335,19 +343,19 @@
         </div>
         <ol class="story-route" aria-label="Профессиональный путь">
           <li>
-            <article class="story-card"><time>2009–2018</time><p>Получила два высших образования: техническое и базовое психологическое<a class="diploma-link" href="/files/diploma-tgtu.pdf" target="_blank" rel="noopener">Диплом инженера ↗</a><a class="diploma-link" href="/files/diploma-tver-state-university.pdf" target="_blank" rel="noopener">Диплом психолога ↗</a></p></article>
+            <article class="story-card"><span class="story-date">2009–2018</span><p>Получила два высших образования: техническое и базовое психологическое<a class="diploma-link" href="/files/diploma-tgtu.pdf" target="_blank" rel="noopener">Диплом инженера ↗</a><a class="diploma-link" href="/files/diploma-tver-state-university.pdf" target="_blank" rel="noopener">Диплом психолога ↗</a></p></article>
             <span class="story-marker" aria-hidden="true">01</span>
           </li>
           <li>
-            <article class="story-card"><time>2014–2026</time><p>Работала в страховании, на радио и в подборе персонала, запускала образовательные проекты в Лемана ПРО. Изучала карьерное консультирование, арт-терапию и современные технологии работы психолога.<a class="diploma-link" href="/files/certificate-pedagogue-psychologist.pdf" target="_blank" rel="noopener">Удостоверение педагога-психолога ↗</a><a class="diploma-link" href="/files/certificate-career-consultant.pdf" target="_blank" rel="noopener">Сертификат карьерного консультанта ↗</a></p></article>
+            <article class="story-card"><span class="story-date">2014–2026</span><p>Работала в страховании, на радио и в подборе персонала, запускала образовательные проекты в Лемана ПРО. Изучала карьерное консультирование, арт-терапию и современные технологии работы психолога.<a class="diploma-link" href="/files/certificate-pedagogue-psychologist.pdf" target="_blank" rel="noopener">Удостоверение педагога-психолога ↗</a><a class="diploma-link" href="/files/certificate-career-consultant.pdf" target="_blank" rel="noopener">Сертификат карьерного консультанта ↗</a></p></article>
             <span class="story-marker" aria-hidden="true">02</span>
           </li>
           <li>
-            <article class="story-card"><time>С 2023 года</time><p>Изучаю психоанализ в Институте психологии и психоанализа на Чистых Прудах, участвую в групповых супервизиях и разборах клинических случаев у ведущих психоаналитиков. Прохожу личную терапию.<a class="diploma-link" href="/files/diploma-institute-psychology-psychoanalysis.pdf" target="_blank" rel="noopener">Диплом института ↗</a></p></article>
+            <article class="story-card"><span class="story-date">С 2023 года</span><p>Изучаю психоанализ в Институте психологии и психоанализа на Чистых Прудах, участвую в групповых супервизиях и разборах клинических случаев у ведущих психоаналитиков. Прохожу личную терапию.<a class="diploma-link" href="/files/diploma-institute-psychology-psychoanalysis.pdf" target="_blank" rel="noopener">Диплом института ↗</a></p></article>
             <span class="story-marker" aria-hidden="true">03</span>
           </li>
           <li class="story-now">
-            <article class="story-card"><time>Сейчас</time><p>Сейчас занимаюсь частной психологической практикой. Метод работы — психоаналитическая терапия.</p></article>
+            <article class="story-card"><span class="story-date">Сейчас</span><p>Сейчас занимаюсь частной психологической практикой. Метод работы — психоаналитическая терапия.</p></article>
             <span class="story-marker" aria-hidden="true">04</span>
           </li>
         </ol>
@@ -374,7 +382,7 @@
 
     <section class="conditions" id="conditions">
       <div class="section-heading reveal"><span class="eyebrow">08 / Условия</span><h2>Практическая сторона<br>встречи</h2></div>
-      <div class="trust-strip reveal" aria-label="Условия психологической практики">
+      <div class="trust-strip reveal" role="group" aria-label="Условия психологической практики">
         <div><strong>45 минут</strong><span>Продолжительность сессии</span></div>
         <div><strong>3500 ₽</strong><span>Стоимость встречи</span></div>
       </div>
@@ -403,4 +411,5 @@
   <script src="/assets/js/book.js?v=20260713-3" defer></script>
 </body>
 </html>
+
 
