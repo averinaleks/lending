@@ -242,6 +242,13 @@
       .trust-strip div { border-right:0; }
       .trust-strip div:last-child { border-bottom:0; }
     }
+
+    .header-actions { display:flex; align-items:center; justify-self:end; gap:1rem; }
+    .header-instagram { display:inline-flex; align-items:center; justify-content:center; width:44px; min-width:44px; height:44px; border:1px solid var(--line); border-radius:50%; color:var(--wine); }
+    .header-instagram svg { display:block; width:22px; height:22px; }
+    .header-instagram:hover { background:var(--wine); border-color:var(--wine); color:var(--paper); }
+    .header-instagram:focus-visible { outline:2px solid var(--wine); outline-offset:3px; }
+    @media(max-width:800px) { .site-header { grid-template-columns:1fr auto auto; column-gap:.75rem; } .menu-toggle { grid-column:2; grid-row:1; } .header-actions { grid-column:3; grid-row:1; } }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://okoroleva.com/#website","url":"https://okoroleva.com/","name":"Психоаналитически-ориентированный психолог Ольга Королёва","inLanguage":"ru","publisher":{"@id":"https://okoroleva.com/#olga"}},{"@type":"WebPage","@id":"https://okoroleva.com/#webpage","url":"https://okoroleva.com/","name":"Психолог онлайн в Москве и очно в Астане — Ольга Королёва","description":"Психоаналитически-ориентированный психолог Ольга Королёва. Онлайн-консультации для Москвы и других городов, очные встречи в Астане. 45 минут — 3500 ₽.","inLanguage":"ru","isPartOf":{"@id":"https://okoroleva.com/#website"},"about":{"@id":"https://okoroleva.com/#olga"},"mainEntity":{"@id":"https://okoroleva.com/#service"}},{"@type":"Person","@id":"https://okoroleva.com/#olga","name":"Ольга Королёва","jobTitle":"Психоаналитически-ориентированный психолог","url":"https://okoroleva.com/","sameAs":["https://t.me/Olgakoroleva05"],"image":"https://okoroleva.com/img/olga-hero-7253.webp"},{"@type":"Service","@id":"https://okoroleva.com/#service","name":"Индивидуальная психоаналитически-ориентированная терапия","description":"Психоаналитически-ориентированная терапия: очно в Астане, онлайн для Москвы и других городов. Продолжительность сессии — 45 минут, стоимость — 3500 ₽.","serviceType":"Психоаналитическая терапия","url":"https://okoroleva.com/#format","provider":{"@id":"https://okoroleva.com/#olga"},"areaServed":[{"@type":"City","name":"Астана"},{"@type":"City","name":"Москва"}],"offers":{"@type":"Offer","url":"https://okoroleva.com/#conditions","price":"3500","priceCurrency":"RUB"}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"Мы знакомимся и обсуждаем, что привело вас в терапию. Это полноценная сессия длительностью 45 минут."}},{"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Психоаналитическая терапия может занимать несколько месяцев или дольше; динамику мы обсуждаем вместе."}},{"@type":"Question","name":"Что нужно для онлайн-встречи?","acceptedAnswer":{"@type":"Answer","text":"Для онлайн-встречи нужны приватное пространство и устойчивый интернет. Регулярность, время и правила работы мы обсуждаем вместе."}}]}</script>
@@ -279,7 +286,10 @@
     <nav id="menu" aria-label="Основная навигация">
       <a href="#approach">Ваша история</a><a href="#dreams">Сны и воспоминания</a><a href="#about">Обо мне</a><a href="#format">Первые встречи</a><a href="#conditions">Условия</a><a class="nav-cta" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
     </nav>
-    <a class="header-contact" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
+    <div class="header-actions">
+      <a class="header-contact" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
+      <a class="header-instagram" href="https://www.instagram.com/_okoroleva/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Ольги Королёвой" title="Instagram Ольги Королёвой"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
   </header>
 
   <main id="main">
