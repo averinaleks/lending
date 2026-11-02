@@ -260,7 +260,9 @@
       .story-card { padding:24px 18px; }
       .story-now .story-card { margin-left:12px!important; padding:30px 18px; }
     }
-</style>
+    /* Keep the added blog link within the existing header. */
+    @media(min-width:801px) { .site-header nav { gap:clamp(12px,1.35vw,26px); } }
+  </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://okoroleva.com/#website","url":"https://okoroleva.com/","name":"Психоаналитически-ориентированный психолог Ольга Королёва","inLanguage":"ru","publisher":{"@id":"https://okoroleva.com/#olga"}},{"@type":"WebPage","@id":"https://okoroleva.com/#webpage","url":"https://okoroleva.com/","name":"Психолог онлайн в Москве и очно в Астане — Ольга Королёва","description":"Психоаналитически-ориентированный психолог Ольга Королёва. Онлайн-консультации для Москвы и других городов, очные встречи в Астане. 45 минут — 3500 ₽.","inLanguage":"ru","isPartOf":{"@id":"https://okoroleva.com/#website"},"about":{"@id":"https://okoroleva.com/#olga"},"mainEntity":{"@id":"https://okoroleva.com/#service"}},{"@type":"Person","@id":"https://okoroleva.com/#olga","name":"Ольга Королёва","jobTitle":"Психоаналитически-ориентированный психолог","url":"https://okoroleva.com/","sameAs":["https://t.me/Olgakoroleva05"],"image":"https://okoroleva.com/img/olga-hero-7253.webp"},{"@type":"Service","@id":"https://okoroleva.com/#service","name":"Индивидуальная психоаналитически-ориентированная терапия","description":"Психоаналитически-ориентированная терапия: очно в Астане, онлайн для Москвы и других городов. Продолжительность сессии — 45 минут, стоимость — 3500 ₽.","serviceType":"Психоаналитическая терапия","url":"https://okoroleva.com/#format","provider":{"@id":"https://okoroleva.com/#olga"},"areaServed":[{"@type":"City","name":"Астана"},{"@type":"City","name":"Москва"}],"offers":{"@type":"Offer","url":"https://okoroleva.com/#conditions","price":"3500","priceCurrency":"RUB"}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как проходит первая встреча?","acceptedAnswer":{"@type":"Answer","text":"Мы знакомимся и обсуждаем, что привело вас в терапию. Это полноценная сессия длительностью 45 минут."}},{"@type":"Question","name":"Сколько длится терапия?","acceptedAnswer":{"@type":"Answer","text":"Психоаналитическая терапия может занимать несколько месяцев или дольше; динамику мы обсуждаем вместе."}},{"@type":"Question","name":"Что нужно для онлайн-встречи?","acceptedAnswer":{"@type":"Answer","text":"Для онлайн-встречи нужны приватное пространство и устойчивый интернет. Регулярность, время и правила работы мы обсуждаем вместе."}}]}</script>
 <script type="text/javascript">
@@ -295,7 +297,7 @@
     <a class="brand" href="#home" aria-label="На главную">ОК<span>Психоаналитически-ориентированный психолог</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
     <nav id="menu" aria-label="Основная навигация">
-      <a href="#approach">Ваша история</a><a href="#dreams">Сны и воспоминания</a><a href="#about">Обо мне</a><a href="#format">Первые встречи</a><a href="#conditions">Условия</a><a class="nav-cta" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
+      <a href="#approach">Ваша история</a><a href="#dreams">Сны и воспоминания</a><a href="#about">Обо мне</a><a href="#format">Первые встречи</a><a href="#conditions">Условия</a><a href="/blog/">Блог</a><a class="nav-cta" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
     </nav>
     <div class="header-actions">
       <a class="header-contact" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
@@ -429,7 +431,7 @@
     </section>
   </main>
 
-  <footer><a class="brand" href="#home">ОК</a><p>© 2026 Ольга Королёва<br>Психоаналитически-ориентированная терапия</p><p><a href="#approach">Ваша история</a><br><a href="#about">Обо мне</a><br><a href="#format">Первые встречи</a><br><a href="#contact">Контакт</a></p><p class="legal"><a href="/privacy-policy.html">Политика конфиденциальности</a> и профессиональная этика</p></footer>
+  <footer><a class="brand" href="#home">ОК</a><p>© 2026 Ольга Королёва<br>Психоаналитически-ориентированная терапия</p><p><a href="#approach">Ваша история</a><br><a href="#about">Обо мне</a><br><a href="#format">Первые встречи</a><br><a href="#contact">Контакт</a><br><a href="/blog/">Блог</a></p><p class="legal"><a href="/privacy-policy.html">Политика конфиденциальности</a> и профессиональная этика</p></footer>
   <script src="/assets/js/book.js?v=20260713-3" defer></script>
 </body>
 </html>

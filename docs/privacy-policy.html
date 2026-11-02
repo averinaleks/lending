@@ -102,14 +102,16 @@
     .header-instagram:hover { background:var(--wine); border-color:var(--wine); color:var(--paper); }
     .header-instagram:focus-visible { outline:2px solid var(--wine); outline-offset:3px; }
     @media(max-width:800px) { .site-header { grid-template-columns:1fr auto auto; column-gap:.75rem; } .menu-toggle { grid-column:2; grid-row:1; } .header-actions { grid-column:3; grid-row:1; } }
-</style>
+    /* Keep the added blog link within the existing header. */
+    @media(min-width:801px) { .site-header nav { gap:clamp(12px,1.35vw,26px); } }
+  </style>
 </head>
 <body><noscript><div><img src="https://mc.yandex.ru/watch/105124237" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <header class="site-header">
     <a class="brand" href="/" aria-label="На главную">ОК<span>Психоаналитически-ориентированный психолог</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Меню</button>
     <nav id="menu" aria-label="Основная навигация">
-      <a href="/#approach">Ваша история</a><a href="/#dreams">Сны и воспоминания</a><a href="/#about">Обо мне</a><a href="/#format">Первые встречи</a><a href="/#conditions">Условия</a><a class="nav-cta" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
+      <a href="/#approach">Ваша история</a><a href="/#dreams">Сны и воспоминания</a><a href="/#about">Обо мне</a><a href="/#format">Первые встречи</a><a href="/#conditions">Условия</a><a href="/blog/">Блог</a><a class="nav-cta" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
     </nav>
     <div class="header-actions">
       <a class="header-contact" href="https://t.me/Olgakoroleva05" target="_blank" rel="noopener">Предложить встречу ↗</a>
@@ -177,7 +179,7 @@
         <p class="muted">Документ может обновляться. Дата последнего обновления указана в начале страницы.</p>
       </section>
     </main>
-    <footer><a class="brand" href="/">ОК</a><p>© 2026 Ольга Королёва<br>Психоаналитически-ориентированная терапия</p><p><a href="/#approach">Ваша история</a><br><a href="/#about">Обо мне</a><br><a href="/#format">Первые встречи</a><br><a href="/#contact">Контакт</a></p><p class="legal"><a href="/privacy-policy.html" aria-current="page">Политика конфиденциальности</a> и профессиональная этика</p></footer>
+    <footer><a class="brand" href="/">ОК</a><p>© 2026 Ольга Королёва<br>Психоаналитически-ориентированная терапия</p><p><a href="/#approach">Ваша история</a><br><a href="/#about">Обо мне</a><br><a href="/#format">Первые встречи</a><br><a href="/#contact">Контакт</a><br><a href="/blog/">Блог</a></p><p class="legal"><a href="/privacy-policy.html" aria-current="page">Политика конфиденциальности</a> и профессиональная этика</p></footer>
   </div>
   <script src="/assets/js/book.js?v=20260713-3" defer></script>
 </body>
