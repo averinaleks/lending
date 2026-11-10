@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="yandex" content="noindex, nofollow, noarchive">
+  <title>Учёт посещений этого браузера — Ольга Королёва</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/fonts.css?v=20261102-manrope-1">
+  <style>
+    :root{color-scheme:light;--paper:#f4efec;--ink:#261f24;--wine:#70425d;--line:rgba(38,31,36,.18)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 "Manrope",sans-serif}
+    main{max-width:720px;margin:0 auto;padding:clamp(28px,8vw,80px) 24px}
+    a{color:inherit;text-underline-offset:4px}
+    h1{font:400 clamp(30px,6vw,48px)/1.15 Georgia,"Times New Roman",serif;margin:44px 0 24px}
+    p{margin:0 0 20px}
+    .status{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-weight:700;margin-top:28px}
+    .status[data-state="error"]{color:#8c243c}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+    button{min-height:48px;padding:12px 18px;border:1px solid var(--wine);border-radius:0;background:var(--wine);color:#fff;font:600 15px/1.45 "Manrope",sans-serif;cursor:pointer}
+    button+button{background:transparent;color:var(--wine)}
+    button:disabled{opacity:.45;cursor:default}
+    button:focus-visible,a:focus-visible{outline:3px solid var(--wine);outline-offset:4px}
+    .note{font-size:14px;color:#70616a}
+  </style>
+  <script src="/assets/js/analytics-control.js?v=20261110-1" defer></script>
+</head>
+<body>
+  <main>
+    <a href="/">← На главную</a>
+    <h1>Учёт посещений этого браузера</h1>
+    <p>Здесь можно исключить свои проверки сайта из статистики посещений. Настройка сохраняется только в этом браузере.</p>
+    <p id="analytics-status" class="status" role="status" aria-live="polite">Проверяем настройку браузера…</p>
+    <div class="actions">
+      <button id="analytics-exclude" type="button">Не учитывать этот браузер</button>
+      <button id="analytics-include" type="button">Снова учитывать этот браузер</button>
+    </div>
+    <p id="analytics-notice" role="status" aria-live="polite"></p>
+    <p class="note">Открытие этой страницы не меняет настройку. Чтобы применить выбранный режим к уже открытым страницам сайта, перезагрузите их. В другом браузере, на другом устройстве или после очистки данных сайта настройку нужно выбрать заново. Ранее собранная статистика сохраняется.</p>
+    <noscript><p>Для проверки и сохранения настройки нужен JavaScript.</p></noscript>
+  </main>
+</body>
+</html>
