@@ -96,3 +96,17 @@ body{background-image:radial-gradient(circle at 20% 10%,rgba(112,66,93,.025) 0 1
   .author-note{grid-template-columns:1fr;gap:.45rem}
   .author-note p{grid-column:1}
 }
+
+/* Keyboard navigation and short-screen menu, preserving the resting design. */
+.contact a:focus-visible,.contact button:focus-visible{outline-color:var(--paper)}
+.motion-ready .reveal:focus-within{opacity:1;transform:none;transition:none}
+main[id]{scroll-margin-top:104px}
+@media(max-width:800px){
+  main[id]{scroll-margin-top:88px}
+  .site-header nav{max-height:calc(100vh - 72px);max-height:calc(100dvh - 72px);overflow-y:auto;overscroll-behavior:contain}
+}
+@media(prefers-reduced-motion:reduce){
+  .motion-ready .reveal{opacity:1;transform:none;transition:none}
+  body .circle-link,body .secondary-link,body .topic,body .topic h3,body .story-card,body summary span{transition:none}
+  body .circle-link:hover,body .story-card:hover{transform:none}
+}
